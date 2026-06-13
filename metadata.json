@@ -1,0 +1,6 @@
+{
+  "name": "Hausmeister Service",
+  "description": "Ihr professioneller Hausmeisterservice in Österreich – Zuverlässige Betreuung, Gartenpflege, Winterdienst und Reinigung aus einer Hand.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
