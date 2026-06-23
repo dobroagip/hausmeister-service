@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { X, FileText, Shield, Eye, Scale, Calendar, Info, Check, HelpCircle, AlertCircle } from 'lucide-react';
 
 interface LegalModalProps {

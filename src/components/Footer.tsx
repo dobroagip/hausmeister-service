@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Shield, Mail, Phone, MapPin, Clock, Award, CheckCircle2 } from 'lucide-react';
+import { company } from '../data/company';
 
 interface FooterProps {
   setActiveTab: (tab: string) => void;
@@ -117,14 +118,14 @@ export default function Footer({ setActiveTab, onEmergencyClick, onOpenLegalModa
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-emerald-500 shrink-0" />
-                <a href="tel:+43123456789" className="hover:text-white transition-colors">
-                  +43 (1) 234 567 89
+                <a href={`tel:${company.phoneRaw}`} className="hover:text-white transition-colors">
+                  {company.phone}
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-emerald-500 shrink-0" />
-                <a href="mailto:office@hausmeisterservice-wien.at" className="hover:text-white transition-colors">
-                  office@hausmeisterservice-wien.at
+                <a href={`mailto:${company.email}`} className="hover:text-white transition-colors">
+                  {company.email}
                 </a>
               </li>
               <li className="pt-2">

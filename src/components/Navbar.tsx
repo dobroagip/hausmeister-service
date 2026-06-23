@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Shield, PhoneCall, Menu, X, ChevronDown, CheckCircle } from 'lucide-react';
+import { company } from '../data/company';
 
 interface NavbarProps {
   activeTab: string;
@@ -36,12 +37,12 @@ export default function Navbar({ activeTab, setActiveTab, onEmergencyClick }: Na
             <span className="h-2 w-2 rounded-full bg-white block"></span>
             24/7 Hausmeister Notdienst in Wien & Umgebung
           </span>
-          <a 
-            href="tel:+43123456789" 
+          <a
+            href={`tel:${company.phoneRaw}`}
             className="hidden md:flex items-center gap-1 hover:underline bg-white/10 px-2 py-0.5 rounded transition-all duration-200"
           >
             <PhoneCall className="h-3 w-3" />
-            +43 (1) 234 567 89
+            {company.phone}
           </a>
         </div>
       </div>
@@ -157,12 +158,12 @@ export default function Navbar({ activeTab, setActiveTab, onEmergencyClick }: Na
 
           {/* Quick Action Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <button 
+            <button
               onClick={onEmergencyClick}
               className="flex items-center gap-1.5 text-rose-600 hover:bg-rose-50 px-3.5 py-2 rounded-lg font-semibold text-sm border border-rose-200 hover:border-rose-300 transition-all duration-200"
             >
               <PhoneCall className="h-4 w-4" />
-              Notruf: +43 1 234 56 78
+              Notruf: {company.emergency}
             </button>
             <button 
               onClick={() => handleNavClick('angebot')}

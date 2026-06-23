@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { 
   Home, Sprout, Scissors, Snowflake, Sparkles, Wrench, 
   Trash2, ShieldCheck, Lightbulb, PhoneCall, Search, 
@@ -16,6 +16,26 @@ export default function Services({ onApplyEstimate }: ServicesProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [activeServiceDetails, setActiveServiceDetails] = useState<Service | null>(null);
+
+  // Hash-based scroll behavior for anchor links from homepage
+ useEffect(() => {
+  const targetId = sessionStorage.getItem('scrollToService');
+
+  if (targetId) {
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      setTimeout(() => {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }, 250);
+    }
+
+    sessionStorage.removeItem('scrollToService');
+  }
+}, []);
 
   // Helper to map string to actual Lucide component
   const renderIcon = (iconName: string, className = "h-6 w-6") => {
@@ -99,8 +119,9 @@ export default function Services({ onApplyEstimate }: ServicesProps) {
         {/* Services grid representation */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
           {filteredServices.map((svc) => (
-            <div 
-              key={svc.id} 
+            <div
+              key={svc.id}
+              id={svc.id}
               className="bg-slate-50 border border-slate-100/70 p-8 rounded-2xl hover:bg-white hover:border-slate-200 hover:shadow-lg transition-all flex flex-col justify-between group h-full"
             >
               <div className="space-y-6">
@@ -147,7 +168,7 @@ export default function Services({ onApplyEstimate }: ServicesProps) {
           <div className="fixed inset-0 bg-slate-950/50 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-in fade-in duration-200">
             <div className="bg-white rounded-3xl shadow-xl w-full max-w-2xl overflow-hidden border border-slate-100 max-h-[90vh] overflow-y-auto animate-in scale-in duration-300">
               {/* Modal header */}
-              <div className="relative p-6 sm:p-8 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white flex justify-between items-start border-b border-slate-800">
+              <div className="relative p-6 sm:p-8 bg-linear-to-br from-slate-950 via-slate-900 to-slate-950 text-white flex justify-between items-start border-b border-slate-800">
                 <div className="space-y-3 max-w-[85%]">
                   <div className="flex items-center gap-2">
                     <div className="h-10 w-10 bg-white/10 text-emerald-400 rounded-lg flex items-center justify-center">

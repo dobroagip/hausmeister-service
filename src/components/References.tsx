@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { Star, MessageSquarePlus, Trophy, MapPin, Calendar, Sparkles, CheckCircle2 } from 'lucide-react';
 
 interface Review {
@@ -86,7 +86,7 @@ export default function References() {
     }
   ];
 
-  const handleAddReview = (e: React.FormEvent) => {
+  const handleAddReview = (e: FormEvent) => {
     e.preventDefault();
     if (!formName || !formText) {
       alert('Bitte füllen Sie Name und Feedback-Text aus.');

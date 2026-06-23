@@ -1,4 +1,3 @@
-import React from 'react';
 import { Target, HeartHandshake, CalendarRange, Quote, Award, ShieldAlert, Sparkles, Footprints, ClipboardCheck } from 'lucide-react';
 
 export default function About() {

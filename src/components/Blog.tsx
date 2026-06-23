@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { Search, User, Calendar, Clock, ArrowRight, MessageSquare, ChevronLeft, Send, Sparkles } from 'lucide-react';
 import { blogPosts as initialPosts } from '../data/blog';
 import { BlogPost } from '../types';
@@ -36,7 +36,7 @@ export default function Blog() {
     );
   });
 
-  const handleAddComment = (e: React.FormEvent, postId: string) => {
+  const handleAddComment = (e: FormEvent, postId: string) => {
     e.preventDefault();
     if (!commentName || !commentText) return;
 
@@ -56,7 +56,7 @@ export default function Blog() {
     setCommentText('');
   };
 
-  const handleAddDraft = (e: React.FormEvent) => {
+  const handleAddDraft = (e: FormEvent) => {
     e.preventDefault();
     if (!draftTitle || !draftContent) {
       alert('Bitte füllen Sie den Titel und Inhalt aus.');

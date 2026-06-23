@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Shield, Sparkles, Clock, BadgeCheck, Users2, HelpCircle, PhoneCall, Check, ArrowRight, Star, HeartHandshake, Zap, Award } from 'lucide-react';
+import { company } from '../data/company';
 
 interface HomeProps {
   onNavigate: (tabId: string) => void;
@@ -51,7 +52,7 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
     <div className="bg-white text-slate-900 font-sans">
       
       {/* Dynamic Hero Section with Generated BG Image */}
-      <section className="relative min-h-[580px] lg:min-h-[660px] flex items-center bg-slate-950 overflow-hidden">
+      <section className="relative min-h-145 lg:min-h-165 flex items-center bg-slate-950 overflow-hidden">
         {/* Absolute Background Image Layer */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -61,8 +62,8 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
             className="w-full h-full object-cover object-center opacity-35 filter brightness-95 scale-102 transition-all duration-700"
           />
           {/* Visual gradient mask overlays to ensure high-contrast readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-slate-950 via-slate-950/70 to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-transparent to-transparent"></div>
         </div>
 
         {/* Content Container */}
@@ -78,7 +79,7 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-none">
               Ihr zuverlässiger <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-emerald-400">
                 Hausmeisterservice
               </span>
             </h1>
@@ -107,7 +108,7 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <button
                 onClick={() => onNavigate('contact')}
-                className="bg-gradient-to-r from-blue-700 to-emerald-600 hover:from-blue-800 hover:to-emerald-700 text-white font-extrabold text-[15px] px-8 py-4 rounded-xl shadow-lg shadow-emerald-950/20 active:scale-98 transition-all hover:-translate-y-0.5"
+                className="bg-linear-to-r from-blue-700 to-emerald-600 hover:from-blue-800 hover:to-emerald-700 text-white font-extrabold text-[15px] px-8 py-4 rounded-xl shadow-lg shadow-emerald-950/20 active:scale-98 transition-all hover:-translate-y-0.5"
               >
                 Angebot anfordern
               </button>
@@ -129,20 +130,20 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-extrabold text-blue-700">12+ Jahre</div>
-              <div className="text-xs sm:text-sm text-slate-500 font-semibold uppercase tracking-wider">Erfahrung am Markt</div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-blue-700">{company.stats.experience.value}</div>
+              <div className="text-xs sm:text-sm text-slate-500 font-semibold uppercase tracking-wider">{company.stats.experience.label}</div>
             </div>
             <div className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-extrabold text-emerald-600">150+ Objekte</div>
-              <div className="text-xs sm:text-sm text-slate-500 font-semibold uppercase tracking-wider">Zufrieden Betreut</div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-emerald-600">{company.stats.service.value}</div>
+              <div className="text-xs sm:text-sm text-slate-500 font-semibold uppercase tracking-wider">{company.stats.service.label}</div>
             </div>
             <div className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-extrabold text-blue-700">98%</div>
-              <div className="text-xs sm:text-sm text-slate-500 font-semibold uppercase tracking-wider">Kundenbehaltungsquote</div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-blue-700">{company.stats.quality.value}</div>
+              <div className="text-xs sm:text-sm text-slate-500 font-semibold uppercase tracking-wider">{company.stats.quality.label}</div>
             </div>
             <div className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-extrabold text-emerald-600">24 / 7</div>
-              <div className="text-xs sm:text-sm text-slate-500 font-semibold uppercase tracking-wider">Rufbereitschaft</div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-emerald-600">{company.stats.support.value}</div>
+              <div className="text-xs sm:text-sm text-slate-500 font-semibold uppercase tracking-wider">{company.stats.support.label}</div>
             </div>
           </div>
         </div>
@@ -155,57 +156,63 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
           {/* Block title */}
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
             <span className="text-emerald-600 font-bold uppercase tracking-widest text-xs antialiased">
-              Unser Dienstleistungskatalog
+              Unsere Kernleistungen
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Zuverlässige Gebäudebetreuung für jeden Bedarf
+              Zuverlässige Hausmeister- & Gartenservices aus einer Hand
             </h2>
             <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
-              Vom Stiegenhaus bis zum Dachgarten: Wir bieten ein lückenloses Servicepaket rund um Ihre Immobilie. Entdecken Sie unsere Kernleistungen.
+              Von der Objektbetreuung über Reinigung bis zur Gartenpflege – wir bieten individuelle Lösungen für Privat- und Gewerbeimmobilien.
             </p>
           </div>
 
           {/* Quick Grids of highlights */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            {/* Service 1: Hausbetreuung */}
+            {/* Service 1: Hausmeisterservice */}
             <div className="bg-white p-8 rounded-2xl border border-slate-100 hover:border-slate-200 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 group">
               <div className="h-12 w-12 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center font-bold mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
                 <Shield className="h-6 w-6" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors">
-                Hausbetreuung Wien
+                Hausmeisterservice
               </h3>
               <p className="text-slate-500 text-sm leading-relaxed mb-6">
-                Vollständige technische Inspektion, Abfallmanagement und Werterhalt für Eigentümergemeinschaften und Zinshäuser.
+                Zuverlässige Betreuung von Wohnanlagen, Gewerbeobjekten und privaten Immobilien in Wien und Umgebung.
               </p>
-              <button 
-                onClick={() => onNavigate('services')}
-                className="text-blue-700 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
-              >
-                Mehr erfahren
-                <ArrowRight className="h-4 w-4" />
-              </button>
+              <button
+  onClick={() => {
+    sessionStorage.setItem('scrollToService', 'hausmeisterservice');
+    onNavigate('services');
+  }}
+  className="text-blue-700 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+>
+  Details ansehen
+  <ArrowRight className="h-4 w-4" />
+</button>
             </div>
 
-            {/* Service 2: Stiegenhausreinigung */}
+            {/* Service 2: Gartenpflege */}
             <div className="bg-white p-8 rounded-2xl border border-slate-100 hover:border-slate-200 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 group">
               <div className="h-12 w-12 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-all">
                 <Sparkles className="h-6 w-6" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
-                Stiegenhausreinigung
+                Gartenpflege
               </h3>
               <p className="text-slate-500 text-sm leading-relaxed mb-6">
-                Höchste Sauberkeitsstandards, kristallklare Fenster und hygienische Aufzüge mit umweltfreundlichen Reinigungsmitteln.
+                Pflege von Grünflächen, Hecken, Rasen und Außenanlagen für private und gewerbliche Objekte.
               </p>
-              <button 
-                onClick={() => onNavigate('services')}
-                className="text-emerald-600 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
-              >
-                Mehr erfahren
-                <ArrowRight className="h-4 w-4" />
-              </button>
+              <button
+  onClick={() => {
+    sessionStorage.setItem('scrollToService', 'gartenpflege');
+    onNavigate('services');
+  }}
+  className="text-emerald-600 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+>
+  Details ansehen
+  <ArrowRight className="h-4 w-4" />
+</button>
             </div>
 
             {/* Service 3: Winterdienst */}
@@ -219,13 +226,16 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
               <p className="text-slate-500 text-sm leading-relaxed mb-6">
                 Gesetzlich konforme Schneeräumung und Streuung mit voller Haftungsübernahme im gesamten Wiener Raum.
               </p>
-              <button 
-                onClick={() => onNavigate('services')}
-                className="text-blue-700 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
-              >
-                Mehr erfahren
-                <ArrowRight className="h-4 w-4" />
-              </button>
+              <button
+  onClick={() => {
+    sessionStorage.setItem('scrollToService', 'winterdienst');
+    onNavigate('services');
+  }}
+  className="text-blue-700 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+>
+  Details ansehen
+  <ArrowRight className="h-4 w-4" />
+</button>
             </div>
 
           </div>
@@ -288,7 +298,7 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
 
             {/* Right Column: Beautiful detailed view card of active advantage */}
             <div className="lg:col-span-7 bg-white p-8 md:p-12 rounded-3xl border border-slate-100 shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 h-40 w-40 bg-gradient-to-br from-emerald-50 to-blue-50 rounded-full blur-3xl opacity-60"></div>
+              <div className="absolute top-0 right-0 h-40 w-40 bg-linear-to-br from-emerald-50 to-blue-50 rounded-full blur-3xl opacity-60"></div>
               
               {(() => {
                 const current = advantages.find(a => a.id === activeAdvantage) || advantages[0];
@@ -333,8 +343,8 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
       </section>
 
       {/* Emergency Call-out banner/promotion block (Hausmeister Notdienst) */}
-      <section className="py-16 bg-gradient-to-br from-rose-900 via-slate-900 to-slate-950 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white/[0.03] bg-[size:24px_24px] z-0"></div>
+      <section className="py-16 bg-linear-to-br from-rose-900 via-slate-900 to-slate-950 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-white/[0.03] bg-size-[24px_24px] z-0"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
             <div className="space-y-4 max-w-2xl text-center lg:text-left">
@@ -352,11 +362,11 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
 
             <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto text-center shrink-0">
               <a
-                href="tel:+43123456789"
+                href={`tel:${company.phoneRaw}`}
                 className="bg-rose-600 hover:bg-rose-500 active:scale-95 text-white font-black text-base px-8 py-4.5 rounded-xl shadow-lg shadow-rose-900/30 transition-all flex items-center justify-center gap-2"
               >
                 <PhoneCall className="h-5 w-5" />
-                +43 (1) 234 567 89
+                {company.emergency}
               </a>
               <button
                 onClick={onEmergencyClick}

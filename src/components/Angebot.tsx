@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { FileText, Send, CheckCircle2, ShieldCheck, Mail, Phone, MapPin, Building, Ruler, HelpCircle } from 'lucide-react';
+import { company } from '../data/company';
 
 interface AngebotProps {
   prefilledAdresse?: string;
@@ -19,9 +20,10 @@ export default function Angebot({ prefilledAdresse = '', prefilledDienstleistung
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (prefilledAdresse) {
       setFormData(prev => ({
+
         ...prev,
         adresse: prefilledAdresse
       }));
@@ -53,7 +55,7 @@ export default function Angebot({ prefilledAdresse = '', prefilledDienstleistung
     'Industriefläche / Sonstige Freifläche',
   ];
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -85,7 +87,7 @@ export default function Angebot({ prefilledAdresse = '', prefilledDienstleistung
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (validate()) {
       setIsSubmitted(true);
@@ -386,11 +388,11 @@ export default function Angebot({ prefilledAdresse = '', prefilledDienstleistung
                   Rufen Sie direkt unsere Zentrale an:
                 </p>
                 <a
-                  href="tel:+43123456789"
+                  href={`tel:${company.phoneRaw}`}
                   className="flex items-center gap-2 bg-slate-800 hover:bg-slate-750 text-emerald-400 font-bold p-3 rounded-xl border border-slate-700 hover:border-slate-600 transition-colors"
                 >
                   <Phone className="h-4 w-4 text-emerald-500" />
-                  <span>+43 (1) 234 567 89</span>
+                  <span>{company.phone}</span>
                 </a>
               </div>
 

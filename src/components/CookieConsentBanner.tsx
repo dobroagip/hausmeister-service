@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Shield, Settings, Check, X, AlertCircle, Info } from 'lucide-react';
 
 interface CookieConsentBannerProps {
@@ -157,7 +157,7 @@ export default function CookieConsentBanner({ onOpenLegalModal }: CookieConsentB
               onClick={handleAcceptAll}
               className="bg-emerald-600 hover:bg-emerald-505 text-white font-black text-xs py-2.5 px-5 rounded-xl shadow-md transition-all flex items-center justify-center gap-1.5"
             >
-              <Check className="h-4 w-4 stroke-[3]" />
+              <Check className="h-4 w-4 stroke-3" />
               Alle akzeptieren
             </button>
           </div>
@@ -203,7 +203,7 @@ export default function CookieConsentBanner({ onOpenLegalModal }: CookieConsentB
                       checked={consents.functional}
                       onChange={() => toggleCategory('functional')}
                     />
-                    <div className="w-9 h-5 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-slate-300 after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600"></div>
+                    <div className="w-9 h-5 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-slate-300 after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600"></div>
                   </label>
                 </div>
                 <p className="text-[11px] sm:text-xs text-slate-400 mt-2 leading-relaxed">
@@ -222,14 +222,14 @@ export default function CookieConsentBanner({ onOpenLegalModal }: CookieConsentB
                   <span className="font-bold text-xs sm:text-sm text-slate-100 flex items-center gap-1.5">
                     3. Analyse & Statistik
                   </span>
-                  <label className="relative inline-flex inline-flex items-center cursor-pointer">
+                  <label className="relative inline-flex items-center cursor-pointer">
                     <input 
                       type="checkbox" 
                       className="sr-only peer"
                       checked={consents.analytics}
                       onChange={() => toggleCategory('analytics')}
                     />
-                    <div className="w-9 h-5 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-slate-300 after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600"></div>
+                    <div className="w-9 h-5 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-slate-300 after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600"></div>
                   </label>
                 </div>
                 <p className="text-[11px] sm:text-xs text-slate-400 mt-2 leading-relaxed">

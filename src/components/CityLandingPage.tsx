@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
-import { 
-  ShieldCheck, 
-  Sparkles, 
-  CheckCircle2, 
-  MapPin, 
-  Clock, 
-  PhoneCall, 
-  Check, 
-  ArrowRight, 
-  Shield, 
-  Users, 
-  Wrench, 
-  Thermometer, 
-  Building2, 
-  Trees, 
-  CloudSnow 
+import { ReactNode, useState } from 'react';
+import {
+  ShieldCheck,
+  Sparkles,
+  CheckCircle2,
+  MapPin,
+  Clock,
+  PhoneCall,
+  Check,
+  ArrowRight,
+  Shield,
+  Users,
+  Wrench,
+  Thermometer,
+  Building2,
+  Trees,
+  CloudSnow
 } from 'lucide-react';
+import { company } from '../data/company';
 
 interface CityLandingPageProps {
   cityKey: 'bad-erlach' | 'neunkirchen' | 'ternitz' | 'wiener-neustadt';
@@ -33,7 +34,7 @@ interface CityData {
   heroTagline: string;
   specialityTitle: string;
   specialityText: string;
-  specialityIcon: React.ReactNode;
+  specialityIcon: ReactNode;
   localStats: {
     residents: string;
     responseTime: string;
@@ -277,7 +278,7 @@ export default function CityLandingPage({ cityKey, onNavigate, onPrefillAngebot 
                 </span>
                 <span className="hidden sm:inline text-slate-300">•</span>
                 <span className="flex items-center gap-1.5">
-                  <Clock className="h-4 w-4 text-blue-600" /> 24h Havariedienst unter +43 (1) 234 567 89
+                  <Clock className="h-4 w-4 text-blue-600" /> 24h Havariedienst unter {company.phone}
                 </span>
               </div>
             </div>
@@ -364,13 +365,13 @@ export default function CityLandingPage({ cityKey, onNavigate, onPrefillAngebot 
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <a
-              href="tel:+43123456789"
+              href={`tel:${company.phoneRaw}`}
               className="w-full sm:w-auto bg-slate-800 hover:bg-slate-750 text-emerald-400 font-bold px-6 py-3 rounded-xl border border-slate-700 font-mono text-sm flex items-center justify-center gap-2 transition-colors"
             >
               <PhoneCall className="h-4 w-4" />
-              +43 (1) 234 567 89
+              {company.phone}
             </a>
-            
+
             <button
               onClick={handleRequestQuote}
               className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold px-6 py-3 rounded-xl transition-all text-sm flex items-center justify-center gap-1"

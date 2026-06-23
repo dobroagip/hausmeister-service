@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './components/Home';
@@ -13,6 +13,7 @@ import CookieConsentBanner from './components/CookieConsentBanner';
 import Angebot from './components/Angebot';
 import { PhoneCall, AlertTriangle, ShieldCheck, X, HelpingHand } from 'lucide-react';
 import CityLandingPage from './components/CityLandingPage';
+import { company } from './data/company';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<string>('home');
@@ -24,7 +25,7 @@ export default function App() {
   const [legalModalTab, setLegalModalTab] = useState<'impressum' | 'datenschutz' | 'barrierefreiheit' | 'agb'>('impressum');
 
   // Handle URL Path & Hash for /angebot compliance and regional landings
-  React.useEffect(() => {
+  useEffect(() => {
     const handleUrlRouting = () => {
       const path = window.location.pathname;
       const hash = window.location.hash;
@@ -119,7 +120,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col justify-between font-sans selection:bg-blue-600 selection:text-white antialiased">
+    <div className="min-h-screen bg-slate-50 flex flex-col justify-between font-sans selection:bg-blue-600 selection:text-white antialiased overflow-x-hidden w-full">
       
       {/* Navigation Header */}
       <Navbar 
@@ -129,7 +130,7 @@ export default function App() {
       />
 
       {/* Main Content View with Fade Transition Container */}
-      <main className="flex-grow bg-white relative">
+      <main className="grow bg-white relative">
         <div className="transition-all duration-350 ease-in-out">
           {renderActiveTab()}
         </div>
@@ -214,16 +215,16 @@ export default function App() {
               <div className="p-5 bg-rose-50 border border-rose-100/80 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="space-y-1 text-center sm:text-left">
                   <span className="text-[10px] font-bold text-rose-605 uppercase block tracking-wider font-mono">Gebührenfreier Notruf:</span>
-                  <a 
-                    href="tel:+43123456789" 
+                  <a
+                    href={`tel:${company.phoneRaw}`}
                     className="text-xl sm:text-2xl font-black text-rose-700 hover:underline"
                   >
-                    +43 (1) 234 567 89
+                    {company.emergency}
                   </a>
                 </div>
 
                 <a
-                  href="tel:+43123456789"
+                  href={`tel:${company.phoneRaw}`}
                   className="w-full sm:w-auto bg-rose-600 hover:bg-rose-705 text-white font-bold text-xs sm:text-sm py-3 px-6 rounded-xl text-center flex items-center justify-center gap-2 shadow"
                 >
                   <PhoneCall className="h-4 w-4" />

@@ -2,7 +2,7 @@ import { Service } from '../types';
 
 export const services: Service[] = [
   {
-    id: 'hausbetreuung',
+    id: 'hausmeisterservice',
     title: 'Hausbetreuung',
     iconName: 'Home',
     shortDesc: 'Komplettservice für Wohnanlagen und Gewerbeobjekte in Wien und Umgebung.',

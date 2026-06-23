@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, Building2, Calendar, Map, Check } from 'lucide-react';
+import { company } from '../data/company';
 
 interface ContactProps {
   prefilledInquiry: string;
@@ -27,13 +28,13 @@ export default function Contact({ prefilledInquiry }: ContactProps) {
   ];
 
   // Sync prefilled logic when it changes
-  React.useEffect(() => {
+  useEffect(() => {
     if (prefilledInquiry) {
       setMessage(prefilledInquiry);
     }
   }, [prefilledInquiry]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!name || !email || !message) {
       alert('Bitte füllen Sie alle Pflichtfelder aus.');
@@ -74,8 +75,8 @@ export default function Contact({ prefilledInquiry }: ContactProps) {
 
             {/* Contact cards */}
             <div className="space-y-4">
-              <a 
-                href="mailto:office@hausmeisterservice-wien.at" 
+              <a
+                href={`mailto:${company.email}`}
                 className="flex items-center gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50/50 hover:bg-slate-50 hover:border-slate-200 transition-all group"
               >
                 <div className="h-11 w-11 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center font-bold">
@@ -84,13 +85,13 @@ export default function Contact({ prefilledInquiry }: ContactProps) {
                 <div>
                   <span className="text-xs text-slate-400 block font-mono font-bold uppercase">Schreiben Sie uns:</span>
                   <span className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-blue-700 transition-colors">
-                    office@hausmeisterservice-wien.at
+                    {company.email}
                   </span>
                 </div>
               </a>
 
-              <a 
-                href="tel:+43123456789" 
+              <a
+                href={`tel:${company.phoneRaw}`}
                 className="flex items-center gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50/50 hover:bg-slate-50 hover:border-slate-200 transition-all group"
               >
                 <div className="h-11 w-11 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
@@ -99,7 +100,7 @@ export default function Contact({ prefilledInquiry }: ContactProps) {
                 <div>
                   <span className="text-xs text-slate-400 block font-mono font-bold uppercase">Rufen Sie uns an:</span>
                   <span className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
-                    +43 (1) 234 567 89
+                    {company.phone}
                   </span>
                 </div>
               </a>
@@ -111,7 +112,7 @@ export default function Contact({ prefilledInquiry }: ContactProps) {
                 <div>
                   <span className="text-xs text-slate-400 block font-mono font-bold uppercase">Firmensitz Österreich:</span>
                   <span className="text-xs sm:text-sm font-bold text-slate-900">
-                    Favoritenstraße 102, 1100 Wien
+                    {company.address}
                   </span>
                 </div>
               </div>
@@ -171,7 +172,7 @@ export default function Contact({ prefilledInquiry }: ContactProps) {
             {isSubmitted ? (
               <div className="bg-emerald-50/50 p-8 sm:p-12 rounded-3xl border border-emerald-100 space-y-6 text-center shadow-sm animate-in zoom-in-95 duration-200">
                 <div className="h-16 w-16 bg-emerald-500 text-white rounded-full flex items-center justify-center mx-auto text-2xl font-black shadow-lg shadow-emerald-700/10">
-                  <CheckCircle2 className="h-8 w-8 stroke-[3]" />
+                  <CheckCircle2 className="h-8 w-8 stroke-3" />
                 </div>
                 
                 <div className="space-y-2">

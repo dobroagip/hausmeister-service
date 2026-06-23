@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { MessageSquare, Send, X } from 'lucide-react';
 
 export default function WhatsAppButton() {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Calculator, Check, ArrowRight, Sparkles, Building2, Trees, Snowflake } from 'lucide-react';
 
 interface EstimateCalculatorProps {
@@ -80,7 +80,7 @@ Bitte kontaktieren Sie mich zwecks eines persönlichen Besichtigungstermins vor 
     <div className="bg-white rounded-2xl border border-slate-100 shadow-xl overflow-hidden">
       
       {/* Header banner */}
-      <div className="bg-gradient-to-r from-blue-700 to-emerald-600 p-6 text-white">
+      <div className="bg-linear-to-r from-blue-700 to-emerald-600 p-6 text-white">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-lg bg-white/10">
             <Calculator className="h-6 w-6 text-white" />
@@ -159,7 +159,7 @@ Bitte kontaktieren Sie mich zwecks eines persönlichen Besichtigungstermins vor 
                   : 'border-slate-100 hover:border-slate-200 text-slate-600 bg-slate-50/30'
               }`}
             >
-              <div className="font-bold text-xs sm:text-sm font-medium">Keine</div>
+              <div className="text-xs sm:text-sm font-medium">Keine</div>
               <div className="text-[10px] text-slate-400 mt-0.5">Wird bauseitig erledigt</div>
             </button>
           </div>
@@ -191,7 +191,7 @@ Bitte kontaktieren Sie mich zwecks eines persönlichen Besichtigungstermins vor 
                   <div className={`h-5 w-5 rounded-md border flex items-center justify-center transition-colors ${
                     checked ? 'bg-emerald-500 border-emerald-500 text-white' : 'border-slate-300 bg-white'
                   }`}>
-                    {checked && <Check className="h-3 w-3 stroke-[3]" />}
+                    {checked && <Check className="h-3 w-3 stroke-3" />}
                   </div>
                 </div>
               );
