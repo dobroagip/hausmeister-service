@@ -1,4 +1,4 @@
-import { Target, HeartHandshake, CalendarRange, Quote, Award, ShieldAlert, Sparkles, Footprints, ClipboardCheck } from 'lucide-react';
+import { Target, HeartHandshake, CalendarRange, Quote, Award, ShieldAlert, Footprints, ClipboardCheck } from 'lucide-react';
 
 export default function About() {
   const values = [
@@ -37,7 +37,7 @@ export default function About() {
     {
       name: 'Stefan Kovac',
       role: 'Leiter Außendienst & Notfallkoordination',
-      experience: 'Meister der Haustechnik, leitet das 24/7 Notruf-Einsatzteam',
+      experience: 'Langjährige Erfahrung in der Haustechnik, leitet das Notruf-Einsatzteam',
       quote: 'Wenn andere schlafen, sichern wir Gehwege und technische Zentralanlagen.',
       avatarBg: 'bg-teal-100 text-teal-800 font-bold'
     }
@@ -62,7 +62,7 @@ export default function About() {
             </p>
 
             <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
-              Wir larpieren keine Dienstleistungen – bei uns zählt das handwerkliche Resultat vor Ort. Ein sauberes Stiegenhaus, perfekt beigemähte Liegenschaftsränder, vorschriftsmäßig gestreuter Gehweg und eine Haustechnik, die stillschweigend funktioniert. Genau das garantieren wir Tag für Tag mit unserem eingespielten Stammteam.
+              Wir liefern keine Dienstleistungen auf dem Papier – bei uns zählt das handwerkliche Resultat vor Ort. Ein sauberes Stiegenhaus, gepflegte Grünflächen, vorschriftsmäßig gestreute Gehwege und eine funktionierende Haustechnik. Das leisten wir Tag für Tag mit unserem eingespielten Team.
             </p>
 
             <div className="p-4 bg-slate-50 border-l-4 border-emerald-650 rounded-r-xl text-slate-600 text-sm inline-flex items-center gap-2.5">
@@ -90,7 +90,7 @@ export default function About() {
                 </div>
                 <div className="flex gap-3">
                   <div className="font-bold text-blue-700 min-w-16">Heute</div>
-                  <div>Etablierter, mittelständischer Betrieb mit über 20 hochqualifizierten Fachkräften und vollem 24/7 Notdienstschutz in Wien.</div>
+                  <div>Etablierter Betrieb mit qualifizierten Fachkräften und Notdienstbereitschaft in Wien und Umgebung.</div>
                 </div>
               </div>
             </div>

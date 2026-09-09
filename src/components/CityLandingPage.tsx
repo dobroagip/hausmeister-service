@@ -1,7 +1,6 @@
 import { ReactNode, useState } from 'react';
 import {
   ShieldCheck,
-  Sparkles,
   CheckCircle2,
   MapPin,
   Clock,
@@ -63,11 +62,11 @@ const cityContentMap: Record<'bad-erlach' | 'neunkirchen' | 'ternitz' | 'wiener-
       winterStVO: 'Volle Haftung nach § 93 StVO',
     },
     features: [
-      'Glanzgarantie für Stiegenhäuser und Wellnessbereiche',
+      'Professionelle Reinigung für Stiegenhäuser und Wellnessbereiche',
       'Ökologische Gartenpflege und Rasenmähservice',
-      'Winterdienst mit 24/7 Rufbereitschaft (Nov. - April)',
+      'Winterdienst mit Rufbereitschaft (Nov. - April)',
       'Technische Kontrollen & Leuchtmitteltausch',
-      'Direkte WKO-zertifizierte Verrechnung',
+      'WKO-Mitglied und gewerbeberechtigt',
     ]
   },
   'neunkirchen': {
@@ -85,7 +84,7 @@ const cityContentMap: Record<'bad-erlach' | 'neunkirchen' | 'ternitz' | 'wiener-
       residents: 'ca. 12.800 Einwohner',
       responseTime: 'ca. 30 Minuten',
       contracts: '45+ betreute Objekte',
-      winterStVO: 'WKO-Zertifizierung Winterdienst',
+      winterStVO: 'Winterdienst nach § 93 StVO',
     },
     features: [
       'Gewerbe- und Wohnhausreinigung im Turnus',
@@ -125,11 +124,11 @@ const cityContentMap: Record<'bad-erlach' | 'neunkirchen' | 'ternitz' | 'wiener-
     district: 'Statutarstadt Wiener Neustadt',
     region: 'Industrieviertel / Steinfeld',
     postalCode: '2700',
-    heroTagline: 'Der führende Hausmeisterservice in Wiener Neustadt für erstklassige Objektbetreuung, Stiegenhausglanz und gesetzkonformen Winterdienst.',
-    introTitle: 'Ihr Meisterbetrieb für Hausbetreuung in Wiener Neustadt',
-    introText: 'Wiener Neustadt ist als rasant wachsende Bildungs- und Wirtschaftsmetropole ein Hotspot für erstklassige Immobilienprojekte. Unser zertifizierter Hausmeisterservice bietet das gesamte Spektrum des Facility Managements: von exklusiver Stiegenhaus-Unterhaltsreinigung über gründliche Haustechnikprüfung bis hin zum reaktionsschnellen Winterdienst. Sichern Sie den Wert Ihrer Wiener Neustädter Liegenschaft dauerhaft ab.',
-    specialityTitle: 'Zertifizierter Notdienst & Objektkontrolle',
-    specialityText: 'Mit unseren mobilen Einheiten in Wiener Neustadt sind wir rund um die Uhr einsatzbereit. Wir protokollieren Mängel digital, koordinieren Fremdfirmen und beheben Kleinschäden sofort unbürokratisch vor Ort.',
+    heroTagline: 'Professioneller Hausmeisterservice in Wiener Neustadt für zuverlässige Objektbetreuung, Stiegenhausreinigung und gesetzkonformen Winterdienst.',
+    introTitle: 'Ihr Partner für Hausbetreuung in Wiener Neustadt',
+    introText: 'Wiener Neustadt ist als wachsende Bildungs- und Wirtschaftsstadt ein wichtiger Standort für Immobilienprojekte. Unser Hausmeisterservice bietet das gesamte Spektrum der Gebäudebetreuung: von Stiegenhaus-Unterhaltsreinigung über Haustechnikprüfung bis hin zum Winterdienst. Wir unterstützen Sie bei der Werterhaltung Ihrer Wiener Neustädter Liegenschaft.',
+    specialityTitle: 'Notdienst & Objektkontrolle',
+    specialityText: 'Mit unseren Einsatzteams in Wiener Neustadt sind wir im Notfall schnell vor Ort. Wir protokollieren Mängel digital, koordinieren Fremdfirmen und beheben Kleinschäden vor Ort.',
     specialityIcon: <Wrench className="h-6 w-6 text-emerald-500" />,
     localStats: {
       residents: 'ca. 48.000 Einwohner',
@@ -138,7 +137,7 @@ const cityContentMap: Record<'bad-erlach' | 'neunkirchen' | 'ternitz' | 'wiener-
       winterStVO: 'Normkonformer Premiumdienst',
     },
     features: [
-      '24/7 technischer Havariedienst vor Ort',
+      'Technischer Havariedienst vor Ort',
       'Fassaden- und Glasreinigung mit modernem Equipment',
       'Strikter Gehweg-Winterdienst nach § 93 StVO',
       'Grünflächenpflege inkl. Baumschnitt im Frühjahr/Herbst',
@@ -160,12 +159,12 @@ export default function CityLandingPage({ cityKey, onNavigate, onPrefillAngebot 
     <div className="bg-white font-sans text-slate-800" id={`city-${cityKey}-page`}>
       
       {/* 1. Regional Hero Section */}
-      <section className="relative min-h-[500px] flex items-center bg-slate-950 overflow-hidden py-16 sm:py-24">
+      <section className="relative min-h-125 flex items-center bg-slate-950 overflow-hidden py-16 sm:py-24">
         {/* Abstract Dark Overlay Grid */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-900/40 z-10"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-slate-950 via-slate-950/80 to-slate-900/40 z-10"></div>
           <div className="absolute inset-0 bg-grid-white/[0.03] z-0"></div>
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-10"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-white to-transparent z-10"></div>
         </div>
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -178,7 +177,7 @@ export default function CityLandingPage({ cityKey, onNavigate, onPrefillAngebot 
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
               Hausmeisterservice & Hausbetreuung <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-emerald-400">
                 in {data.name} ({data.postalCode})
               </span>
             </h1>
@@ -196,7 +195,7 @@ export default function CityLandingPage({ cityKey, onNavigate, onPrefillAngebot 
                  Region: {data.region}
               </span>
               <span className="bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-800">
-                ✓ WKO-Meisterbetrieb
+                ✓ WKO-Mitglied
               </span>
             </div>
 
@@ -204,7 +203,7 @@ export default function CityLandingPage({ cityKey, onNavigate, onPrefillAngebot 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <button
                 onClick={handleRequestQuote}
-                className="bg-gradient-to-r from-blue-700 to-emerald-600 hover:from-blue-800 hover:to-emerald-700 text-white font-extrabold text-sm px-7 py-3.5 rounded-xl shadow-lg shadow-emerald-900/10 active:scale-98 transition-all hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
+                className="bg-linear-to-r from-blue-700 to-emerald-600 hover:from-blue-800 hover:to-emerald-700 text-white font-extrabold text-sm px-7 py-3.5 rounded-xl shadow-lg shadow-emerald-900/10 active:scale-98 transition-all hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
               >
                 Kostenloses Angebot erhalten
                 <ArrowRight className="h-4 w-4" />
@@ -335,16 +334,16 @@ export default function CityLandingPage({ cityKey, onNavigate, onPrefillAngebot 
           
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 text-left max-w-4xl mx-auto">
             <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm space-y-2">
-              <span className="text-blue-600 text-lg font-black block">100% Haftung</span>
-              <p className="text-xs text-slate-500">Wir übernehmen die volle rechtliche Haftung im Schadensfall gemäß den Bestimmungen des österreichischen Gesetzgebers.</p>
+              <span className="text-blue-600 text-lg font-black block">Haftungsübernahme</span>
+              <p className="text-xs text-slate-500">Wir übernehmen die Haftung im Rahmen unserer Betriebshaftpflichtversicherung gemäß den vertraglichen Vereinbarungen.</p>
             </div>
             <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm space-y-2">
-              <span className="text-blue-600 text-lg font-black block">GPS-Überwachung</span>
-              <p className="text-xs text-slate-500">Sämtliche Streu- und Räumeinsätze werden digital mit Uhrzeit und GPS-Daten lückenlos protokolliert und archiviert.</p>
+              <span className="text-blue-600 text-lg font-black block">GPS-Protokollierung</span>
+              <p className="text-xs text-slate-500">Sämtliche Streu- und Räumeinsätze werden digital mit Uhrzeit und GPS-Daten protokolliert und archiviert.</p>
             </div>
             <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm space-y-2">
-              <span className="text-blue-600 text-lg font-black block">24h Überwachung</span>
-              <p className="text-xs text-slate-500">Unsere Wetter-Zentrale beobachtet die Wetterlage rund um {data.name} u. schickt unsere Räum-Flotte bereits vor dem Schneefall los.</p>
+              <span className="text-blue-600 text-lg font-black block">Wetterbeobachtung</span>
+              <p className="text-xs text-slate-500">Wir beobachten die Wetterlage rund um {data.name} und disponieren unsere Einsatzteams rechtzeitig.</p>
             </div>
           </div>
         </div>

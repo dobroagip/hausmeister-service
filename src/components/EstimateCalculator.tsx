@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Calculator, Check, ArrowRight, Sparkles, Building2, Trees, Snowflake } from 'lucide-react';
+import { Calculator, Check, ArrowRight, PhoneCall, Building2, Trees, Snowflake } from 'lucide-react';
 
 interface EstimateCalculatorProps {
   onApplyEstimate: (inquiryText: string) => void;
@@ -16,7 +16,7 @@ export default function EstimateCalculator({ onApplyEstimate }: EstimateCalculat
     { id: 'hausbetreuung', label: 'Hausbetreuung (Basis)', baseRate: 0.25, icon: <Building2 className="h-4 w-4 text-blue-600 animate-pulse" /> },
     { id: 'gartenpflege', label: 'Gartenpflege & Rasenpflege', baseRate: 0.18, icon: <Trees className="h-4 w-4 text-emerald-600" /> },
     { id: 'winterdienst', label: 'Winterdienst (Nov - Apr)', baseRate: 0.35, icon: <Snowflake className="h-4 w-4 text-blue-400" /> },
-    { id: 'notdienst', label: '24/7 Notdienst-Abdeckung', flatRate: 49, icon: <Sparkles className="h-4 w-4 text-rose-500" /> }
+    { id: 'notdienst', label: '24/7 Notdienst-Abdeckung', flatRate: 49, icon: <PhoneCall className="h-4 w-4 text-rose-500" /> }
   ];
 
   const handleServiceToggle = (id: string) => {

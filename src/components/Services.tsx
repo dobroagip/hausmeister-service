@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { 
-  Home, Sprout, Scissors, Snowflake, Sparkles, Wrench, 
+  Home, Sprout, Scissors, Snowflake, Building2, Wrench, 
   Trash2, ShieldCheck, Lightbulb, PhoneCall, Search, 
   ArrowRight, Check, DollarSign, Eye, X 
 } from 'lucide-react';
@@ -44,7 +44,7 @@ export default function Services({ onApplyEstimate }: ServicesProps) {
       case 'Sprout': return <Sprout className={className} />;
       case 'Scissors': return <Scissors className={className} />;
       case 'Snowflake': return <Snowflake className={className} />;
-      case 'Sparkles': return <Sparkles className={className} />;
+      case 'Building2': return <Building2 className={className} />;
       case 'Wrench': return <Wrench className={className} />;
       case 'Trash2': return <Trash2 className={className} />;
       case 'ShieldCheck': return <ShieldCheck className={className} />;
@@ -56,9 +56,9 @@ export default function Services({ onApplyEstimate }: ServicesProps) {
 
   const categories = [
     { id: 'all', label: 'Alle Leistungen' },
-    { id: 'maintenance', label: 'Haus- & Objektbetreuung' },
+    { id: 'HAUSSERVICE', label: 'Haus- & Objektbetreuung' },
     { id: 'cleaning', label: 'Gebäudereinigung' },
-    { id: 'gardening', label: 'Garten- & Rasenpflege' },
+    { id: 'Gartenservice', label: 'Garten- & Rasenpflege' },
     { id: 'emergency', label: 'Winterdienst & Notruf' }
   ];
 
@@ -76,7 +76,7 @@ export default function Services({ onApplyEstimate }: ServicesProps) {
         {/* Header Block descriptive */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="text-emerald-600 font-bold uppercase tracking-widest text-xs">
-            Meisterbetrieb & Allrounder
+            Hausbetreuung & Gebäudeservice
           </span>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-none">
             Unsere 10 Kernkompetenzen im Detail

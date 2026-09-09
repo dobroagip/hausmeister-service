@@ -35,7 +35,7 @@ export default function Navbar({ activeTab, setActiveTab, onEmergencyClick }: Na
         <div className="flex items-center gap-2 max-w-7xl mx-auto w-full justify-center md:justify-between">
           <span className="flex items-center gap-1.5 animate-pulse">
             <span className="h-2 w-2 rounded-full bg-white block"></span>
-            24/7 Hausmeister Notdienst in Wien & Umgebung
+            Hausbetreuung & Kleinreparaturen in Wien & Niederösterreich
           </span>
           <a
             href={`tel:${company.phoneRaw}`}
@@ -55,7 +55,7 @@ export default function Navbar({ activeTab, setActiveTab, onEmergencyClick }: Na
             onClick={() => handleNavClick('home')} 
             className="flex items-center gap-2.5 cursor-pointer group"
           >
-            <div className="h-11 w-11 rounded-xl bg-gradient-to-br from-blue-700 to-emerald-600 flex items-center justify-center text-white shadow-md shadow-blue-500/10 group-hover:scale-105 transition-transform duration-200">
+            <div className="h-11 w-11 rounded-xl bg-linear-to-br from-blue-700 to-emerald-600 flex items-center justify-center text-white shadow-md shadow-blue-500/10 group-hover:scale-105 transition-transform duration-200">
               <Shield className="h-6 w-6" />
             </div>
             <div>
@@ -63,7 +63,7 @@ export default function Navbar({ activeTab, setActiveTab, onEmergencyClick }: Na
                 Hausmeister <span className="text-emerald-600 font-extrabold text-2xl">S</span>ervice
               </span>
               <span className="text-[10px] uppercase tracking-widest font-bold text-slate-400 block -mt-0.5">
-                Österreich • Wien
+                WIEN & NIEDERÖSTERREICH
               </span>
             </div>
           </div>

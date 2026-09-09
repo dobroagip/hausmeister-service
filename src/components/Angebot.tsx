@@ -125,7 +125,7 @@ export default function Angebot({ prefilledAdresse = '', prefilledDienstleistung
                 Anfrage erfolgreich gesendet!
               </h2>
               <p className="text-emerald-700 font-bold bg-emerald-50/50 py-3 px-5 rounded-2xl border border-emerald-100 inline-block text-base sm:text-lg">
-                Vielen Dank! Wir melden uns innerhalb von 24 Stunden.
+                Vielen Dank! Wir melden uns zeitnah bei Ihnen.
               </p>
               <p className="text-slate-500 text-xs sm:text-sm pt-2 leading-relaxed">
                 Unsere Objektexperten prüfen Ihre Angaben und bereiten einen ersten kostenlosen Entwurf oder schlagen einen unverbindlichen Kurzeit-Besichtigungstermin vor Ort in Wien vor.

@@ -52,7 +52,7 @@ Als Experten für die *Stiegenhausreinigung* und *Gebäudebetreuung Wien* erstel
 - **Grünpflege:** Durchführung des ersten Rasenmähbads, Vertikutieren zur Belüftung der Graswurzeln und Zurückschneiden von Sträuchern für dichten Wuchs im Sommer.
 - **Beleuchtung im Außenbereich:** Reinigung von Gehäusen und Tausch alter Leuchtmittel im Außenbereich.
 
-Unsere kombinierte *Hausbetreuung Wien* und *Gartenpflege Wien* deckt all diese Kontrollpunkte lückenlos ab, sodass Ihre Liegenschaft pünktlich zum Sommerbeginn im besten Licht erstrahlt.`,
+Unsere kombinierte *Hausbetreuung Wien* und *Gartenpflege Wien* deckt all diese Kontrollpunkte ab, sodass Ihre Liegenschaft pünktlich zum Sommerbeginn in gutem Zustand ist.`,
     category: 'Instandhaltung',
     readTime: '6 min',
     publishedAt: '2026-06-10',

@@ -44,7 +44,7 @@ export default function Footer({ setActiveTab, onEmergencyClick, onOpenLegalModa
             </div>
             
             <p className="text-sm text-slate-400 leading-relaxed">
-              Ihr zertifizierter Partner für die professionelle Objekt- und Gebäudebetreuung in Wien, Niederösterreich und dem gesamten Umland. Zuverlässige Services nach höchsten österreichischen Standards.
+              Ihr Partner für die professionelle Objekt- und Gebäudebetreuung in Wien, Niederösterreich und dem gesamten Umland. Zuverlässige Services nach österreichischen Standards.
             </p>
 
             <div className="flex flex-col gap-2 pt-2">

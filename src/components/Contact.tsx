@@ -59,7 +59,7 @@ export default function Contact({ prefilledInquiry }: ContactProps) {
             Unverbindliches Angebot anfordern
           </h1>
           <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
-            Kontaktieren Sie uns telefonisch, per E-Mail oder füllen Sie das Online-Formular aus. Wir melden uns innerhalb von 2 Werktagen mit einem ersten Angebotsentwurf.
+            Kontaktieren Sie uns telefonisch, per E-Mail oder füllen Sie das Online-Formular aus. Wir bemühen uns, Ihre Anfrage zeitnah zu beantworten.
           </p>
         </div>
 

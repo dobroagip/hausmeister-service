@@ -4,7 +4,7 @@ export interface Service {
   iconName: string; // Will map to a Lucide icon
   shortDesc: string;
   longDesc: string;
-  category: 'cleaning' | 'gardening' | 'maintenance' | 'emergency';
+  category: 'cleaning' | 'Gartenservice' | 'HAUSSERVICE' | 'emergency';
   pricingBasis: string;
   features: string[];
 }

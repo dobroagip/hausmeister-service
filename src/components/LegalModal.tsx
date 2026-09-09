@@ -135,7 +135,7 @@ export default function LegalModal({ isOpen, onClose, initialTab = 'impressum' }
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
-                className={`py-3 px-4 text-left border-b-2 flex flex-col justify-center transition-all duration-150 min-w-[120px] ${
+                className={`py-3 px-4 text-left border-b-2 flex flex-col justify-center transition-all duration-150 min-w-30 ${
                   isActive 
                     ? 'border-emerald-600 bg-white text-emerald-800 font-bold' 
                     : 'border-transparent text-slate-500 hover:text-slate-800 hover:bg-slate-50'
@@ -152,7 +152,7 @@ export default function LegalModal({ isOpen, onClose, initialTab = 'impressum' }
         </div>
 
         {/* Modal Body Container */}
-        <div className="p-6 md:p-8 overflow-y-auto space-y-6 flex-grow max-h-[60vh] text-sm leading-relaxed">
+        <div className="p-6 md:p-8 overflow-y-auto space-y-6 grow max-h-[60vh] text-sm leading-relaxed">
 
           {/* 1. IMPRESSUM TABS */}
           {activeTab === 'impressum' && (
@@ -210,7 +210,7 @@ export default function LegalModal({ isOpen, onClose, initialTab = 'impressum' }
                       <strong>Anwendbare gewerberechtliche Vorschriften:</strong> Österreichische Gewerbeordnung (GewO 1994) in der jeweils gültigen Fassung. Sie können diese Vorschriften online im Rechtsinformationssystem des Bundes (RIS) unter <a href="https://www.ris.bka.gv.at" target="_blank" rel="noreferrer" className="text-emerald-600 hover:underline">www.ris.bka.gv.at</a> einsehen.
                     </p>
                     <p>
-                      <strong>Berufsbezeichnung:</strong> Hausbetreuung (Gewerbe), Gebäudereiniger (Meisterbetrieb / freies Gewerbe) verliehen in Österreich.
+                      <strong>Berufsbezeichnung:</strong> Hausbetreuung, Gartenpflege sowie Denkmal-, Fassaden- und Gebäudereinigung (freie Gewerbe gemäß GewO).
                     </p>
                     <p>
                       <strong>Umsatzsteuer-Identifikationsnummer (UID):</strong> [Z.B. ATUXXXXXXXX]

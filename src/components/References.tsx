@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { Star, MessageSquarePlus, Trophy, MapPin, Calendar, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Star, MessageSquarePlus, Trophy, MapPin, Calendar, CheckCircle2 } from 'lucide-react';
 
 interface Review {
   id: string;
@@ -47,7 +47,7 @@ export default function References() {
       role: 'Gewerbeobjekt-Besitzer',
       location: 'Mödling',
       rating: 5,
-      text: 'Professionelle Gebäudebetreuung Wien, die ihr Geld wert ist. Bei einem Rohrbruch im Heizungsschacht am Pfingstsonntag war der Notdienst innerhalb von 35 Minuten vor Ort und hat den Zulauf abgesperrt. Äußerst kompetente Handhabung.',
+      text: 'Professionelle Gebäudebetreuung, die ihr Geld wert ist. Bei einem Rohrbruch im Heizungsschacht am Pfingstsonntag war der Notdienst schnell vor Ort und hat den Zulauf abgesperrt. Äußerst kompetente Handhabung.',
       date: '08. Juni 2026'
     }
   ]);
@@ -67,7 +67,7 @@ export default function References() {
     {
       id: 'port-2',
       title: 'Frühjahrs-Heckenschnitt',
-      category: 'gardening',
+      category: 'Gartenservice',
       location: 'Wohnhausanlage, Baden bei Wien',
       descrBefore: 'Überwucherte Hainbuchenhecke ragte in die Gehwege hinein und versperrte die Sicht beim Ausparken.',
       descrAfter: 'Präziser maschineller Trapezschnitt auf normierte Höhe, vollständiger Grünschnittabtransport.',
@@ -295,7 +295,7 @@ export default function References() {
             {[
               { id: 'all', label: 'Alle Projekte' },
               { id: 'cleaning', label: 'Stiegenhaus & Reinigung' },
-              { id: 'gardening', label: 'Garten- & Rasenpflege' },
+              { id: 'Gartenservice', label: 'Garten- & Rasenpflege' },
               { id: 'emergency', label: 'Winterdienst-Einsätze' }
             ].map((cat) => (
               <button

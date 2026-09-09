@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Shield, Sparkles, Clock, BadgeCheck, Users2, HelpCircle, PhoneCall, Check, ArrowRight, Star, HeartHandshake, Zap, Award } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { Shield, Clock, BadgeCheck, Users2, HelpCircle, PhoneCall, Check, ArrowRight, Star, HeartHandshake, Zap, Award, MessageCircle, Trees } from 'lucide-react';
 import { company } from '../data/company';
 
 interface HomeProps {
@@ -9,42 +9,63 @@ interface HomeProps {
 
 export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
   const [activeAdvantage, setActiveAdvantage] = useState<string>('reaktionszeit');
+  const detailCardRef = useRef<HTMLDivElement>(null);
+
+  const handleAdvantageClick = (advantageId: string) => {
+    setActiveAdvantage(advantageId);
+
+    // Scroll detail card into view on mobile
+    if (window.innerWidth < 1024) {
+      setTimeout(() => {
+        detailCardRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 50);
+    }
+  };
+
+  const heroHighlights = [
+    { label: 'Winterdienst nach § 93 StVO' },
+    { label: 'Gründliche Stiegenhaus- & Unterhaltsreinigung' },
+    { label: 'Professioneller Hausmeisterservice', spanClassName: 'col-span-2 sm:col-span-1' },
+  ];
 
   const advantages = [
     {
       id: 'reaktionszeit',
       title: 'schnelle Reaktionszeit',
       icon: <Clock className="h-5 w-5" />,
-      tagline: 'Innerhalb von 30-45 Minuten bei Notfällen vor Ort in Wien.',
-      description: 'Dank unseres dichten Netzes an mobilen Hausmeistern in allen Wiener Bezirken und umliegenden Gemeinden können wir bei Alarmierungen oder dringenden Vorfällen ohne Zeitverlust reagieren. Das minimiert mögliche Folgeschäden an Gebäuden drastisch.'
+      tagline: 'Zeitnahe Hilfe bei dringenden Anliegen.',
+      description: 'Wir reagieren schnell auf Ihre Anfrage und stimmen Termine zuverlässig mit Ihnen ab.'
     },
     {
       id: 'preise',
       title: 'faire Preise',
       icon: <Award className="h-5 w-5" />,
       tagline: 'Transparente Leistungsverträge ohne versteckte Nebenkosten.',
-      description: 'Bei uns bezahlen Sie nur, was tatsächlich vertraglich vereinbart wurde. Unsere kostenlosen Vorab-Besichtigungen garantieren ein maßgeschneidertes, pauschaliertes Angebot, das exakt auf das tatsächliche Arbeitsaufkommen Ihrer Liegenschaft abgestimmt ist.'
+      description: 'Wir erstellen individuelle und transparente Angebote ohne versteckte Kosten. Unsere Preisgestaltung orientiert sich am tatsächlichen Bedarf Ihrer Immobilie.'
     },
     {
       id: 'service',
       title: 'zuverlässiger Service',
       icon: <BadgeCheck className="h-5 w-5" />,
       tagline: 'Vorschriftsmäßige Protokollierung aller Kontrollen und Arbeiten.',
-      description: 'Erledigte Arbeiten werden von unseren Hausbetreuern digital erfasst und archiviert. Sie erhalten monatlich einen transparenten Tätigkeitsbericht. So behalten Sie als Hausverwaltung oder Eigentümer stets die vollkommene Kontrolle über Ihr Budget.'
+      description: 'Erledigte Arbeiten werden digital erfasst und archiviert. Sie erhalten monatlich einen transparenten Tätigkeitsbericht für volle Budgetkontrolle.'
     },
     {
       id: 'betreuung',
       title: 'flexible Betreuung',
       icon: <Zap className="h-5 w-5" />,
       tagline: 'Anpassung von Reinigungs- und Kontrollrhythmen nach Bedarf.',
-      description: 'Ein plötzlicher Wintereinbruch oder ein erhöhtes Verschmutzungsaufkommen durch Sanierungsarbeiten? Wir passen unsere Frequenzen und Einsatzzeiten flexibel an die tagesaktuellen Gegebenheiten an, ganz ohne bürokratischen Aufwand für Sie.'
+      description: 'Wir passen unsere Einsatzzeiten flexibel an aktuelle Gegebenheiten an – ob Wintereinbruch oder Sanierungsarbeiten.'
     },
     {
       id: 'ansprechpartner',
       title: 'persönliche Ansprechpartner',
       icon: <Users2 className="h-5 w-5" />,
       tagline: 'Ein fester technischer Betreuer für Ihre Wohnhausanlage.',
-      description: 'Keine ständig wechselnden Arbeiter im Objekt oder anonyme Telefonzentralen. Wir teilen jedem Objekt einen festen Objektleiter zu. Er kennt jede Ecke Ihrer Liegenschaft im Detail und steht Ihnen für Rückfragen jederzeit direkt zur Verfügung.'
+      description: 'Jedes Objekt erhält einen festen Objektleiter, der Ihre Liegenschaft kennt und Ihnen direkt zur Verfügung steht.'
     }
   ];
 
@@ -56,7 +77,7 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
         {/* Absolute Background Image Layer */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/src/assets/images/austria_residence_hero_1781211245203.jpg" 
+            src="/src/assets/images/hero-wien-building.webp" 
             alt="Moderne Wohnhausanlage in Österreich" 
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover object-center opacity-35 filter brightness-95 scale-102 transition-all duration-700"
@@ -73,35 +94,29 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
             
             {/* Tag / Badge */}
             <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold text-xs uppercase tracking-widest px-3 py-1.5 rounded-full">
-              <Sparkles className="h-3 w-3" />
-              Hausmeisterservice Wien & Umgebung
+              <BadgeCheck className="h-3 w-3" />
+              {company.hero.badge}
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-none">
-              Ihr zuverlässiger <br />
+              {company.hero.title} <br />
               <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-emerald-400">
-                Hausmeisterservice
+                {company.hero.highlight}
               </span>
             </h1>
 
             <p className="text-base sm:text-lg lg:text-xl text-slate-300 font-medium leading-relaxed max-w-2xl">
-              Professionelle Betreuung von Wohnanlagen, Gewerbeobjekten und Privatimmobilien in Österreich. Zuverlässig, gründlich und haftungssicher nach WKO-Richtlinien.
-            </p>
+  {company.hero.description}
+</p>
 
             {/* Info Point indicators */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 pt-2 text-xs sm:text-sm text-slate-200">
-              <div className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-emerald-500 shrink-0"></span>
-                Winterdienst nach § 93 StVO
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-emerald-500 shrink-0"></span>
-                Stiegenhaus-Glanzgarantie
-              </div>
-              <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
-                <span className="h-2 w-2 rounded-full bg-emerald-500 shrink-0"></span>
-                Österreichischer Meisterbetrieb
-              </div>
+              {heroHighlights.map((item) => (
+                <div key={item.label} className={`flex items-center gap-2 ${item.spanClassName ?? ''}`}>
+                  <span className="h-2 w-2 rounded-full bg-emerald-500 shrink-0"></span>
+                  {item.label}
+                </div>
+              ))}
             </div>
 
             {/* Call To Actions */}
@@ -112,12 +127,21 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
               >
                 Angebot anfordern
               </button>
-              <button
-                onClick={() => onNavigate('contact')}
-                className="bg-white/10 hover:bg-white/20 text-white font-bold text-[15px] px-8 py-4 rounded-xl border border-white/20 backdrop-blur-md transition-all text-center"
+              <a
+                href={company.whatsapp ? `https://wa.me/${company.whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hallo! Ich interessiere mich für Ihre Hausmeister-Services.')}` : '/contact'}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => {
+                  if (!company.whatsapp) {
+                    e.preventDefault();
+                    onNavigate('contact');
+                  }
+                }}
+                className="bg-white/10 hover:bg-white/20 text-white font-bold text-[15px] px-8 py-4 rounded-xl border border-white/20 backdrop-blur-md transition-all text-center inline-flex items-center justify-center gap-2"
               >
-                Kontakt aufnehmen
-              </button>
+                <MessageCircle className="h-5 w-5" />
+                WhatsApp schreiben
+              </a>
             </div>
 
           </div>
@@ -159,10 +183,10 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
               Unsere Kernleistungen
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Zuverlässige Hausmeister- & Gartenservices aus einer Hand
+              Kleinreparaturen, Montage & Hausbetreuung
             </h2>
             <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
-              Von der Objektbetreuung über Reinigung bis zur Gartenpflege – wir bieten individuelle Lösungen für Privat- und Gewerbeimmobilien.
+              Praktische Hilfe für Haus, Wohnung und Objekt – zuverlässig und unkompliziert.
             </p>
           </div>
 
@@ -178,7 +202,7 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
                 Hausmeisterservice
               </h3>
               <p className="text-slate-500 text-sm leading-relaxed mb-6">
-                Zuverlässige Betreuung von Wohnanlagen, Gewerbeobjekten und privaten Immobilien in Wien und Umgebung.
+                Kleine Reparaturen, Montagen und praktische Arbeiten rund um Haus, Wohnung und Objekt.
               </p>
               <button
   onClick={() => {
@@ -195,13 +219,13 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
             {/* Service 2: Gartenpflege */}
             <div className="bg-white p-8 rounded-2xl border border-slate-100 hover:border-slate-200 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 group">
               <div className="h-12 w-12 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-all">
-                <Sparkles className="h-6 w-6" />
+                <Trees className="h-6 w-6" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
                 Gartenpflege
               </h3>
               <p className="text-slate-500 text-sm leading-relaxed mb-6">
-                Pflege von Grünflächen, Hecken, Rasen und Außenanlagen für private und gewerbliche Objekte.
+                Rasenmähen, Hecken- und Strauchschnitt sowie einfache Arbeiten rund um Garten und Grünflächen.
               </p>
               <button
   onClick={() => {
@@ -224,7 +248,7 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
                 Winterdienst nach § 93 StVO
               </h3>
               <p className="text-slate-500 text-sm leading-relaxed mb-6">
-                Gesetzlich konforme Schneeräumung und Streuung mit voller Haftungsübernahme im gesamten Wiener Raum.
+                Schneeräumung und Streudienst für Wege, Zugänge und Flächen rund um Ihre Immobilie.
               </p>
               <button
   onClick={() => {
@@ -268,14 +292,14 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
                 Unsere 5 Erfolgsfaktoren für Ihre Zufriedenheit
               </h2>
               <p className="text-slate-500 text-sm leading-relaxed mb-4">
-                Als inhabergeführter Meisterbetrieb setzen wir auf kompromisslose Zuverlässigkeit. Klicken Sie sich durch, wie wir das täglich in Österreich umsetzen.
+                Als inhabergeführtes Unternehmen legen wir großen Wert auf Zuverlässigkeit, Sorgfalt und persönliche Betreuung. Erfahren Sie mehr über unsere Arbeitsweise und unseren Service.
               </p>
 
               <div className="space-y-2.5">
                 {advantages.map((adv) => (
                   <button
                     key={adv.id}
-                    onClick={() => setActiveAdvantage(adv.id)}
+                    onClick={() => handleAdvantageClick(adv.id)}
                     className={`w-full text-left p-4 rounded-xl border font-bold text-sm flex items-center justify-between select-none transition-all ${
                       activeAdvantage === adv.id
                         ? 'bg-blue-700 text-white border-blue-700 shadow-md shadow-blue-700/10'
@@ -297,7 +321,7 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
             </div>
 
             {/* Right Column: Beautiful detailed view card of active advantage */}
-            <div className="lg:col-span-7 bg-white p-8 md:p-12 rounded-3xl border border-slate-100 shadow-xl relative overflow-hidden">
+            <div ref={detailCardRef} className="lg:col-span-7 bg-white p-8 md:p-12 rounded-3xl border border-slate-100 shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 h-40 w-40 bg-linear-to-br from-emerald-50 to-blue-50 rounded-full blur-3xl opacity-60"></div>
               
               {(() => {
@@ -324,7 +348,7 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
                     <div className="flex flex-wrap gap-2.5 pt-4">
                       <div className="flex items-center gap-1.5 bg-slate-50 text-slate-600 text-xs font-semibold px-3.5 py-2 rounded-lg border border-slate-100">
                         <Check className="h-4 w-4 text-emerald-500" />
-                        Garantiert
+                        Zuverlässig
                       </div>
                       <div className="flex items-center gap-1.5 bg-slate-50 text-slate-600 text-xs font-semibold px-3.5 py-2 rounded-lg border border-slate-100">
                         <Check className="h-4 w-4 text-emerald-500" />

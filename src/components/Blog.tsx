@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { Search, User, Calendar, Clock, ArrowRight, MessageSquare, ChevronLeft, Send, Sparkles } from 'lucide-react';
+import { Search, User, Calendar, Clock, ArrowRight, MessageSquare, ChevronLeft, Send } from 'lucide-react';
 import { blogPosts as initialPosts } from '../data/blog';
 import { BlogPost } from '../types';
 
@@ -229,7 +229,6 @@ export default function Blog() {
                 onClick={() => setShowDraftForm(!showDraftForm)}
                 className="w-full sm:w-auto bg-slate-900 border border-slate-800 text-white font-bold text-xs py-3 px-5 rounded-xl hover:bg-slate-950 transition-all flex items-center justify-center gap-1.5"
               >
-                <Sparkles className="h-4 w-4 text-emerald-400 animate-pulse" />
                 Fachbeitrag entwerfen (Demo)
               </button>
             </div>
