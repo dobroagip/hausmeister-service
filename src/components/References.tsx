@@ -203,7 +203,7 @@ export default function References() {
                 </div>
                 <div>
                   <label className="text-xs font-bold text-slate-700 block mb-1">Sterne-Bewertung</label>
-                  <div className="flex gap-1 items-center h-[38px]">
+                  <div className="flex gap-1 items-center h-9,5">
                     {[1, 2, 3, 4, 5].map((num) => (
                       <button
                         type="button"
