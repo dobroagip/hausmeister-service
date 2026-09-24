@@ -127,21 +127,13 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
               >
                 Angebot anfordern
               </button>
-              <a
-                href={company.whatsapp ? `https://wa.me/${company.whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hallo! Ich interessiere mich für Ihre Hausmeister-Services.')}` : '/contact'}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => {
-                  if (!company.whatsapp) {
-                    e.preventDefault();
-                    onNavigate('contact');
-                  }
-                }}
-                className="bg-white/10 hover:bg-white/20 text-white font-bold text-[15px] px-8 py-4 rounded-xl border border-white/20 backdrop-blur-md transition-all text-center inline-flex items-center justify-center gap-2"
-              >
-                <MessageCircle className="h-5 w-5" />
-                WhatsApp schreiben
-              </a>
+              <button
+  onClick={onEmergencyClick}
+  className="bg-white/10 hover:bg-white/20 text-white font-bold text-[15px] px-8 py-4 rounded-xl border border-white/20 backdrop-blur-md transition-all text-center inline-flex items-center justify-center gap-2"
+>
+  <MessageCircle className="h-5 w-5" />
+  Anfrage senden
+</button>
             </div>
 
           </div>
@@ -374,32 +366,26 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
             <div className="space-y-4 max-w-2xl text-center lg:text-left">
               <div className="inline-flex items-center gap-1.5 bg-rose-500/15 border border-rose-500/30 text-rose-400 font-bold text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full animate-pulse">
                 <span className="h-1.5 w-1.5 bg-rose-500 rounded-full"></span>
-                Sonderrufnummer für Notfälle
+                Persönlicher Kontakt & schnelle Anfrage
               </div>
               <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-                Hausmeister Notdienst Wien – 24/7
+                Hausbetreuung & Kleinreparaturen
               </h2>
               <p className="text-rose-100/80 text-sm sm:text-base leading-relaxed">
-                Wasserrohrbruch am Wochenende? Türschloss blockiert? Stromausfall im gesamten Stiegenhaus? Als vertraglicher Partner sind wir in ganz Wien innerhalb kürzester Zeit bei Ihnen vor Ort. 365 Tage im Jahr.
+                Praktische Unterstützung bei kleinen Reparaturarbeiten, der Instandhaltung Ihres Hauses und einfachen Hausarbeiten. Wir besprechen Ihr Anliegen und vereinbaren einen passenden Termin.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto text-center shrink-0">
-              <a
-                href={`tel:${company.phoneRaw}`}
-                className="bg-rose-600 hover:bg-rose-500 active:scale-95 text-white font-black text-base px-8 py-4.5 rounded-xl shadow-lg shadow-rose-900/30 transition-all flex items-center justify-center gap-2"
-              >
-                <PhoneCall className="h-5 w-5" />
-                {company.emergency}
-              </a>
-              <button
-                onClick={onEmergencyClick}
-                className="bg-white/10 hover:bg-white/15 text-white font-bold text-sm px-8 py-4.5 rounded-xl border border-white/20 backdrop-blur-md transition-colors"
-                id="emergency-trigger-btn"
-              >
-                Notruf-Ablauf ansehen
-              </button>
-            </div>
+  <button
+    onClick={onEmergencyClick}
+    className="bg-rose-600 hover:bg-rose-500 active:scale-95 text-white font-black text-base px-8 py-4.5 rounded-xl shadow-lg shadow-rose-900/30 transition-all flex items-center justify-center gap-2"
+    id="emergency-trigger-btn"
+  >
+    <MessageCircle className="h-5 w-5" />
+    Anfrage senden
+  </button>
+</div>
           </div>
         </div>
       </section>
@@ -413,9 +399,9 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
                 <Shield className="h-6 w-6" />
               </div>
               <div>
-                <h4 className="font-bold text-base text-slate-900 mb-1">Volle Versicherung</h4>
+                <h4 className="font-bold text-base text-slate-900 mb-1">Betriebshaftpflichtversicherung</h4>
                 <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
-                  Mit unserer Betriebshaftpflichtversicherung bis zu € 5 Mio. sind Sie bei eventuellen Schäden vollkommen freigestellt.
+                  Für unsere Tätigkeit besteht eine Betriebshaftpflichtversicherung. Sie bietet Schutz im Rahmen der vereinbarten Versicherungsbedingungen.
                 </p>
               </div>
             </div>
@@ -424,9 +410,9 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
                 <HeartHandshake className="h-6 w-6" />
               </div>
               <div>
-                <h4 className="font-bold text-base text-slate-900 mb-1">Handschlagqualität</h4>
+                <h4 className="font-bold text-base text-slate-900 mb-1">Klare Absprachen</h4>
                 <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
-                  Langfristige Geschäftsbeziehungen resultieren aus gegenseitigem Vertrauen. Wir halten, was wir zusichern.
+                  Klare Absprachen und zuverlässige Kommunikation sind für uns die Grundlage jeder Zusammenarbeit.
                 </p>
               </div>
             </div>
@@ -435,9 +421,9 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
                 <Award className="h-6 w-6" />
               </div>
               <div>
-                <h4 className="font-bold text-base text-slate-900 mb-1">Ausgezeichnete Qualität</h4>
+                <h4 className="font-bold text-base text-slate-900 mb-1">Zuverlässige Qualität</h4>
                 <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
-                  Unsere Services und Arbeitsabläufe entsprechen den strengsten Richtlinien der Wirtschaftskammer Österreichs (WKO).
+                  Wir arbeiten sauber und sorgfältig und legen Wert auf gute Arbeit.
                 </p>
               </div>
             </div>

@@ -19,66 +19,68 @@ export const services: Service[] = [
     id: 'gartenpflege',
     title: 'Gartenpflege',
     iconName: 'Sprout',
-    shortDesc: 'Fachgerechte Pflege von Grünanlagen, Beeten und Sträuchern für ein gepflegtes Erscheinungsbild.',
-    longDesc: 'Grünflächen sind die Visitenkarte Ihres Objekts. Unsere Gartenpflege Wien sorgt zu jeder Jahreszeit für gesunde, vitale und ästhetische Grünanlagen. Wir übernehmen den professionellen Baum- und Strauchschnitt, säubern Blumenbeete, entfernen Unkraut und entsorgen den Grünschnitt fachgerecht nach österreichischen Umweltstandards.',
+    shortDesc: 'Rasenmähen, Hecken- und Strauchschnitt sowie einfache Arbeiten rund um Garten und Grünflächen.',
+    longDesc: 'Wir übernehmen einfache Arbeiten rund um Garten und Grünflächen. Dazu gehören Rasenmähen, Hecken- und Strauchschnitt sowie die Pflege von Beeten und Außenbereichen. Die Arbeiten werden nach Vereinbarung und passend zum jeweiligen Objekt durchgeführt.',
     category: 'Gartenservice',
     pricingBasis: 'Stundensatz oder Saison-Pauschale',
     features: [
-      'Professioneller Hecken- und Sträucherschnitt',
-      'Unkrautbeseitigung in Beeten und Gehwegritzen',
-      'Laubbeseitigung im Herbst',
-      'Bewässerungsservice während der Sommermonate',
-      'Fachgerechte Entsorgung des anfallenden Grünschnitts'
+    'Rasenmähen und einfache Kantenpflege',
+    'Hecken- und Strauchschnitt',
+    'Einfache Pflege von Beeten und Grünflächen',
+    'Entfernen von Unkraut',
+    'Laub- und Gartenarbeiten'
     ]
   },
   {
-    id: 'rasenmaehen',
-    title: 'Rasenmähen',
-    iconName: 'Scissors',
-    shortDesc: 'Regelmäßiger Rasenschnitt und Kantenpflege für dichten, grünen Rasen.',
-    longDesc: 'Ein gepflegter Rasen erfordert Kontinuität. Wir übernehmen das regelmäßige Rasenmähen für Wohnhausanlagen, Gewerbeobjekte und Privatgärten im Großraum Wien. Mit modernen, lärmreduzierten Geräten kürzen wir den Rasen auf die optimale Höhe, pflegen die Rasenkanten und düngen oder vertikutieren bei Bedarf, um Moosbildung vorzubeugen.',
-    category: 'Gartenservice',
-    pricingBasis: 'Pro Quadratmeter oder Pauschale pro Durchgang',
-    features: [
-      'Präzises Mähen auch an Hanglagen und Engstellen',
-      'Sauberes Trimmen aller Rasenkanten',
-      'Fachgerechte Rasendüngung für sattgrüne Flächen',
-      'Vertikutieren zur Belüftung des Bodens (Frühjahr/Herbst)',
-      'Sofortiger Abtransport des Schnittguts'
-    ]
-  },
+  id: 'rasenmaehen',
+
+  title: 'Rasenmähen',
+
+  iconName: 'Scissors',
+
+  shortDesc:
+    'Regelmäßiger Rasenschnitt und einfache Kantenpflege für gepflegte Grünflächen.',
+
+  longDesc:
+    'Wir übernehmen das regelmäßige Rasenmähen für Privatgärten, Wohnhäuser und kleinere Grünflächen. Dazu gehören der Rasenschnitt und die einfache Pflege der Rasenkanten – zuverlässig und nach Vereinbarung.',
+
+  category: 'Gartenservice',
+
+  pricingBasis: 'Nach Fläche oder Pauschale pro Durchgang',
+
+  features: [
+    'Regelmäßiges Rasenmähen',
+    'Einfache Kantenpflege',
+    'Mähen von kleineren Grünflächen',
+    'Arbeiten nach Vereinbarung',
+    'Entfernung des Rasenschnitts nach Absprache'
+  ]
+},
   {
-    id: 'winterdienst',
-    title: 'Winterdienst',
-    iconName: 'Snowflake',
-    shortDesc: 'Sichere Schneeräumung und Streuung gemäß § 93 StVO in Wien und Umgebung.',
-    longDesc: 'Der Winterdienst Wien stellt sicher, dass Gehwege, Parkplätze und Zufahrten auch bei starkem Schneefall und Glätte sicher begehbar sind. Wir haften für die vorschriftsmäßige Räumung und Streuung gemäß den gesetzlichen Vorgaben in Österreich (§ 93 StVO) im Zeitraum vom 1. November bis 15. April, rund um die Uhr.',
-    category: 'emergency',
-    pricingBasis: 'Saison-Pauschale (inklusive Haftungsübernahme)',
-    features: [
-      'Schneeräumung und Glatteisbekämpfung rund um die Uhr',
-      'Überwachung der Wetterdaten für rechtzeitige Einsätze',
-      'Verwendung von umweltfreundlichem Streugut',
-      'Splittkehrung am Ende der Wintersaison',
-      'Volle Haftungsübernahme für die geräumten Flächen'
-    ]
-  },
-  {
-    id: 'stiegenhausreinigung',
-    title: 'Stiegenhausreinigung',
-    iconName: 'Building2',
-    shortDesc: 'Gründliche Reinigung des Treppenhauses für ein hygienisches und einladendes Gebäude.',
-    longDesc: 'Die Stiegenhausreinigung ist ein wesentlicher Aspekt der Gebäudebetreuung Wien. Ein sauberes Stiegenhaus steigert das Wohlbefinden der Bewohner und sichert den langfristigen Wert des Hauses. Mit umweltschonenden Reinigungsmitteln säubern wir Stufen, Handläufe, Fenster, Aufzüge und Eingangsbereiche gründlich und effizient.',
-    category: 'cleaning',
-    pricingBasis: 'Pauschale pro Reinigungstermin',
-    features: [
-      'Nasswischen aller Stiegen und Podeste',
-      'Abwischen von Geländern, Handläufen und Briefkästen',
-      'Reinigung des Aufzugs (inkl. Spiegel und Edelstahlflächen)',
-      'Reinigung der Hauseingangstüren und Glassegmente',
-      'Regelmäßige Fensterreinigung im Allgemeinbereich'
-    ]
-  },
+  id: 'winterdienst',
+
+  title: 'Winterdienst',
+
+  iconName: 'Snowflake',
+
+  shortDesc:
+    'Schneeräumung und Streuung von Gehwegen, Zufahrten und Außenflächen gemäß § 93 StVO.',
+
+  longDesc:
+    'Wir übernehmen die Schneeräumung und Streuung von Gehwegen, Zufahrten und geeigneten Außenflächen nach Vereinbarung. Die Durchführung erfolgt entsprechend den gesetzlichen Vorgaben gemäß § 93 StVO.',
+
+  category: 'Winterdienst',
+
+  pricingBasis: 'Saison-Pauschale nach Objektgröße und Umfang',
+
+  features: [
+    'Schneeräumung bei Bedarf',
+    'Streuung bei Glätte',
+    'Betreuung von Gehwegen und Zufahrten',
+    'Einsatz nach Vereinbarung',
+    'Durchführung gemäß § 93 StVO'
+  ]
+},
 
     {
   id: 'kleinreparaturen',
@@ -105,22 +107,7 @@ export const services: Service[] = [
     'Austausch einfacher Bauteile und Leuchtmittel'
   ]
 },
-  {
-    id: 'entruempelung',
-    title: 'Entrümpelung',
-    iconName: 'Trash2',
-    shortDesc: 'Fachgerechte Räumung von Kellern, Dachböden und Wohnungen mit umweltgerechter Entsorgung.',
-    longDesc: 'Ob Mieterwechsel, Haushaltsauflösung oder Kellerüberfüllung: Wir sorgen für eine besenreine Entrümpelung Ihrer Räumlichkeiten. Wir sortieren Altstoffe, Sperrmüll und Problemstoffe präzise und übergeben sie lizenzierten Entsorgungsbetrieben. Verlassen Sie sich auf eine diskrete, schnelle und besenreine Durchführung.',
-    category: 'cleaning',
-    pricingBasis: 'Festpreis nach Besichtigung (kostenfreie Erstbesichtigung)',
-    features: [
-      'Besenreine Ausräumung aller gewünschten Räume',
-      'Fachsortierung nach Holz, Metall, Bauschutt und Restmüll',
-      'Räumung von Messie-Wohnungen und Problemfällen',
-      'Fachgerechte und umweltschonende Entsorgungsnachweise',
-      'Demontage von fest eingebauten Möbeln'
-    ]
-  },
+  
  {
   id: 'objektkontrollen',
 
@@ -171,20 +158,4 @@ export const services: Service[] = [
     'Entsorgung der ausgetauschten Leuchtmittel'
   ]
 },
-  {
-    id: 'notdienst',
-    title: 'Hausmeister Notdienst',
-    iconName: 'PhoneCall',
-    shortDesc: 'Notfalleinsatz bei Wasserrohrbruch, Stromausfall oder Sturmschäden.',
-    longDesc: 'Notfälle halten sich nicht an Bürozeiten. Unser Hausmeister Notdienst ist auch außerhalb der regulären Geschäftszeiten für Sie erreichbar. Bei akuten Ereignissen wie Heizungsausfall im Winter, Wasserrohrbruch, Sturmschäden oder Stromausfall bemühen wir uns, schnell einen Mitarbeiter zu entsenden, um weiteren Schaden von Ihrem Gebäude abzuwenden.',
-    category: 'emergency',
-    pricingBasis: 'Einsatzpauschale nach Uhrzeit und Wochentag',
-    features: [
-      'Telefonische Erreichbarkeit auch außerhalb der Geschäftszeiten',
-      'Schnelle Reaktion im Wiener Stadtgebiet',
-      'Erstmaßnahmen zur Schadenseindämmung (z.B. Absperren von Wasser)',
-      'Koordination und Einweisung von Spezial-Notdiensten',
-      'Detaillierte Schadensdokumentation und Fotos für die Versicherung'
-    ]
-  }
 ];

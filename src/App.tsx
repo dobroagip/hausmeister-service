@@ -11,7 +11,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 import LegalModal from './components/LegalModal';
 import CookieConsentBanner from './components/CookieConsentBanner';
 import Angebot from './components/Angebot';
-import { PhoneCall, AlertTriangle, ShieldCheck, X, HelpingHand } from 'lucide-react';
+import { PhoneCall, AlertTriangle, ShieldCheck, X, HelpingHand, MessageCircle } from 'lucide-react';
 import CityLandingPage from './components/CityLandingPage';
 import { company } from './data/company';
 
@@ -168,9 +168,9 @@ export default function App() {
                   <AlertTriangle className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-lg leading-tight">24/7 Hausmeister-Notrufzentrale</h3>
+                  <h3 className="font-extrabold text-lg leading-tight">Hausbetreuung & Hausservice</h3>
                   <p className="text-xs text-rose-100 flex items-center gap-1 mt-0.5">
-                    <span>●</span> Leitstelle Wien & Wiener Neustadt besetzt
+                    <span>●</span> Persönliche Anfragebearbeitung
                   </p>
                 </div>
               </div>
@@ -183,60 +183,155 @@ export default function App() {
             </div>
 
             {/* Modal Body */}
-            <div className="p-6 sm:p-8 space-y-6 text-slate-700">
-              <div className="space-y-2 text-center sm:text-left">
-                <h4 className="font-bold text-slate-900 text-base">Haben Sie einen akuten Notfall im Objekt?</h4>
-                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-                  Wasserrohrbrüche, Totalausfall des Lichts im Stiegenhaus, blockierte Müllschleusen oder Sturmschäden verlangen schnelles Handeln. Unsere mobile Einsatzgruppe ist rund um die Uhr abfahrbereit.
-                </p>
-              </div>
+          {/* Modal Body */}
+<div className="p-6 sm:p-8 space-y-6 text-slate-700">
+  <div className="space-y-2 text-center sm:text-left">
+    <h4 className="font-bold text-slate-900 text-base">
+      Wobei können wir Ihnen helfen?
+    </h4>
+    <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+      Beschreiben Sie kurz Ihr Anliegen. Wir prüfen die Anfrage und melden uns
+      persönlich bei Ihnen zurück.
+    </p>
+  </div>
 
-              {/* Step checklist for emergency */}
-              <div className="space-y-3.5 pt-1">
-                <strong className="text-[10px] sm:text-xs uppercase tracking-widest text-rose-600 font-bold block">Notfall-Checkliste vor Ort:</strong>
-                
-                <div className="space-y-2 text-xs sm:text-sm">
-                  <div className="flex gap-2.5 items-start">
-                    <span className="h-5 w-5 bg-rose-50 text-rose-600 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">1</span>
-                    <p><strong>Ruhe bewahren</strong> u. Gefahrenquelle erstbeurteilen (z.B. Wasser austreten sehen, Rauch/Funken bemerken).</p>
-                  </div>
-                  <div className="flex gap-2.5 items-start">
-                    <span className="h-5 w-5 bg-rose-50 text-rose-600 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">2</span>
-                    <p><strong>Erstmaßnahmen einleiten:</strong> Hauptwasserhahn im Keller oder Wohnung schließen, Sicherungskasten prüfen.</p>
-                  </div>
-                  <div className="flex gap-2.5 items-start">
-                    <span className="h-5 w-5 bg-rose-50 text-rose-600 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">3</span>
-                    <p><strong>Notdienst anrufen:</strong> Genaue Adresse Ihres Objekts, Ihren Namen, Lage und detaillierten Schadens-Zustand beschreiben.</p>
-                  </div>
-                </div>
-              </div>
+  {/* Anfrageformular */}
+  <form
+  className="space-y-4"
+  onSubmit={(e) => {
+    e.preventDefault();
 
-              {/* Real Call Action container */}
-              <div className="p-5 bg-rose-50 border border-rose-100/80 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="space-y-1 text-center sm:text-left">
-                  <span className="text-[10px] font-bold text-rose-605 uppercase block tracking-wider font-mono">Gebührenfreier Notruf:</span>
-                  <a
-                    href={`tel:${company.phoneRaw}`}
-                    className="text-xl sm:text-2xl font-black text-rose-700 hover:underline"
-                  >
-                    {company.emergency}
-                  </a>
-                </div>
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
-                <a
-                  href={`tel:${company.phoneRaw}`}
-                  className="w-full sm:w-auto bg-rose-600 hover:bg-rose-705 text-white font-bold text-xs sm:text-sm py-3 px-6 rounded-xl text-center flex items-center justify-center gap-2 shadow"
-                >
-                  <PhoneCall className="h-4 w-4" />
-                  Jetzt anrufen
-                </a>
-              </div>
+    const service = formData.get('service')?.toString() || '';
+    const location = formData.get('location')?.toString() || '';
+    const message = formData.get('message')?.toString() || '';
+    const name = formData.get('name')?.toString() || '';
+    const contact = formData.get('contact')?.toString() || '';
 
-              <div className="pt-2 border-t border-slate-100 flex items-center gap-1.5 text-[11px] text-slate-400 justify-center">
-                <ShieldCheck className="h-4 w-4 text-emerald-600" />
-                <span>Einsatzteams für alle Wiener Gemeindebezirke vollständig besetzt.</span>
-              </div>
-            </div>
+    const text = `Hallo! Ich möchte eine Anfrage stellen.
+
+Leistung: ${service}
+Ort: ${location}
+
+Was soll gemacht werden:
+${message}
+
+Name: ${name}
+Kontakt: ${contact}`;
+
+    const whatsappUrl = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(text)}`;
+
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+  }}
+>
+    <div className="space-y-1.5">
+      <label
+        htmlFor="request-service"
+        className="text-xs font-bold text-slate-700"
+      >
+        Gewünschte Leistung
+      </label>
+      <select
+        id="request-service"
+        name="service"
+        className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-rose-500 focus:ring-2 focus:ring-rose-100"
+        defaultValue=""
+      >
+        <option value="" disabled>
+          Bitte auswählen
+        </option>
+        <option value="Kleinreparaturen">Kleinreparaturen</option>
+        <option value="Hausbetreuung">Hausbetreuung</option>
+        <option value="Gartenpflege">Gartenpflege</option>
+        <option value="Winterdienst">Winterdienst</option>
+        <option value="Sonstiges">Sonstiges</option>
+      </select>
+    </div>
+
+    <div className="space-y-1.5">
+      <label
+        htmlFor="request-location"
+        className="text-xs font-bold text-slate-700"
+      >
+        Ort der Arbeit
+      </label>
+      <input
+        id="request-location"
+        name="location"
+        type="text"
+        placeholder="z. B. Wiener Neustadt oder 1100 Wien"
+        className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-100"
+      />
+    </div>
+
+    <div className="space-y-1.5">
+      <label
+        htmlFor="request-message"
+        className="text-xs font-bold text-slate-700"
+      >
+        Was soll gemacht werden?
+      </label>
+      <textarea
+        id="request-message"
+        name="message"
+        rows={4}
+        placeholder="Beschreiben Sie kurz die gewünschte Arbeit."
+        className="w-full resize-none rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-100"
+      />
+    </div>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="space-y-1.5">
+        <label
+          htmlFor="request-name"
+          className="text-xs font-bold text-slate-700"
+        >
+          Ihr Name
+        </label>
+        <input
+          id="request-name"
+          name="name"
+          type="text"
+          placeholder="Vor- und Nachname"
+          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-100"
+        />
+      </div>
+
+      <div className="space-y-1.5">
+        <label
+          htmlFor="request-contact"
+          className="text-xs font-bold text-slate-700"
+        >
+          Telefon oder E-Mail
+        </label>
+        <input
+          id="request-contact"
+          name="contact"
+          type="text"
+          placeholder="Ihre Kontaktdaten"
+          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-100"
+        />
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      className="w-full bg-rose-600 hover:bg-rose-500 active:scale-[0.99] text-white font-bold text-sm py-3.5 px-6 rounded-xl text-center flex items-center justify-center gap-2 shadow transition-all"
+    >
+      <MessageCircle className="h-4 w-4" />
+      Anfrage senden
+    </button>
+  </form>
+
+  <div className="pt-2 border-t border-slate-100 flex items-center gap-1.5 text-[11px] text-slate-400 justify-center text-center">
+    <ShieldCheck className="h-4 w-4 text-emerald-600 shrink-0" />
+    <span>
+      Wir melden uns nach Prüfung Ihrer Anfrage persönlich bei Ihnen.
+    </span>
+  </div>
+</div>
 
           </div>
         </div>

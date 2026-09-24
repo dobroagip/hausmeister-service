@@ -4,7 +4,7 @@ export const company = {
   phoneRaw: "+43664XXXXXXX",
   emergency: "",
   email: "office@deinedomain.at",
-  whatsapp: "+43664XXXXXXX",
+  whatsapp: "+4367763460530",
   address: "Wien, Österreich",
 
   hero: {
@@ -49,8 +49,8 @@ export const company = {
     },
 
     whatsapp: {
-      number: "+436641234567",
-      url: "https://wa.me/436641234567",
+      number: "+4367763460530",
+      url: "https://wa.me/4367763460530",
       defaultMessage:
         "Hallo! Ich interessiere mich für Ihren Hausmeisterservice."
     }

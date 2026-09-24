@@ -57,9 +57,9 @@ export default function Services({ onApplyEstimate }: ServicesProps) {
   const categories = [
     { id: 'all', label: 'Alle Leistungen' },
     { id: 'HAUSSERVICE', label: 'Haus- & Objektbetreuung' },
-    { id: 'cleaning', label: 'Gebäudereinigung' },
+    // { id: 'cleaning', label: 'Gebäudereinigung' },
     { id: 'Gartenservice', label: 'Garten- & Rasenpflege' },
-    { id: 'emergency', label: 'Winterdienst & Notruf' }
+    { id: 'Winterdienst', label: 'Winterdienst' }
   ];
 
   const filteredServices = services.filter((svc) => {
@@ -76,13 +76,13 @@ export default function Services({ onApplyEstimate }: ServicesProps) {
         {/* Header Block descriptive */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="text-emerald-600 font-bold uppercase tracking-widest text-xs">
-            Hausbetreuung & Gebäudeservice
+            HAUSBETREUUNG & KLEINREPARATUREN
           </span>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-none">
-            Unsere 10 Kernkompetenzen im Detail
+            Unsere Kernkompetenzen im Detail
           </h1>
           <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
-            Wir verwalten, reinigen, mähen und räumen nach strengen Qualitätskriterien. Kombinieren Sie Einzelservices zu einem kosteneffizienten Jahresbetreuungsvertrag.
+            Praktische Leistungen rund um Haus, Wohnung, Objekt und Garten – zuverlässig und unkompliziert.
           </p>
         </div>
 
