@@ -1,7 +1,7 @@
 export const company = {
   name: "HAUSMEISTER • KLEINREPARATUREN • GARTENPFLEGE",
-  phone: "+43 664 XXX XXXX",
-  phoneRaw: "+43664XXXXXXX",
+  phone: "+43 6776 3460530",
+  phoneRaw: "+4367763460530",
   emergency: "",
   email: "office@deinedomain.at",
   whatsapp: "+4367763460530",

@@ -92,51 +92,46 @@ export default function Navbar({ activeTab, setActiveTab, onEmergencyClick }: Na
                     </button>
                     
                     {/* Hover Dropdown */}
-                    {showServicesDropdown && (
-                      <div className="absolute left-0 mt-0 w-64 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                        <div className="px-4 py-2 border-b border-gray-50 text-xs font-semibold uppercase tracking-wider text-slate-400">
-                          Häufige Dienstleistungen
-                        </div>
-                        <button 
-                          onClick={() => handleNavClick('services')}
-                          className="w-full text-left px-4 py-2 hover:bg-slate-50 text-sm text-slate-700 hover:text-blue-700 transition-colors flex items-center gap-2"
-                        >
-                          <span className="h-1.5 w-1.5 bg-emerald-500 rounded-full"></span>
-                          Hausbetreuung Wien
-                        </button>
-                        <button 
-                          onClick={() => handleNavClick('services')}
-                          className="w-full text-left px-4 py-2 hover:bg-slate-50 text-sm text-slate-700 hover:text-blue-700 transition-colors flex items-center gap-2"
-                        >
-                          <span className="h-1.5 w-1.5 bg-emerald-500 rounded-full"></span>
-                          Gartenpflege & Rasenmähen
-                        </button>
-                        <button 
-                          onClick={() => handleNavClick('services')}
-                          className="w-full text-left px-4 py-2 hover:bg-slate-50 text-sm text-slate-700 hover:text-blue-700 transition-colors flex items-center gap-2"
-                        >
-                          <span className="h-1.5 w-1.5 bg-emerald-500 rounded-full"></span>
-                          Winterdienst § 93 StVO
-                        </button>
-                        <button 
-                          onClick={() => handleNavClick('services')}
-                          className="w-full text-left px-4 py-2 hover:bg-slate-50 text-sm text-slate-700 hover:text-blue-700 transition-colors flex items-center gap-2"
-                        >
-                          <span className="h-1.5 w-1.5 bg-emerald-500 rounded-full"></span>
-                          Stiegenhausreinigung
-                        </button>
-                        <div className="border-t border-gray-50 mt-1 pt-1">
-                          <button 
-                            onClick={onEmergencyClick}
-                            className="w-full text-left px-4 py-2 hover:bg-rose-50 text-sm font-semibold text-rose-600 transition-colors flex items-center gap-2"
-                          >
-                            <span className="h-2 w-2 bg-rose-600 rounded-full animate-ping"></span>
-                            24/7 Notdienst rufen
-                          </button>
-                        </div>
-                      </div>
-                    )}
-                  </div>
+{showServicesDropdown && (
+  <div className="absolute left-0 mt-0 w-64 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+    <div className="px-4 py-2 border-b border-gray-50 text-xs font-semibold uppercase tracking-wider text-slate-400">
+      Unsere Leistungen
+    </div>
+
+    <button
+      onClick={() => handleNavClick('services')}
+      className="w-full text-left px-4 py-2 hover:bg-slate-50 text-sm text-slate-700 hover:text-blue-700 transition-colors flex items-center gap-2"
+    >
+      <span className="h-1.5 w-1.5 bg-emerald-500 rounded-full"></span>
+      Kleinreparaturen & Montagen
+    </button>
+
+    <button
+      onClick={() => handleNavClick('services')}
+      className="w-full text-left px-4 py-2 hover:bg-slate-50 text-sm text-slate-700 hover:text-blue-700 transition-colors flex items-center gap-2"
+    >
+      <span className="h-1.5 w-1.5 bg-emerald-500 rounded-full"></span>
+      Hausbetreuung
+    </button>
+
+    <button
+      onClick={() => handleNavClick('services')}
+      className="w-full text-left px-4 py-2 hover:bg-slate-50 text-sm text-slate-700 hover:text-blue-700 transition-colors flex items-center gap-2"
+    >
+      <span className="h-1.5 w-1.5 bg-emerald-500 rounded-full"></span>
+      Gartenpflege & Rasenmähen
+    </button>
+
+    <button
+      onClick={() => handleNavClick('services')}
+      className="w-full text-left px-4 py-2 hover:bg-slate-50 text-sm text-slate-700 hover:text-blue-700 transition-colors flex items-center gap-2"
+    >
+      <span className="h-1.5 w-1.5 bg-emerald-500 rounded-full"></span>
+      Winterdienst
+    </button>
+  </div>
+     )}
+  </div>
                 );
               }
 
@@ -163,7 +158,7 @@ export default function Navbar({ activeTab, setActiveTab, onEmergencyClick }: Na
               className="flex items-center gap-1.5 text-rose-600 hover:bg-rose-50 px-3.5 py-2 rounded-lg font-semibold text-sm border border-rose-200 hover:border-rose-300 transition-all duration-200"
             >
               <PhoneCall className="h-4 w-4" />
-              Notruf: {company.emergency}
+              Anfrage senden : {company.emergency}
             </button>
             <button 
               onClick={() => handleNavClick('angebot')}
@@ -225,7 +220,7 @@ export default function Navbar({ activeTab, setActiveTab, onEmergencyClick }: Na
                 onClick={() => handleNavClick('angebot')}
                 className="w-full flex justify-center bg-blue-700 hover:bg-blue-800 text-white py-3 rounded-lg font-bold shadow-sm"
               >
-                Kostenloses Angebot anfordern
+               Angebot anfordern
               </button>
             </div>
           </div>

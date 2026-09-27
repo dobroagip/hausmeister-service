@@ -9,23 +9,20 @@ interface AngebotProps {
 
 export default function Angebot({ prefilledAdresse = '', prefilledDienstleistung = '' }: AngebotProps) {
   const [formData, setFormData] = useState({
-    name: '',
-    telefon: '',
-    email: '',
-    adresse: prefilledAdresse,
-    dienstleistung: prefilledDienstleistung || 'Hausbetreuung & Caretaker-Komplettservice',
-    objektgroesse: '',
-    nachricht: '',
-  });
+  name: '',
+  kontakt: '',
+  ort: prefilledAdresse,
+  dienstleistung: prefilledDienstleistung || 'Hausbetreuung',
+  nachricht: '',
+});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   useEffect(() => {
     if (prefilledAdresse) {
       setFormData(prev => ({
-
         ...prev,
-        adresse: prefilledAdresse
+        ort: prefilledAdresse
       }));
     }
     if (prefilledDienstleistung) {
@@ -37,23 +34,12 @@ export default function Angebot({ prefilledAdresse = '', prefilledDienstleistung
   }, [prefilledAdresse, prefilledDienstleistung]);
 
   const servicesList = [
-    'Hausbetreuung & Caretaker-Komplettservice',
-    'Stiegenhausreinigung & Unterhaltsreinigung',
-    'Winterdienst & Schneeräumung (§ 93 StVO Österreich)',
-    'Gartenpflege, Rasenmähen & Grünanlagenpflege',
-    'Sonderreinigung, Glas- und Fassadenreinigung',
-    'Kleininstandsetzungen & technischer Notdienst',
-    'Entrümpelung & Müllraumreinigung',
-  ];
-
-  const sizeOptions = [
-    'Einfamilienhaus / Wohnhaus (< 150 m²)',
-    'Kleines Wohnobjekt (3 - 10 Wohneinheiten)',
-    'Mittleres Wohnobjekt (10 - 30 Wohneinheiten)',
-    'Große Wohnanlage (> 30 Wohneinheiten)',
-    'Gewerbeobjekt / Büro / Praxis',
-    'Industriefläche / Sonstige Freifläche',
-  ];
+  'Kleinreparaturen & Montagen',
+  'Hausbetreuung & Objektservice',
+  'Gartenpflege & Rasenmähen',
+  'Winterdienst',
+  'Sonstiges',
+];
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -73,14 +59,12 @@ export default function Angebot({ prefilledAdresse = '', prefilledDienstleistung
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
     if (!formData.name.trim()) newErrors.name = 'Bitte geben Sie Ihren Namen an.';
-    if (!formData.telefon.trim()) newErrors.telefon = 'Bitte geben Sie Ihre Telefonnummer für Rückfragen an.';
-    if (!formData.email.trim()) {
-      newErrors.email = 'E-Mail-Adresse wird benötigt.';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Bitte geben Sie eine gültige E-Mail-Adresse an.';
+    if (!formData.kontakt.trim()) {
+      newErrors.kontakt = 'Bitte geben Sie Ihre Telefonnummer oder E-Mail-Adresse an.';
+    } else if (formData.kontakt.includes('@') && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.kontakt)) {
+      newErrors.kontakt = 'Bitte geben Sie eine gültige E-Mail-Adresse an.';
     }
-    if (!formData.adresse.trim()) newErrors.adresse = 'Bitte geben Sie die Objektadresse an.';
-    if (!formData.objektgroesse.trim()) newErrors.objektgroesse = 'Bitte wählen oder beschreiben Sie die Objektgröße.';
+    if (!formData.ort.trim()) newErrors.ort = 'Bitte geben Sie die Objektadresse an.';
     if (!formData.nachricht.trim()) newErrors.nachricht = 'Bitte beschreiben Sie kurz Ihren Bedarf.';
     
     setErrors(newErrors);
@@ -103,13 +87,13 @@ export default function Angebot({ prefilledAdresse = '', prefilledDienstleistung
         <div className="text-center mb-10 space-y-3">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold uppercase tracking-wider">
             <span className="h-1.5 w-1.5 bg-emerald-600 rounded-full animate-ping"></span>
-            Kostenfreie Angebotserstellung
+            Anfrage & Angebot
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Individuelles Angebot anfordern
+            Angebot anfordern
           </h1>
           <p className="text-slate-550 text-sm sm:text-base max-w-2xl mx-auto">
-            Holen Sie sich ein maßgeschneidertes, unverbindliches Angebot für Ihr Objekt in Wien und Umgebung. Schnell, einfach und rechtssicher nach österreichischen WKO-Dienstleistungsstandards.
+          Beschreiben Sie kurz, welche Arbeiten Sie benötigen. Wir prüfen Ihre Anfrage und melden uns  bei Ihnen.
           </p>
         </div>
 
@@ -125,33 +109,28 @@ export default function Angebot({ prefilledAdresse = '', prefilledDienstleistung
                 Anfrage erfolgreich gesendet!
               </h2>
               <p className="text-emerald-700 font-bold bg-emerald-50/50 py-3 px-5 rounded-2xl border border-emerald-100 inline-block text-base sm:text-lg">
-                Vielen Dank! Wir melden uns zeitnah bei Ihnen.
+                Vielen Dank für Ihre Anfrage!
               </p>
               <p className="text-slate-500 text-xs sm:text-sm pt-2 leading-relaxed">
-                Unsere Objektexperten prüfen Ihre Angaben und bereiten einen ersten kostenlosen Entwurf oder schlagen einen unverbindlichen Kurzeit-Besichtigungstermin vor Ort in Wien vor.
+                Wir prüfen Ihre Angaben und melden uns  bei Ihnen. Gemeinsam besprechen wir die gewünschten Arbeiten und das weitere Vorgehen.
               </p>
             </div>
 
-            <div className="border-t border-slate-100 pt-6 mt-4 flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-slate-400">
-              <span className="flex items-center gap-1">
-                <ShieldCheck className="h-4 w-4 text-emerald-600" /> DSGVO compliant
-              </span>
-              <span className="hidden sm:inline">•</span>
-              <span>Anfrage-ID: {Math.floor(100000 + Math.random() * 900000)}</span>
-              <span className="hidden sm:inline">•</span>
-              <span>In Kooperation mit der WKO Österreich</span>
-            </div>
+           <div className="border-t border-slate-100 pt-6 mt-4 flex items-center justify-center text-xs text-slate-400">
+  <span className="flex items-center gap-1">
+    <ShieldCheck className="h-4 w-4 text-emerald-600" />
+    Vertrauliche Bearbeitung Ihrer Anfrage
+  </span>
+</div>
 
             <button
               onClick={() => {
                 setIsSubmitted(false);
                 setFormData({
                   name: '',
-                  telefon: '',
-                  email: '',
-                  adresse: '',
-                  dienstleistung: 'Hausbetreuung komplett',
-                  objektgroesse: '',
+                  kontakt: '',
+                  ort: prefilledAdresse,
+                  dienstleistung: prefilledDienstleistung || 'Hausbetreuung',
                   nachricht: '',
                 });
               }}
@@ -169,7 +148,7 @@ export default function Angebot({ prefilledAdresse = '', prefilledDienstleistung
               
               <div className="space-y-1.5">
                 <h2 className="text-xl font-bold text-slate-900">Objektangaben & Kontaktdaten</h2>
-                <p className="text-slate-400 text-xs">Bitte füllen Sie das Formular aus, um ein maßgeschneidertes Angebot zu erhalten.</p>
+                <p className="text-slate-400 text-xs"> Bitte geben Sie Ihre Kontaktdaten und kurz die gewünschten Arbeiten an.</p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -194,72 +173,53 @@ export default function Angebot({ prefilledAdresse = '', prefilledDienstleistung
                   {errors.name && <p className="text-xs font-medium text-rose-600">{errors.name}</p>}
                 </div>
 
-                {/* 2. Telefon */}
+                {/* 2. Kontakt */}
                 <div className="space-y-2">
-                  <label htmlFor="telefon" className="block text-xs font-extrabold uppercase tracking-wide text-slate-500">
-                    Telefonnummer *
+                  <label htmlFor="kontakt" className="block text-xs font-extrabold uppercase tracking-wide text-slate-500">
+                    Telefon oder E-Mail-Adresse *
                   </label>
                   <div className="relative">
                     <input
-                      type="tel"
-                      id="telefon"
-                      name="telefon"
-                      value={formData.telefon}
+                      type="text"
+                      id="kontakt"
+                      name="kontakt"
+                      value={formData.kontakt}
                       onChange={handleChange}
-                      placeholder="z.B. +43 664 123 4567"
+                      placeholder="z.B. +43 664 123 4567 oder name@beispiel.at"
                       className={`w-full bg-slate-50 hover:bg-slate-100 focus:bg-white text-slate-900 rounded-xl px-4 py-3 text-sm border focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all ${
-                        errors.telefon ? 'border-rose-450 focus:ring-rose-500' : 'border-slate-200'
+                        errors.kontakt ? 'border-rose-450 focus:ring-rose-500' : 'border-slate-200'
                       }`}
                     />
                   </div>
-                  {errors.telefon && <p className="text-xs font-medium text-rose-600">{errors.telefon}</p>}
+                  {errors.kontakt && <p className="text-xs font-medium text-rose-600">{errors.kontakt}</p>}
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                {/* 3. E-mail */}
+                {/* 3. Adresse */}
                 <div className="space-y-2">
-                  <label htmlFor="email" className="block text-xs font-extrabold uppercase tracking-wide text-slate-500">
-                    E-Mail-Adresse *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="z.B. name@beispiel.at"
-                    className={`w-full bg-slate-50 hover:bg-slate-100 focus:bg-white text-slate-900 rounded-xl px-4 py-3 text-sm border focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all ${
-                      errors.email ? 'border-rose-450 focus:ring-rose-500' : 'border-slate-200'
-                    }`}
-                  />
-                  {errors.email && <p className="text-xs font-medium text-rose-600">{errors.email}</p>}
-                </div>
-
-                {/* 4. Adresse */}
-                <div className="space-y-2">
-                  <label htmlFor="adresse" className="block text-xs font-extrabold uppercase tracking-wide text-slate-500">
+                  <label htmlFor="ort" className="block text-xs font-extrabold uppercase tracking-wide text-slate-500">
                     Objektadresse *
                   </label>
                   <div className="relative">
                     <input
                       type="text"
-                      id="adresse"
-                      name="adresse"
-                      value={formData.adresse}
+                      id="ort"
+                      name="ort"
+                      value={formData.ort}
                       onChange={handleChange}
-                      placeholder="Strasse, Hausnummer, PLZ & Bezirk in Wien"
+                      placeholder="Strasse, Hausnummer, PLZ und Ort"
                       className={`w-full bg-slate-50 hover:bg-slate-100 focus:bg-white text-slate-900 rounded-xl px-4 py-3 text-sm border focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all ${
-                        errors.adresse ? 'border-rose-450 focus:ring-rose-500' : 'border-slate-200'
+                        errors.ort ? 'border-rose-450 focus:ring-rose-500' : 'border-slate-200'
                       }`}
                     />
                   </div>
-                  {errors.adresse && <p className="text-xs font-medium text-rose-600">{errors.adresse}</p>}
+                  {errors.ort && <p className="text-xs font-medium text-rose-600">{errors.ort}</p>}
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                {/* 5. Dienstleistung */}
+              <div>
+                {/* 4. Dienstleistung */}
                 <div className="space-y-2">
                   <label htmlFor="dienstleistung" className="block text-xs font-extrabold uppercase tracking-wide text-slate-500">
                     Gewünschte Dienstleistung *
@@ -279,38 +239,12 @@ export default function Angebot({ prefilledAdresse = '', prefilledDienstleistung
                   </select>
                 </div>
 
-                {/* 6. Objektgröße */}
-                <div className="space-y-2">
-                  <label htmlFor="objektgroesse" className="block text-xs font-extrabold uppercase tracking-wide text-slate-500">
-                    Objektgröße / Flächen *
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="text"
-                      id="objektgroesse"
-                      name="objektgroesse"
-                      value={formData.objektgroesse}
-                      onChange={handleChange}
-                      list="objektgroesse-list"
-                      placeholder="z.B. 12 Wohneinheiten, ca. 450 m²"
-                      className={`w-full bg-slate-50 hover:bg-slate-100 focus:bg-white text-slate-900 rounded-xl px-4 py-3 text-sm border focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all ${
-                        errors.objektgroesse ? 'border-rose-450 focus:ring-rose-500' : 'border-slate-200'
-                      }`}
-                    />
-                    <datalist id="objektgroesse-list">
-                      {sizeOptions.map((opt, index) => (
-                        <option key={index} value={opt} />
-                      ))}
-                    </datalist>
-                  </div>
-                  {errors.objektgroesse && <p className="text-xs font-medium text-rose-600">{errors.objektgroesse}</p>}
-                </div>
               </div>
 
-              {/* 7. Nachricht */}
+              {/* 5. Nachricht */}
               <div className="space-y-2">
                 <label htmlFor="nachricht" className="block text-xs font-extrabold uppercase tracking-wide text-slate-500">
-                  Besondere Anforderungen / Beschreibung *
+                  Was soll gemacht werden? *
                 </label>
                 <textarea
                   id="nachricht"
@@ -318,7 +252,7 @@ export default function Angebot({ prefilledAdresse = '', prefilledDienstleistung
                   rows={4}
                   value={formData.nachricht}
                   onChange={handleChange}
-                  placeholder="Beschreiben Sie hier Ihre Reinigungsintervalle, besondere Anforderungen an Grünpflege oder Winterdienst-Zonen."
+                  placeholder="Beschreiben Sie kurz, welche Arbeiten Sie benötigen. Z.B. Reparatur, Montage, Hausbetreuung, Gartenarbeit oder Winterdienst."
                   className={`w-full bg-slate-50 hover:bg-slate-100 focus:bg-white text-slate-900 rounded-xl px-4 py-3 text-sm border focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all ${
                     errors.nachricht ? 'border-rose-450 focus:ring-rose-500' : 'border-slate-200'
                   }`}
@@ -333,13 +267,13 @@ export default function Angebot({ prefilledAdresse = '', prefilledDienstleistung
                   className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/10 hover:shadow-emerald-600/20 active:scale-[0.99] transition-all cursor-pointer"
                 >
                   <Send className="h-4 w-4" />
-                  Kostenloses Angebot anfordern
+                  Anfrage senden
                 </button>
               </div>
 
               <div className="flex items-center gap-2 justify-center text-[10px] text-slate-400 font-medium">
                 <ShieldCheck className="h-4 w-4 text-emerald-600" />
-                <span>Unerlässlich datenschutzkonform nach DSGVO & TKG 2021 Normen.</span>
+                <span>Ihre Angaben werden vertraulich behandelt.</span>
               </div>
 
             </form>
@@ -359,8 +293,8 @@ export default function Angebot({ prefilledAdresse = '', prefilledDienstleistung
                   <div className="flex gap-2">
                     <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-slate-100 block">Haftungsübergang Winterdienst</strong>
-                      <span>Volle rechtliche Verantwortung gemäß § 93 StVO Österreich.</span>
+                      <strong className="text-slate-100 block"> Klare Absprachen</strong>
+                      <span>Leistung, Umfang und Termin werden vor Beginn gemeinsam besprochen.</span>
                     </div>
                   </div>
 
@@ -375,8 +309,8 @@ export default function Angebot({ prefilledAdresse = '', prefilledDienstleistung
                   <div className="flex gap-2">
                     <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-slate-100 block">Qualifizierte Fachkräfte</strong>
-                      <span>Echte Wiener Gebäudereinigermeister u. Gärtner.</span>
+                      <strong className="text-slate-100 block">Zuverlässige Arbeit</strong>
+                      <span> Wir arbeiten sorgfältig</span>
                     </div>
                   </div>
                 </div>
@@ -385,15 +319,15 @@ export default function Angebot({ prefilledAdresse = '', prefilledDienstleistung
               <div className="space-y-4 pt-6 border-t border-slate-800 text-[11px] text-slate-400">
                 <p>
                   <strong>Haben Sie dringende Fragen?</strong><br />
-                  Rufen Sie direkt unsere Zentrale an:
+                 Schreiben Sie uns gerne. Wir melden uns persönlich bei Ihnen:
                 </p>
-                <a
+                {/* <a
                   href={`tel:${company.phoneRaw}`}
                   className="flex items-center gap-2 bg-slate-800 hover:bg-slate-750 text-emerald-400 font-bold p-3 rounded-xl border border-slate-700 hover:border-slate-600 transition-colors"
                 >
                   <Phone className="h-4 w-4 text-emerald-500" />
                   <span>{company.phone}</span>
-                </a>
+                </a> */}
               </div>
 
             </div>

@@ -17,15 +17,20 @@ export default function Footer({ setActiveTab, onEmergencyClick, onOpenLegalModa
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const keywords = [
-    'Hausmeisterservice Wien',
-    'Hausbetreuung Wien',
-    'Hausmeister Wien',
-    'Gebäudebetreuung Wien',
-    'Gartenpflege Wien',
-    'Winterdienst Wien',
-    'Objektbetreuung Wien'
-  ];
+ const keywords = [
+  'Hausmeisterservice Wien',
+  'Hausbetreuung Wien',
+  'Hausmeister Wiener Neustadt',
+  'Hausbetreuung Wiener Neustadt',
+  'Kleinreparaturen Wien',
+  'Kleinreparaturen Wiener Neustadt',
+  'Gartenpflege Wien',
+  'Gartenpflege Wiener Neustadt',
+  'Rasenmähen Wiener Neustadt',
+  'Winterdienst Wien',
+  'Winterdienst Wiener Neustadt',
+  'Hausmeisterservice Niederösterreich'
+];
 
   return (
     <footer className="bg-slate-900 text-slate-300 pt-16 pb-8 border-t border-slate-800">
@@ -44,17 +49,18 @@ export default function Footer({ setActiveTab, onEmergencyClick, onOpenLegalModa
             </div>
             
             <p className="text-sm text-slate-400 leading-relaxed">
-              Ihr Partner für die professionelle Objekt- und Gebäudebetreuung in Wien, Niederösterreich und dem gesamten Umland. Zuverlässige Services nach österreichischen Standards.
+              Zuverlässige Unterstützung bei Kleinreparaturen, Hausbetreuung,
+              Gartenpflege und weiteren Arbeiten rund ums Haus.
             </p>
 
             <div className="flex flex-col gap-2 pt-2">
               <div className="flex items-center gap-2 text-xs text-slate-400 bg-slate-800/50 p-2 rounded border border-slate-800">
                 <Award className="h-4 w-4 text-emerald-500 shrink-0" />
-                <span>Österreichischer Qualitätsbetrieb</span>
+                <span>Faire Vereinbarungen</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-slate-400 bg-slate-800/50 p-2 rounded border border-slate-800">
                 <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-                <span>Haftpflichtversichert bis € 5.000.000</span>
+                <span>Betriebshaftpflichtversichert</span>
               </div>
             </div>
           </div>
@@ -72,17 +78,17 @@ export default function Footer({ setActiveTab, onEmergencyClick, onOpenLegalModa
               </li>
               <li>
                 <button onClick={() => handleNavClick('services')} className="hover:text-emerald-500 transition-colors">
-                  Serviceleistungen 
+                  Leistungen
                 </button>
               </li>
               <li>
                 <button onClick={() => handleNavClick('about')} className="hover:text-emerald-500 transition-colors">
-                  Über unser Unternehmen
+                  Über uns
                 </button>
               </li>
               <li>
                 <button onClick={() => handleNavClick('references')} className="hover:text-emerald-500 transition-colors">
-                  Kundenreferenzen
+                  Referenzen
                 </button>
               </li>
               <li>
@@ -92,7 +98,7 @@ export default function Footer({ setActiveTab, onEmergencyClick, onOpenLegalModa
               </li>
               <li>
                 <button onClick={() => handleNavClick('contact')} className="hover:text-emerald-500 transition-colors">
-                  Anfrage & Kontakt
+                  Kontakt
                 </button>
               </li>
               <li>
@@ -106,7 +112,7 @@ export default function Footer({ setActiveTab, onEmergencyClick, onOpenLegalModa
           {/* Column 3: Contact & Notdienst */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-5 pb-2 border-b border-slate-800">
-              Kontakt & Notdienst
+              Kontakt 
             </h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-3">
@@ -134,7 +140,7 @@ export default function Footer({ setActiveTab, onEmergencyClick, onOpenLegalModa
                   className="w-full flex items-center justify-center gap-1.5 bg-rose-600/20 hover:bg-rose-600/30 text-rose-400 hover:text-rose-300 font-semibold py-2 px-3 rounded-lg border border-rose-500/35 transition-colors text-xs"
                 >
                   <span className="h-2 w-2 rounded-full bg-rose-500 animate-pulse"></span>
-                  Notdienst-Zentrale 24/7
+                 Anfrage & Termin
                 </button>
               </li>
             </ul>
@@ -142,40 +148,56 @@ export default function Footer({ setActiveTab, onEmergencyClick, onOpenLegalModa
 
           {/* Column 4: Hours & Service Area */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-5 pb-2 border-b border-slate-800">
-              Öffnungszeiten
-            </h3>
-            <ul className="space-y-3.5 text-sm mb-4">
-              <li className="flex items-start gap-3">
-                <Clock className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
-                <span className="text-slate-400">
-                  <strong className="text-slate-200">Bürozeiten:</strong><br />
-                  Montag – Freitag: 08:00 – 17:00 Uhr<br />
-                  Samstag: 09:00 – 13:00 Uhr
-                </span>
-              </li>
-              <li className="text-xs text-rose-400 flex items-center gap-1.5 font-medium">
-                <span className="h-1.5 w-1.5 bg-rose-500 rounded-full"></span>
-                Notdienst telefonisch immer erreichbar
-              </li>
-            </ul>
-            <div className="pt-4 border-t border-slate-800 space-y-2">
-              <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest block">Niederösterreich-Standorte:</span>
-              <div className="grid grid-cols-2 gap-2 text-[11px]">
-                <button onClick={() => handleNavClick('city-bad-erlach')} className="hover:text-emerald-400 text-slate-400 text-left transition-colors font-semibold">
-                  • Bad Erlach (2822)
-                </button>
-                <button onClick={() => handleNavClick('city-neunkirchen')} className="hover:text-emerald-400 text-slate-400 text-left transition-colors font-semibold">
-                  • Neunkirchen (2620)
-                </button>
-                <button onClick={() => handleNavClick('city-ternitz')} className="hover:text-emerald-400 text-slate-400 text-left transition-colors font-semibold">
-                  • Ternitz (2630)
-                </button>
-                <button onClick={() => handleNavClick('city-wiener-neustadt')} className="hover:text-emerald-400 text-slate-400 text-left transition-colors font-semibold">
-                  • Wiener Neustadt (2700)
-                </button>
-              </div>
-            </div>
+  <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-5 pb-2 border-b border-slate-800">
+    Öffnungszeiten
+  </h3>
+
+  <ul className="space-y-3.5 text-sm mb-4">
+    <li className="flex items-start gap-3">
+      <Clock className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
+      <span className="text-slate-400">
+        <strong className="text-slate-200">Erreichbarkeit:</strong><br />
+        Montag – Freitag: 08:00 – 17:00 Uhr<br />
+        Samstag: 09:00 – 13:00 Uhr
+      </span>
+    </li>
+  </ul>
+
+  <div className="pt-4 border-t border-slate-800 space-y-2">
+    <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest block">
+      Einsatzgebiet:
+    </span>
+
+    <div className="grid grid-cols-2 gap-2 text-[11px]">
+      <button
+        onClick={() => handleNavClick('city-bad-erlach')}
+        className="hover:text-emerald-400 text-slate-400 text-left transition-colors font-semibold"
+      >
+        • Bad Erlach (2822)
+      </button>
+
+      <button
+        onClick={() => handleNavClick('city-neunkirchen')}
+        className="hover:text-emerald-400 text-slate-400 text-left transition-colors font-semibold"
+      >
+        • Neunkirchen (2620)
+      </button>
+
+      <button
+        onClick={() => handleNavClick('city-ternitz')}
+        className="hover:text-emerald-400 text-slate-400 text-left transition-colors font-semibold"
+      >
+        • Ternitz (2630)
+      </button>
+
+      <button
+        onClick={() => handleNavClick('city-wiener-neustadt')}
+        className="hover:text-emerald-400 text-slate-400 text-left transition-colors font-semibold"
+      >
+        • Wiener Neustadt (2700)
+      </button>
+    </div>
+  </div>
             <div className="pt-3 border-t border-slate-800 flex flex-wrap gap-2 text-xs">
               <button 
                 onClick={() => setShowSeoDashboard(!showSeoDashboard)}
@@ -252,7 +274,7 @@ export default function Footer({ setActiveTab, onEmergencyClick, onOpenLegalModa
             <button onClick={() => onOpenLegalModal('datenschutz')} className="hover:underline hover:text-slate-400">
               Datenschutzerklärung
             </button>
-            <button onClick={() => onOpenLegalModal('barrierefreiheit')} className="hover:underline hover:text-slate-400 font-semibold text-emerald-500/90 hover:text-emerald-400 flex items-center gap-1">
+            <button onClick={() => onOpenLegalModal('barrierefreiheit')} className="hover:underline font-semibold text-emerald-500/90 hover:text-emerald-400 flex items-center gap-1">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
               Barrierefreiheitserklärung (WZG)
             </button>

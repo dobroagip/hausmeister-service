@@ -261,7 +261,7 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
               onClick={() => onNavigate('services')}
               className="bg-slate-50 hover:bg-slate-100 text-slate-800 font-bold text-sm py-4 px-8 rounded-xl border border-slate-200 inline-flex items-center gap-2 shadow-sm transition-all"
             >
-              Alle 10 Serviceleistungen anzeigen
+              Alle Leistungen anzeigen
               <ArrowRight className="h-4 w-4" />
             </button>
           </div>

@@ -68,11 +68,11 @@ All values now come from: `src/data/company.ts`
 ```typescript
 export const company = {
   name: "Hausmeister Service Wien",
-  phone: "+43 664 XXX XXXX",
-  phoneRaw: "+43664XXXXXXX",
-  emergency: "+43 664 XXX XXXX",
+  phone: "+43 677 63460530",
+  phoneRaw: "+4367763460530",
+  emergency: "+43 6647763460530",
   email: "office@deinedomain.at",
-  whatsapp: "+43664XXXXXXX",
+  whatsapp: "+4367763460530",
   address: "Wien, Österreich",
   
   stats: {
