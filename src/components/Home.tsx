@@ -106,8 +106,8 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
             </h1>
 
             <p className="text-base sm:text-lg lg:text-xl text-slate-300 font-medium leading-relaxed max-w-2xl">
-  {company.hero.description}
-</p>
+              {company.hero.description}
+            </p>
 
             {/* Info Point indicators */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 pt-2 text-xs sm:text-sm text-slate-200">
@@ -122,18 +122,11 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
             {/* Call To Actions */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <button
-                onClick={() => onNavigate('contact')}
+                onClick={() => onNavigate('angebot')}
                 className="bg-linear-to-r from-blue-700 to-emerald-600 hover:from-blue-800 hover:to-emerald-700 text-white font-extrabold text-[15px] px-8 py-4 rounded-xl shadow-lg shadow-emerald-950/20 active:scale-98 transition-all hover:-translate-y-0.5"
               >
                 Angebot anfordern
               </button>
-              <button
-  onClick={onEmergencyClick}
-  className="bg-white/10 hover:bg-white/20 text-white font-bold text-[15px] px-8 py-4 rounded-xl border border-white/20 backdrop-blur-md transition-all text-center inline-flex items-center justify-center gap-2"
->
-  <MessageCircle className="h-5 w-5" />
-  Anfrage senden
-</button>
             </div>
 
           </div>
@@ -197,15 +190,15 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
                 Kleine Reparaturen, Montagen und praktische Arbeiten rund um Haus, Wohnung und Objekt.
               </p>
               <button
-  onClick={() => {
-    sessionStorage.setItem('scrollToService', 'hausmeisterservice');
-    onNavigate('services');
-  }}
-  className="text-blue-700 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
->
-  Details ansehen
-  <ArrowRight className="h-4 w-4" />
-</button>
+                onClick={() => {
+                  sessionStorage.setItem('scrollToService', 'hausmeisterservice');
+                  onNavigate('services');
+                }}
+                className="text-blue-700 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+              >
+                Details ansehen
+                <ArrowRight className="h-4 w-4" />
+              </button>
             </div>
 
             {/* Service 2: Gartenpflege */}
@@ -220,15 +213,15 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
                 Rasenmähen, Hecken- und Strauchschnitt sowie einfache Arbeiten rund um Garten und Grünflächen.
               </p>
               <button
-  onClick={() => {
-    sessionStorage.setItem('scrollToService', 'gartenpflege');
-    onNavigate('services');
-  }}
-  className="text-emerald-600 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
->
-  Details ansehen
-  <ArrowRight className="h-4 w-4" />
-</button>
+                onClick={() => {
+                  sessionStorage.setItem('scrollToService', 'gartenpflege');
+                  onNavigate('services');
+                }}
+                className="text-emerald-600 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+              >
+                Details ansehen
+                <ArrowRight className="h-4 w-4" />
+              </button>
             </div>
 
             {/* Service 3: Winterdienst */}
@@ -243,15 +236,15 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
                 Schneeräumung und Streudienst für Wege, Zugänge und Flächen rund um Ihre Immobilie.
               </p>
               <button
-  onClick={() => {
-    sessionStorage.setItem('scrollToService', 'winterdienst');
-    onNavigate('services');
-  }}
-  className="text-blue-700 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
->
-  Details ansehen
-  <ArrowRight className="h-4 w-4" />
-</button>
+                onClick={() => {
+                  sessionStorage.setItem('scrollToService', 'winterdienst');
+                  onNavigate('services');
+                }}
+                className="text-blue-700 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+              >
+                Details ansehen
+                <ArrowRight className="h-4 w-4" />
+              </button>
             </div>
 
           </div>
@@ -377,15 +370,15 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto text-center shrink-0">
-  <button
-    onClick={onEmergencyClick}
-    className="bg-rose-600 hover:bg-rose-500 active:scale-95 text-white font-black text-base px-8 py-4.5 rounded-xl shadow-lg shadow-rose-900/30 transition-all flex items-center justify-center gap-2"
-    id="emergency-trigger-btn"
-  >
-    <MessageCircle className="h-5 w-5" />
-    Anfrage senden
-  </button>
-</div>
+              <button
+                onClick={onEmergencyClick}
+                className="bg-rose-600 hover:bg-rose-500 active:scale-95 text-white font-black text-base px-8 py-4.5 rounded-xl shadow-lg shadow-rose-900/30 transition-all flex items-center justify-center gap-2"
+                id="emergency-trigger-btn"
+              >
+                <MessageCircle className="h-5 w-5" />
+                Anfrage senden
+              </button>
+            </div>
           </div>
         </div>
       </section>

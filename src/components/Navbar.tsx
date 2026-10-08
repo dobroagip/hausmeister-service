@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Shield, PhoneCall, Menu, X, ChevronDown, CheckCircle } from 'lucide-react';
+import { Shield, PhoneCall, Menu, X, ChevronDown, CheckCircle,   MessageCircle, } from 'lucide-react';
 import { company } from '../data/company';
 
 interface NavbarProps {
@@ -152,21 +152,14 @@ export default function Navbar({ activeTab, setActiveTab, onEmergencyClick }: Na
           </nav>
 
           {/* Quick Action Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
-            <button
-              onClick={onEmergencyClick}
-              className="flex items-center gap-1.5 text-rose-600 hover:bg-rose-50 px-3.5 py-2 rounded-lg font-semibold text-sm border border-rose-200 hover:border-rose-300 transition-all duration-200"
-            >
-              <PhoneCall className="h-4 w-4" />
-              Anfrage senden : {company.emergency}
-            </button>
-            <button 
-              onClick={() => handleNavClick('angebot')}
+      <div className="hidden lg:flex items-center">
+        <button
+            onClick={() => handleNavClick('angebot')}
               className="bg-blue-700 hover:bg-blue-800 text-white font-semibold text-sm px-5 py-2.5 rounded-lg shadow-sm shadow-blue-700/10 transition-colors duration-200"
-            >
-              Angebot anfordern
-            </button>
-          </div>
+        >
+            Angebot anfordern
+         </button>
+      </div>
 
           {/* Mobile Menu Trigger */}
           <div className="flex lg:hidden items-center gap-2">
@@ -209,13 +202,13 @@ export default function Navbar({ activeTab, setActiveTab, onEmergencyClick }: Na
             ))}
 
             <div className="border-t border-slate-100 my-4 pt-4 space-y-3 px-4">
-              <button 
-                onClick={onEmergencyClick}
-                className="w-full flex items-center justify-center gap-2 bg-rose-600 hover:bg-rose-700 text-white py-3 rounded-lg font-bold shadow-md shadow-rose-600/10"
-              >
-                <PhoneCall className="h-5 w-5" />
-                Notdienst anrufen
-              </button>
+              <button
+  onClick={() => handleNavClick('kontakt')}
+  className="w-full flex items-center justify-center gap-2 bg-rose-600 hover:bg-rose-700 text-white py-3 rounded-lg font-bold shadow-md shadow-rose-600/10"
+>
+  <MessageCircle className="h-5 w-5" />
+  Anfrage senden
+</button>
               <button 
                 onClick={() => handleNavClick('angebot')}
                 className="w-full flex justify-center bg-blue-700 hover:bg-blue-800 text-white py-3 rounded-lg font-bold shadow-sm"

@@ -136,7 +136,7 @@ export default function Footer({ setActiveTab, onEmergencyClick, onOpenLegalModa
               </li>
               <li className="pt-2">
                 <button 
-                  onClick={onEmergencyClick}
+                onClick={() => handleNavClick('angebot')}
                   className="w-full flex items-center justify-center gap-1.5 bg-rose-600/20 hover:bg-rose-600/30 text-rose-400 hover:text-rose-300 font-semibold py-2 px-3 rounded-lg border border-rose-500/35 transition-colors text-xs"
                 >
                   <span className="h-2 w-2 rounded-full bg-rose-500 animate-pulse"></span>

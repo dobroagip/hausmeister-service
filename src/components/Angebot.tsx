@@ -72,12 +72,27 @@ export default function Angebot({ prefilledAdresse = '', prefilledDienstleistung
   };
 
   const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    if (validate()) {
-      setIsSubmitted(true);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
+  e.preventDefault();
+
+  if (!validate()) {
+    return;
+  }
+
+  const text = `Hallo! Ich möchte eine Anfrage stellen.
+
+Leistung: ${formData.dienstleistung}
+Ort: ${formData.ort}
+
+Was soll gemacht werden:
+${formData.nachricht}
+
+Name: ${formData.name}
+Kontakt: ${formData.kontakt}`;
+
+  const whatsappUrl = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(text)}`;
+
+  window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+};
 
   return (
     <div className="bg-slate-50 py-12 sm:py-16 md:py-24 font-sans text-slate-800" id="angebot-page">

@@ -69,7 +69,7 @@ export const services: Service[] = [
   longDesc:
     'Wir übernehmen die Schneeräumung und Streuung von Gehwegen, Zufahrten und geeigneten Außenflächen nach Vereinbarung. Die Durchführung erfolgt entsprechend den gesetzlichen Vorgaben gemäß § 93 StVO.',
 
-  category: 'Winterdienst',
+  category: 'HAUSSERVICE',
 
   pricingBasis: 'Saison-Pauschale nach Objektgröße und Umfang',
 
