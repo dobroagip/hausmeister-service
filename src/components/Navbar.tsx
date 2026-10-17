@@ -1,14 +1,13 @@
 import { useState } from 'react';
-import { Shield, PhoneCall, Menu, X, ChevronDown, CheckCircle,   MessageCircle, } from 'lucide-react';
+import { Shield, PhoneCall, Menu, X, ChevronDown, CheckCircle, } from 'lucide-react';
 import { company } from '../data/company';
 
 interface NavbarProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
-  onEmergencyClick: () => void;
 }
 
-export default function Navbar({ activeTab, setActiveTab, onEmergencyClick }: NavbarProps) {
+export default function Navbar({ activeTab, setActiveTab,}: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
 
@@ -163,13 +162,13 @@ export default function Navbar({ activeTab, setActiveTab, onEmergencyClick }: Na
 
           {/* Mobile Menu Trigger */}
           <div className="flex lg:hidden items-center gap-2">
-            <button 
+            {/* <button 
               onClick={onEmergencyClick}
               className="p-2 text-rose-600 bg-rose-50 rounded-lg border border-rose-100"
               title="Notdienst anrufen"
             >
               <PhoneCall className="h-5 w-5" />
-            </button>
+            </button> */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg bg-slate-50 text-slate-700 border border-slate-200 hover:bg-slate-100 transition-colors"
@@ -202,13 +201,6 @@ export default function Navbar({ activeTab, setActiveTab, onEmergencyClick }: Na
             ))}
 
             <div className="border-t border-slate-100 my-4 pt-4 space-y-3 px-4">
-              <button
-  onClick={() => handleNavClick('kontakt')}
-  className="w-full flex items-center justify-center gap-2 bg-rose-600 hover:bg-rose-700 text-white py-3 rounded-lg font-bold shadow-md shadow-rose-600/10"
->
-  <MessageCircle className="h-5 w-5" />
-  Anfrage senden
-</button>
               <button 
                 onClick={() => handleNavClick('angebot')}
                 className="w-full flex justify-center bg-blue-700 hover:bg-blue-800 text-white py-3 rounded-lg font-bold shadow-sm"

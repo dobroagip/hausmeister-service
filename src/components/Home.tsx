@@ -371,7 +371,7 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
 
             <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto text-center shrink-0">
               <button
-                onClick={onEmergencyClick}
+               onClick={() => onNavigate('angebot')}
                 className="bg-rose-600 hover:bg-rose-500 active:scale-95 text-white font-black text-base px-8 py-4.5 rounded-xl shadow-lg shadow-rose-900/30 transition-all flex items-center justify-center gap-2"
                 id="emergency-trigger-btn"
               >

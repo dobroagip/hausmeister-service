@@ -99,7 +99,7 @@ export default function App() {
       case 'about':
         return <About />;
       case 'references':
-        return <References />;
+        return <References onNavigate={handleTabNavigation} />;
       case 'blog':
         return <Blog />;
       case 'contact':
@@ -126,7 +126,6 @@ export default function App() {
       <Navbar 
         activeTab={activeTab} 
         setActiveTab={setActiveTab} 
-        onEmergencyClick={handleEmergencyClick} 
       />
 
       {/* Main Content View with Fade Transition Container */}

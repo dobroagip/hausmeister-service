@@ -110,6 +110,13 @@ Kontakt: ${formData.kontakt}`;
           <p className="text-slate-550 text-sm sm:text-base max-w-2xl mx-auto">
           Beschreiben Sie kurz, welche Arbeiten Sie benötigen. Wir prüfen Ihre Anfrage und melden uns  bei Ihnen.
           </p>
+          <button
+  type="button"
+  onClick={() => window.location.href = '/'}
+  className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-blue-700 transition-colors"
+>
+  ← Zur Startseite
+</button>
         </div>
 
         {isSubmitted ? (
