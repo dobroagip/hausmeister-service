@@ -126,7 +126,7 @@ export default function LegalModal({ isOpen, onClose, initialTab = 'impressum' }
           {[
             { id: 'impressum', label: 'Impressum', icon: FileText, desc: '§ 5 ECG / § 25 MedG' },
             { id: 'datenschutz', label: 'Datenschutz', icon: Shield, desc: 'DSGVO & DSG / TKG' },
-            { id: 'barrierefreiheit', label: 'Barrierefreiheit', icon: Eye, desc: 'WZG / WCAG 2.1 AA' },
+             { id: 'barrierefreiheit', label: 'Barrierefreiheit', icon: Eye, desc: 'Informationen zur Zugänglichkeit' }, 
             { id: 'agb', label: 'AGB', icon: Info, desc: 'Gewerbebedingungen' }
           ].map((tab) => {
             const Icon = tab.icon;
@@ -154,311 +154,428 @@ export default function LegalModal({ isOpen, onClose, initialTab = 'impressum' }
         {/* Modal Body Container */}
         <div className="p-6 md:p-8 overflow-y-auto space-y-6 grow max-h-[60vh] text-sm leading-relaxed">
 
-          {/* 1. IMPRESSUM TABS */}
-          {activeTab === 'impressum' && (
-            <div className="space-y-6">
-              <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-100 flex items-start gap-3">
-                <Info className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
-                <div className="text-xs text-emerald-800">
-                  <strong>Rechtlicher Hinweis für Österreich:</strong> Dieses Impressum erfüllt die Offenlegungspflichten nach <strong>§ 5 E-Commerce-Gesetz (ECG)</strong>, <strong>§ 14 Unternehmensgesetzbuch (UGB)</strong>, <strong>§ 25 Mediengesetz (MedG)</strong> sowie die Informationspflichten der <strong>Gewerbeordnung (GewO)</strong>. Diese Daten können Sie nach Ihren Wünschen anpassen.
-                </div>
-              </div>
+       {/* 1. IMPRESSUM TABS */}
+{activeTab === 'impressum' && (
+  <div className="space-y-6">
 
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-2.5">1. Diensteanbieter & Medieninhaber</h4>
-                  <p className="text-slate-700 font-mono text-xs bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1.5">
-                    <strong className="text-slate-900 font-sans text-sm block not-italic">[Name des Einzelunternehmers oder der Gesellschaft GmbH/KG]</strong>
-                    <span>Unternehmensgegenstand: Hausmeisterservice, Denkmal-, Fassaden- und Gebäudereinigung / Hausbetreuung</span><br />
-                    <span>Sitz / Anschrift: [Straße, Hausnummer, Tür, Postleitzahl, Ort, Österreich]</span><br />
-                    <span>Firmenbuchnummer: [Z.B. FN XXXXXX y]</span><br />
-                    <span>Firmenbuchgericht: [Z.B. Handelsgericht Wien]</span>
-                  </p>
-                </div>
+    <div className="p-4 bg-blue-50 rounded-xl border border-blue-100 flex items-start gap-3">
+      <Info className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
+      <div className="text-xs text-blue-800">
+        <strong>Impressum:</strong> Angaben zum Diensteanbieter und zur Gewerbeberechtigung.
+      </div>
+    </div>
 
-                <div>
-                  <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-2.5">2. Kontaktdaten</h4>
-                  <table className="w-full text-xs sm:text-sm text-left border-collapse">
-                    <tbody>
-                      <tr className="border-b border-slate-100">
-                        <td className="py-2.5 font-bold text-slate-500 w-1/3">Telefon:</td>
-                        <td className="py-2.5 font-medium text-slate-800">[Telefonnummer, z.B. +43 (1) 234 567 89]</td>
-                      </tr>
-                      <tr className="border-b border-slate-100">
-                        <td className="py-2.5 font-bold text-slate-500">E-Mail:</td>
-                        <td className="py-2.5 font-medium text-emerald-600 hover:underline">[E-Mail-Adresse, z.B. office@firma.at]</td>
-                      </tr>
-                      <tr className="border-b border-slate-100">
-                        <td className="py-2.5 font-bold text-slate-500">Website:</td>
-                        <td className="py-2.5 font-medium text-slate-800">[Ihre Web-URL]</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+    <div className="space-y-5">
 
-                <div>
-                  <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-2.5">3. Register & Kammerdaten</h4>
-                  <div className="space-y-3 text-slate-600">
-                    <p>
-                      <strong>Kammerzugehörigkeit:</strong> Mitglied der Wirtschaftskammer (WKO) – Wirtschaftskammer Wien / Niederösterreich.<br />
-                      Fachgruppe / Sparte: <strong>Gewerbliche Dienstleister</strong> (Denkmal-, Fassaden- und Gebäudereiniger, Hausbetreuer, Gärtner).
-                    </p>
-                    <p>
-                      <strong>Aufsichtsbehörde / Gewerbebehörde:</strong> Magistratisches Bezirksamt der Stadt Wien (für den jeweiligen Bezirk) bzw. Bezirkshauptmannschaft.
-                    </p>
-                    <p>
-                      <strong>Anwendbare gewerberechtliche Vorschriften:</strong> Österreichische Gewerbeordnung (GewO 1994) in der jeweils gültigen Fassung. Sie können diese Vorschriften online im Rechtsinformationssystem des Bundes (RIS) unter <a href="https://www.ris.bka.gv.at" target="_blank" rel="noreferrer" className="text-emerald-600 hover:underline">www.ris.bka.gv.at</a> einsehen.
-                    </p>
-                    <p>
-                      <strong>Berufsbezeichnung:</strong> Hausbetreuung, Gartenpflege sowie Denkmal-, Fassaden- und Gebäudereinigung (freie Gewerbe gemäß GewO).
-                    </p>
-                    <p>
-                      <strong>Umsatzsteuer-Identifikationsnummer (UID):</strong> [Z.B. ATUXXXXXXXX]
-                    </p>
-                  </div>
-                </div>
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          1. Diensteanbieter
+        </h4>
 
-                <div>
-                  <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-2.5">4. Eigentumsverhältnisse & Offenlegung nach § 25 Mediengesetz</h4>
-                  <div className="space-y-2 text-slate-600">
-                    <p>
-                      <strong>Geschäftsführung / Vertretungsbefugte Organe:</strong> [Name des Geschäftsführers oder Inhabers]
-                    </p>
-                    <p>
-                      <strong>Blattlinie/Grundlegende Richtung:</strong> Diese Website dient der Information der Öffentlichkeit über unsere gewerblichen Leistungen im Bereich Hausbetreuung, Winterdienst, Gartenpflege und der gewerblichen Gebäudereinigung in Österreich sowie der allgemeinen Beratung von Immobilieneigentümern und Hausverwaltungen.
-                    </p>
-                  </div>
-                </div>
+        <div className="text-sm text-slate-700 bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1.5">
+          <p>
+            <strong className="text-slate-900">Sergiy Kyslytsyn</strong>
+          </p>
+          <p>Fabriksgasse 17/8</p>
+          <p>2822 Bad Erlach</p>
+          <p>Österreich</p>
+        </div>
+      </div>
 
-                <div>
-                  <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-2.5">5. Haftungsausschluss & Urheberrecht</h4>
-                  <div className="space-y-2 text-slate-600 text-xs">
-                    <p>
-                      <strong>Haftung für Inhalte:</strong> Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
-                    </p>
-                    <p>
-                      <strong>Urheberrecht und Markenrecht:</strong> Alle auf dieser Webseite veröffentlichten Texte, Bilder, Grafiken und Layouts unterliegen dem Urheberrecht. Jede Vervielfältigung, Verbreitung, Speicherung oder Wiedergabe bedarf der vorherigen schriftlichen Zustimmung des Medieninhabers.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          2. Kontaktdaten
+        </h4>
+
+        <table className="w-full text-sm text-left border-collapse">
+          <tbody>
+            <tr className="border-b border-slate-100">
+              <td className="py-2.5 font-bold text-slate-500 w-1/3">
+                Telefon:
+              </td>
+              <td className="py-2.5 font-medium text-slate-800">
+                +43 677 63460530
+              </td>
+            </tr>
+
+            <tr>
+              <td className="py-2.5 font-bold text-slate-500">
+                E-Mail:
+              </td>
+              <td className="py-2.5 font-medium">
+                <a
+                  href="mailto:mytechnik.service@gmx.at"
+                  className="text-blue-700 hover:underline"
+                >
+                  mytechnik.service@gmx.at
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          3. Gewerbeberechtigung
+        </h4>
+
+        <div className="text-sm text-slate-700 space-y-3">
+
+          <p>
+            <strong>Gewerbeart:</strong> Freies Gewerbe
+          </p>
+
+          <p>
+            <strong>Gewerbewortlaut:</strong><br />
+            Hausbetreuung, bestehend in der Durchführung einfacher
+            Reinigungstätigkeiten einschließlich objektbezogener einfacher
+            Wartungstätigkeiten
+          </p>
+
+          <p>
+            <strong>GISA-Zahl:</strong> 40319285
+          </p>
+
+          <p>
+            <strong>Gewerbebehörde:</strong><br />
+            Bezirkshauptmannschaft Wiener Neustadt
+          </p>
+
+          <p>
+            <strong>Standort der Gewerbeberechtigung:</strong><br />
+            2822 Bad Erlach, Fabriksgasse 17, Tür 8
+          </p>
+
+          <p>
+            <strong>Gewerbeberechtigung entstanden:</strong> 03.11.2026
+          </p>
+
+        </div>
+      </div>
+
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          4. Grundlegende Richtung der Website
+        </h4>
+
+        <p className="text-sm text-slate-600">
+          Diese Website informiert über die angebotenen Leistungen im Bereich
+          Hausbetreuung, Kleinreparaturen, Montagen, Gartenpflege,
+          Rasenmähen und weitere einfache Arbeiten rund um Haus und Immobilie.
+        </p>
+      </div>
+
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          5. Anwendbare Rechtsvorschriften
+        </h4>
+
+        <p className="text-sm text-slate-600">
+          Es gelten die jeweils anwendbaren österreichischen Rechtsvorschriften,
+          insbesondere die Gewerbeordnung (GewO) in der jeweils gültigen Fassung.
+        </p>
+
+        <p className="text-sm mt-2">
+          <a
+            href="https://www.ris.bka.gv.at"
+            target="_blank"
+            rel="noreferrer"
+            className="text-blue-700 hover:underline"
+          >
+            Rechtsinformationssystem des Bundes (RIS)
+          </a>
+        </p>
+      </div>
+
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          6. Haftung für Inhalte
+        </h4>
+
+        <p className="text-sm text-slate-600">
+          Die Inhalte dieser Website werden nach bestem Wissen erstellt.
+          Trotz sorgfältiger Erstellung kann keine Gewähr für die
+          Vollständigkeit, Richtigkeit und Aktualität aller Inhalte übernommen
+          werden.
+        </p>
+      </div>
+
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          7. Urheberrecht
+        </h4>
+
+        <p className="text-sm text-slate-600">
+          Die auf dieser Website veröffentlichten Texte, Bilder, Grafiken
+          und sonstigen Inhalte sind urheberrechtlich geschützt, soweit nicht
+          anders angegeben.
+        </p>
+      </div>
+
+    </div>
+  </div>
+)}
 
           {/* 2. DATENSCHUTZ TABS */}
-          {activeTab === 'datenschutz' && (
-            <div className="space-y-6">
-              <div className="p-4 bg-blue-50 rounded-xl border border-blue-100 flex items-start gap-3">
-                <Shield className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
-                <div className="text-xs text-blue-800">
-                  <strong>Datenschutzerklärung nach der DSGVO & österreichischem DSG 2018:</strong> Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Nachfolgend informieren wir Sie gemäß Art. 13 DSGVO über die Verarbeitung Ihrer Daten auf unserer Webseite.
-                </div>
-              </div>
+{activeTab === 'datenschutz' && (
+  <div className="space-y-6">
 
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-2.5">1. Verantwortlicher für die Datenverarbeitung</h4>
-                  <p className="text-slate-600">
-                    Für Datenverarbeitungen auf dieser Website verantwortlich ist:<br />
-                    <strong>[Ihr Name / Ihre Firma]</strong><br />
-                    [Anschrift]<br />
-                    E-Mail: <span className="text-emerald-600">[E-Mail-Adresse]</span>
-                  </p>
-                </div>
+    <div className="p-4 bg-blue-50 rounded-xl border border-blue-100 flex items-start gap-3">
+      <Shield className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
+      <div className="text-xs text-blue-800">
+        <strong>Datenschutzerklärung:</strong> Informationen über die
+        Verarbeitung personenbezogener Daten auf dieser Website.
+      </div>
+    </div>
 
-                <div>
-                  <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-2.5">2. Erhebung und Aufbewahrung von Daten beim Website-Aufruf</h4>
-                  <p className="text-slate-600">
-                    Beim Aufrufen unserer Website speichert der Webserver automatisch temporäre Verbindungsprotokolle (Server-Logfiles). Dies umfasst IP-Adressen, Datum und Uhrzeit des Abrufs, Browsertyp, Betriebssystem und aufgerufene Seiten des Web-Angebots. Diese Protokolldaten dienen ausschließlich Systemsicherheitszwecken und werden nach wenigen Tagen automatisch anonymisiert oder gelöscht (Art. 6 Abs. 1 lit. f DSGVO).
-                  </p>
-                </div>
+    <div className="space-y-5">
 
-                <div>
-                  <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-2.5">3. Kontaktformular, Kostenrechner & E-Mail-Kontakt</h4>
-                  <p className="text-slate-600">
-                    Wenn Sie uns per Webformular (z. B. Angebotsrechner, Kontaktanfrage) oder E-Mail kontaktieren, werden die von Ihnen gemachten Angaben (Name, E-Mail-Adresse, Telefonnummer, Objektspezifikationen) zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Die Verarbeitung erfolgt zur Durchführung vorvertraglicher Maßnahmen bzw. zur Vertragserbringung (Art. 6 Abs. 1 lit. b DSGVO) oder auf Basis berechtigter Interessen zur Bearbeitung Ihrer Anfrage (Art. 6 Abs. 1 lit. f DSGVO). Wir geben diese Daten niemals ohne Ihre Einwilligung an Dritte weiter.
-                  </p>
-                </div>
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          1. Verantwortlicher
+        </h4>
 
-                <div>
-                  <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-2.5">4. Cookies & Web-Analysetools</h4>
-                  <div className="space-y-3">
-                    <p className="text-slate-600">
-                      Diese Webseite nutzt standardmäßig ausschließlich technisch notwendige Session-Cookies, um grundlegende Navigationen sicherzustellen. Für Analysezwecke (z.B. Google Analytics) wird eine explizite Zustimmung via Cookie-Consent eingeholt. Eine Übertragung der IP-Adresse wird, sofern technisch möglich, durch IP-Anonymisierung maskiert. Sie können Cookies in den Einstellungen Ihres Webbrowsers jederzeit deaktivieren und Verläufe löschen.
-                    </p>
-                    <div className="bg-slate-50 p-4 border border-slate-200 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
-                      <div className="space-y-0.5">
-                        <strong className="text-slate-900 block">Möchten Sie Ihre Cookie-Zustimmung widerrufen oder anpassen?</strong>
-                        <span className="text-slate-500">Öffnen Sie das interaktive Auswahlmenü direkt an diesem Bildschirm.</span>
-                      </div>
-                      <button
-                        onClick={() => {
-                          onClose();
-                          // Dispatch custom trigger to open Cookie Banner
-                          window.dispatchEvent(new CustomEvent('reopen-cookie-settings'));
-                        }}
-                        className="bg-slate-900 hover:bg-slate-800 text-white font-bold py-2 px-4 rounded-lg shrink-0 mt-2 sm:mt-0 transition-colors"
-                      >
-                        Consent Manager öffnen
-                      </button>
-                    </div>
-                  </div>
-                </div>
+        <div className="text-sm text-slate-700 bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1.5">
+          <p>
+            <strong>Sergiy Kyslytsyn</strong>
+          </p>
+          <p>Fabriksgasse 17/8</p>
+          <p>2822 Bad Erlach, Österreich</p>
+          <p>
+            E-Mail:{' '}
+            <a
+              href="mailto:mytechnik.service@gmx.at"
+              className="text-blue-700 hover:underline"
+            >
+              mytechnik.service@gmx.at
+            </a>
+          </p>
+          <p>Telefon: +43 677 63460530</p>
+        </div>
+      </div>
 
-                <div>
-                  <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-2.5">5. Ihre Betroffenenrechte</h4>
-                  <div className="space-y-2 text-slate-600">
-                    <p>
-                      Ihnen stehen bezüglich Ihrer bei uns gespeicherten Daten grundsätzlich folgende Rechte zu:
-                    </p>
-                    <ul className="list-disc pl-5 space-y-1 text-slate-700">
-                      <li><strong>Auskunftsrecht</strong> (Art. 15 DSGVO) über die verarbeiteten Daten</li>
-                      <li><strong>Recht auf Berichtigung</strong> (Art. 16 DSGVO) unrichtiger Angaben</li>
-                      <li><strong>Recht auf Löschung</strong> bzw. Vergessenwerden (Art. 17 DSGVO)</li>
-                      <li><strong>Recht auf Einschränkung</strong> der Verarbeitung (Art. 18 DSGVO)</li>
-                      <li><strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
-                      <li><strong>Widerspruchsrecht</strong> gegen unberechtigte Datenverarbeitungen (Art. 21 DSGVO)</li>
-                    </ul>
-                    <p className="text-xs pt-1">
-                      Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt, können Sie sich bei der Aufsichtsbehörde beschweren. In Österreich ist dies die <strong>Österreichische Datenschutzbehörde (DSB)</strong>, Barichgasse 40-42, 1030 Wien (<a href="https://www.dsb.gv.at" target="_blank" rel="noreferrer" className="text-emerald-600 hover:underline">www.dsb.gv.at</a>).
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          2. Kontaktaufnahme
+        </h4>
 
-          {/* 3. BARRIEREFREIHEIT TABS AND ACTIVE WIDGET */}
-          {activeTab === 'barrierefreiheit' && (
-            <div className="space-y-6">
-              
-              {/* INTERACTIVE COMPONENT: Real-time accessibility control widgets */}
-              <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 text-slate-100 space-y-5">
-                <div className="flex items-center gap-2.5">
-                  <div className="h-2 w-2 rounded-full bg-emerald-500 animate-ping"></div>
-                  <h4 className="font-extrabold text-xs sm:text-sm tracking-wider uppercase text-emerald-400 font-mono">
-                    Interaktiver Barrierefreiheit-Assistent (WCAG 2.1)
-                  </h4>
-                </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  Passen Sie die visuelle Darstellung dieser Webseite sofort an Ihre Bedürfnisse an. Diese Optionen werden lokal in Ihrem Browser gespeichert und auf alle Unterseiten und Elemente angewendet.
-                </p>
+        <p className="text-sm text-slate-600">
+          Wenn Sie uns per E-Mail, WhatsApp oder über ein Formular auf
+          dieser Website kontaktieren, verarbeiten wir die von Ihnen
+          übermittelten Angaben, soweit dies für die Bearbeitung Ihrer
+          Anfrage erforderlich ist.
+        </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
-                  <button 
-                    onClick={() => setLargeText(!largeText)}
-                    className={`flex items-center justify-between p-3 rounded-xl border text-left transition-all ${
-                      largeText 
-                        ? 'bg-emerald-600/20 border-emerald-500 text-emerald-300 font-bold' 
-                        : 'bg-slate-900 border-slate-800 hover:bg-slate-800 text-slate-300'
-                    }`}
-                  >
-                    <span className="text-xs sm:text-sm">Große Schriftart aktivieren</span>
-                    <span className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded ${largeText ? 'bg-emerald-600 text-white' : 'bg-slate-800 text-slate-400'}`}>
-                      {largeText ? 'AN' : 'AUS'}
-                    </span>
-                  </button>
+        <p className="text-sm text-slate-600 mt-2">
+          Dazu können insbesondere Name, Telefonnummer, E-Mail-Adresse,
+          Angaben zum gewünschten Auftrag sowie Angaben zum Ort und zur
+          gewünschten Leistung gehören.
+        </p>
+      </div>
 
-                  <button 
-                    onClick={() => setHighContrast(!highContrast)}
-                    className={`flex items-center justify-between p-3 rounded-xl border text-left transition-all ${
-                      highContrast 
-                        ? 'bg-emerald-600/20 border-emerald-500 text-emerald-300 font-bold' 
-                        : 'bg-slate-900 border-slate-800 hover:bg-slate-800 text-slate-300'
-                    }`}
-                  >
-                    <span className="text-xs sm:text-sm">Extremer Kontrast (Gelb/Dunkel)</span>
-                    <span className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded ${highContrast ? 'bg-emerald-600 text-white' : 'bg-slate-800 text-slate-400'}`}>
-                      {highContrast ? 'AN' : 'AUS'}
-                    </span>
-                  </button>
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          3. Zweck der Verarbeitung
+        </h4>
 
-                  <button 
-                    onClick={() => setMonochrome(!monochrome)}
-                    className={`flex items-center justify-between p-3 rounded-xl border text-left transition-all ${
-                      monochrome 
-                        ? 'bg-emerald-600/20 border-emerald-500 text-emerald-300 font-bold' 
-                        : 'bg-slate-900 border-slate-800 hover:bg-slate-800 text-slate-300'
-                    }`}
-                  >
-                    <span className="text-xs sm:text-sm">Graustufen-Modus (Farbenblindheit)</span>
-                    <span className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded ${monochrome ? 'bg-emerald-600 text-white' : 'bg-slate-800 text-slate-400'}`}>
-                      {monochrome ? 'AN' : 'AUS'}
-                    </span>
-                  </button>
+        <p className="text-sm text-slate-600">
+          Die Daten werden insbesondere verarbeitet, um Anfragen zu
+          beantworten, Leistungen zu besprechen, Angebote zu erstellen
+          und gegebenenfalls einen Auftrag vorzubereiten oder abzuwickeln.
+        </p>
+      </div>
 
-                  <button 
-                    onClick={() => setUnderlineLinks(!underlineLinks)}
-                    className={`flex items-center justify-between p-3 rounded-xl border text-left transition-all ${
-                      underlineLinks 
-                        ? 'bg-emerald-600/20 border-emerald-500 text-emerald-300 font-bold' 
-                        : 'bg-slate-900 border-slate-800 hover:bg-slate-800 text-slate-300'
-                    }`}
-                  >
-                    <span className="text-xs sm:text-sm">Hyperlinks unterstreichen</span>
-                    <span className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded ${underlineLinks ? 'bg-emerald-600 text-white' : 'bg-slate-800 text-slate-400'}`}>
-                      {underlineLinks ? 'AN' : 'AUS'}
-                    </span>
-                  </button>
-                </div>
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          4. Rechtsgrundlage
+        </h4>
 
-                <div className="flex justify-between items-center text-xs pt-1.5 border-t border-slate-800/80">
-                  <span className="text-slate-500">WCAG 2.1 AA & Web-Zugänglichkeits-Gesetz konform</span>
-                  <button 
-                    onClick={handleResetAccessibility}
-                    className="text-emerald-500 hover:text-emerald-400 hover:underline font-mono text-[11px]"
-                  >
-                    Einstellungen zurücksetzen
-                  </button>
-                </div>
-              </div>
+        <p className="text-sm text-slate-600">
+          Die Verarbeitung erfolgt, soweit erforderlich, zur Durchführung
+          vorvertraglicher Maßnahmen oder zur Erfüllung eines Vertrags.
+          Soweit eine andere Rechtsgrundlage erforderlich ist, erfolgt die
+          Verarbeitung auf Grundlage der jeweils anwendbaren Bestimmungen
+          der DSGVO.
+        </p>
+      </div>
 
-              {/* Legal Declaration */}
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-2.5">Barrierefreiheitserklärung (Gesetzlicher Teil)</h4>
-                  <div className="p-4 bg-amber-50 rounded-xl border border-amber-100 flex items-start gap-3">
-                    <AlertCircle className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
-                    <div className="text-xs text-amber-800">
-                      <strong>Gesetzesrahmen in Österreich:</strong> Nach dem **Web-Zugänglichkeits-Gesetz (WZG)** zur Umsetzung der Richtlinie (EU) 2016/2102 des Europäischen Parlaments und des Rates sind Webseiten verpflichtet, ihre elektronischen Angebote barrierefrei zu gestalten.
-                    </div>
-                  </div>
-                </div>
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          5. Speicherung und Löschung
+        </h4>
 
-                <div className="space-y-3 text-slate-600 text-xs sm:text-sm">
-                  <p>
-                    Dieser Webauftritt ist bestrebt, eine maximale digitale Zugänglichkeit für Menschen mit Behinderungen zu gewährleisten. Durch die Implementierung von Tastatursteuerung, strukturiertem SVG-Material, alternativen Bildbeschreibungen, hierarchischem Überschriftenbaum und dem oben implementierten, konfigurierbaren Darstellungsassistenten ist diese Website barrierefrei gestaltet.
-                  </p>
+        <p className="text-sm text-slate-600">
+          Personenbezogene Daten werden nur so lange gespeichert, wie dies
+          für den jeweiligen Zweck erforderlich ist oder gesetzliche
+          Aufbewahrungspflichten bestehen.
+        </p>
+      </div>
 
-                  <h5 className="font-bold text-slate-900 mt-4 text-xs sm:text-sm">Konformitätsstatus:</h5>
-                  <p>
-                    Diese Website entspricht den Barrierefreiheitsanforderungen gemäß <strong>WCAG 2.1 Konformitätsstufe AA</strong>.
-                  </p>
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          6. Weitergabe an Dritte
+        </h4>
 
-                  <h5 className="font-bold text-slate-900 mt-4 text-xs sm:text-sm">Erstellung dieser Barrierefreiheitserklärung:</h5>
-                  <p>
-                    Diese Erklärung wurde am <strong>{auditDate}</strong> im Rahmen einer Selbsteinschätzung erstellt und verifiziert. Der Status wird jährlich auditiert und gepflegt.
-                  </p>
+        <p className="text-sm text-slate-600">
+          Eine Weitergabe personenbezogener Daten erfolgt nur, soweit dies
+          zur Bearbeitung einer Anfrage, zur Durchführung eines Auftrags,
+          aufgrund gesetzlicher Verpflichtungen oder auf einer anderen
+          zulässigen Rechtsgrundlage erforderlich ist.
+        </p>
+      </div>
 
-                  <h5 className="font-bold text-slate-900 mt-4 text-xs sm:text-sm">Feedback und Kontaktangaben:</h5>
-                  <p>
-                    Wenn Ihnen Mängel bezüglich der barrierefreien Gestaltung auffallen oder Sie detailliertere Informationen zu etwaigen Barrieren benötigen, können Sie uns kontaktieren unter:<br />
-                    E-Mail: <span className="text-emerald-600 hover:underline">[E-Mail-Adresse für Barrierefreiheit-Support, z.B. barrierefrei@firma.at]</span><br />
-                    Unser Team wird sich innerhalb von 14 Tagen um Ihr Anliegen bemühen.
-                  </p>
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          7. Server-Logfiles
+        </h4>
 
-                  <h5 className="font-bold text-slate-900 mt-4 text-xs sm:text-sm">Durchsetzungsverfahren (FFG Beschwerdestelle Österreich):</h5>
-                  <p>
-                    Sollte auf Ihre Anfrage oder Feedback innerhalb einer angemessenen Frist keine zufriedenstellende Antwort erfolgen, können Sie bei der Österreichischen Forschungsförderungsgesellschaft (FFG) eine Beschwerde einreichen.
-                    Die Beschwerde ist elektronisch über das Kontaktformular der FFG einzureichen:<br />
-                    <a href="https://www.ffg.at/barrierefreiheit/beschwerdestelle" target="_blank" rel="noreferrer" className="text-emerald-600 hover:underline">www.ffg.at/barrierefreiheit/beschwerdestelle</a>
-                  </p>
-                </div>
-              </div>
+        <p className="text-sm text-slate-600">
+          Beim Betrieb einer Website können durch den Hosting-Anbieter
+          technische Daten und Server-Logfiles verarbeitet werden. Umfang,
+          Speicherdauer und konkrete Verarbeitung richten sich nach dem
+          tatsächlich eingesetzten Hosting-Anbieter.
+        </p>
+      </div>
 
-            </div>
-          )}
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          8. Cookies und Analyse
+        </h4>
 
+        <p className="text-sm text-slate-600">
+          Diese Website verwendet keine Angaben zu Analyse- oder
+          Marketingdiensten, sofern solche Dienste nicht tatsächlich
+          eingebunden sind. Technisch erforderliche Funktionen können
+          lokale Speichermechanismen oder vergleichbare technische
+          Verfahren verwenden.
+        </p>
+      </div>
+
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          9. Ihre Rechte
+        </h4>
+
+        <div className="text-sm text-slate-600">
+          <p>
+            Sie haben nach Maßgabe der gesetzlichen Bestimmungen insbesondere
+            folgende Rechte:
+          </p>
+
+          <ul className="list-disc pl-5 space-y-1 mt-2 text-slate-700">
+            <li>Recht auf Auskunft</li>
+            <li>Recht auf Berichtigung</li>
+            <li>Recht auf Löschung</li>
+            <li>Recht auf Einschränkung der Verarbeitung</li>
+            <li>Recht auf Datenübertragbarkeit</li>
+            <li>Recht auf Widerspruch</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          10. Beschwerderecht
+        </h4>
+
+        <p className="text-sm text-slate-600">
+          Wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer
+          personenbezogenen Daten gegen Datenschutzrecht verstößt, können
+          Sie sich bei der zuständigen Datenschutzbehörde beschweren.
+        </p>
+
+        <p className="text-sm mt-2">
+          <a
+            href="https://www.dsb.gv.at"
+            target="_blank"
+            rel="noreferrer"
+            className="text-blue-700 hover:underline"
+          >
+            Österreichische Datenschutzbehörde (DSB)
+          </a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+)}
+
+         {/* 3. BARRIEREFREIHEIT TABS */}
+{activeTab === 'barrierefreiheit' && (
+  <div className="space-y-6">
+
+    <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex items-start gap-3">
+      <Eye className="h-5 w-5 text-slate-600 shrink-0 mt-0.5" />
+      <div className="text-xs text-slate-700">
+        <strong>Barrierefreiheit:</strong> Wir bemühen uns, diese Website
+        möglichst einfach und gut zugänglich zu gestalten.
+      </div>
+    </div>
+
+    <div className="space-y-5">
+
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          Zugängliche Nutzung
+        </h4>
+
+        <p className="text-sm text-slate-600">
+          Wir achten bei der Gestaltung der Website auf eine übersichtliche
+          Struktur, gut lesbare Texte, ausreichende Kontraste und eine
+          einfache Navigation.
+        </p>
+      </div>
+
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          Technische Umsetzung
+        </h4>
+
+        <p className="text-sm text-slate-600">
+          Die Website wird laufend weiterentwickelt. Trotz sorgfältiger
+          Umsetzung kann es vorkommen, dass einzelne Inhalte oder Funktionen
+          noch nicht für alle Nutzerinnen und Nutzer optimal zugänglich sind.
+        </p>
+      </div>
+
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          Feedback
+        </h4>
+
+        <p className="text-sm text-slate-600">
+          Wenn Sie auf eine mögliche Barriere stoßen oder Schwierigkeiten
+          bei der Nutzung dieser Website haben, freuen wir uns über einen
+          Hinweis.
+        </p>
+
+        <p className="text-sm mt-3">
+          E-Mail:{' '}
+          <a
+            href="mailto:mytechnik.service@gmx.at"
+            className="text-blue-700 hover:underline"
+          >
+            mytechnik.service@gmx.at
+          </a>
+        </p>
+      </div>
+
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          Verbesserung der Website
+        </h4>
+
+        <p className="text-sm text-slate-600">
+          Hinweise zur Barrierefreiheit helfen uns dabei, die Website
+          schrittweise zu verbessern und Probleme bei der Nutzung zu
+          erkennen und zu beheben.
+        </p>
+      </div>
+
+    </div>
+  </div>
+)}
           {/* 4. AGB TABS */}
           {activeTab === 'agb' && (
             <div className="space-y-6 text-slate-600">

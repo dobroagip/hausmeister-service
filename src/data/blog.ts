@@ -1,4 +1,8 @@
 import { BlogPost } from '../types';
+import buildingImage from '../assets/images/building.jpg';
+import kleinreparaturenImage from '../assets/images/Handyman.jpg';
+import gartenpflegeImage from '../assets/images/gartenpflege.jpeg';
+import winterdienstImage from '../assets/images/winter_haus.jpeg';
 
 export const blogPosts: BlogPost[] = [
   {
@@ -41,7 +45,8 @@ Wir prüfen Ihre Anfrage und melden uns mit weiteren Informationen zu den nächs
     readTime: '5 min',
     publishedAt: '2026-10-12',
     author: 'Hausmeisterservice',
-    image: '',
+    image: buildingImage,
+
     keywords: [
       'Hausbetreuung Wien',
       'Hausbetreuung Niederösterreich',
@@ -91,7 +96,7 @@ Wir prüfen die Anfrage und informieren Sie über die nächsten Schritte.
     readTime: '5 min',
     publishedAt: '2026-10-12',
     author: 'Hausmeisterservice',
-    image: '',
+    image: kleinreparaturenImage,
     keywords: [
       'Kleinreparaturen Wien',
       'Kleinreparaturen',
@@ -146,7 +151,7 @@ Senden Sie uns Ihre Anfrage mit dem Ort und einer kurzen Beschreibung der Fläch
     readTime: '5 min',
     publishedAt: '2026-10-12',
     author: 'Hausmeisterservice',
-    image: '',
+    image: gartenpflegeImage,
     keywords: [
       'Gartenpflege Wien',
       'Rasenmähen Wien',
@@ -203,7 +208,7 @@ Bei Fragen zu den gesetzlichen Pflichten empfehlen wir, die konkrete Situation r
     readTime: '6 min',
     publishedAt: '2026-10-12',
     author: 'Hausmeisterservice',
-    image: '',
+    image: winterdienstImage,
     keywords: [
       'Winterdienst Österreich',
       'Winterdienst Wien',
