@@ -126,7 +126,7 @@ export default function LegalModal({ isOpen, onClose, initialTab = 'impressum' }
           {[
             { id: 'impressum', label: 'Impressum', icon: FileText, desc: '§ 5 ECG / § 25 MedG' },
             { id: 'datenschutz', label: 'Datenschutz', icon: Shield, desc: 'DSGVO & DSG / TKG' },
-             { id: 'barrierefreiheit', label: 'Barrierefreiheit', icon: Eye, desc: 'Informationen zur Zugänglichkeit' }, 
+            { id: 'barrierefreiheit', label: 'Barrierefreiheit', icon: Eye, desc: 'Informationen zur Zugänglichkeit' }, 
             { id: 'agb', label: 'AGB', icon: Info, desc: 'Gewerbebedingungen' }
           ].map((tab) => {
             const Icon = tab.icon;
@@ -577,50 +577,149 @@ export default function LegalModal({ isOpen, onClose, initialTab = 'impressum' }
   </div>
 )}
           {/* 4. AGB TABS */}
-          {activeTab === 'agb' && (
-            <div className="space-y-6 text-slate-600">
-              <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-500">
-                <strong>Allgemeine Geschäftsbedingungen:</strong> Rahmenbedingungen für Reinigungs-, Hausbetreuungs- und Grünflächenpflegedienstleistungen für Eigentümergemeinschaften, Hausverwaltungen und Gewerbeobjekte in Österreich. Stand: {auditDate}.
-              </div>
+{activeTab === 'agb' && (
+  <div className="space-y-6 text-slate-600">
 
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-2.5">1. Geltungsbereich und Vertragsabschluss</h4>
-                  <p className="text-xs sm:text-sm leid-relaxed">
-                    Alle Angebote, Aufträge und Dienstleistungen unseres Unternehmens im Bereich Hausbetreuung erfolgen ausschließlich auf Grundlage dieser Geschäftsbedingungen. Abweichungen bedürfen der schriftlichen Vereinbarung. Der Vertrag kommt durch Unterzeichnung einer schriftlichen Vereinbarung oder durch schriftliche Annahme eines detaillierten Serviceangebots zustande.
-                  </p>
-                </div>
+    <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-600">
+      <strong>Allgemeine Geschäftsbedingungen:</strong> Diese
+      Geschäftsbedingungen gelten für die jeweils vereinbarten Leistungen
+      und ergänzen das individuelle Angebot bzw. die Auftragsvereinbarung.
+    </div>
 
-                <div>
-                  <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-2.5">2. Leistungsumfang und Durchführung</h4>
-                  <p className="text-xs sm:text-sm leid-relaxed">
-                    Der genaue Leistungsumfang ergibt sich aus dem jeweiligen für das Objekt erstellten Leistungsverzeichnis (z. B. Stiegenhausreinigung 2x wöchentlich, Winterdienst im Zeitraum von 1. November bis 15. April). Soweit nicht anders vereinbart, stellt das Unternehmen sämtliche benötigten Reinigungs- und Arbeitsmittel. Zugang zu Haustechnik, Wasser und Energie ist vom Auftraggeber unentgeltlich zu gewähren.
-                  </p>
-                </div>
+    <div className="space-y-5">
 
-                <div>
-                  <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-2.5">3. Winterdienstgesetzgebung (§ 93 StVO Österreich)</h4>
-                  <p className="text-xs sm:text-sm leid-relaxed italic bg-rose-50 p-3 rounded-lg border border-rose-100 text-rose-950">
-                    Soweit das Unternehmen mit der Schneeräumung und Streuung beauftragt wurde, übernimmt es die rechtliche Haftung für die ordnungsgemäße Schneeräumung und Glatteisbekämpfung gemäß § 93 der österreichischen Straßenverkehrsordnung (StVO). Die Haftung geht im vereinbarten vertraglichen Zeitraum für die vereinbarten Gehsteige und Flächen vollumfänglich auf das Serviceunternehmen über.
-                  </p>
-                </div>
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          1. Geltungsbereich
+        </h4>
 
-                <div>
-                  <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-2.5">4. Zahlungsbedingungen</h4>
-                  <p className="text-xs sm:text-sm leid-relaxed">
-                    Sämtliche Pauschalen für die Hausbetreuung werden monatlich im Nachhinein in Rechnung gestellt. Rechnungen sind spesenfrei und ohne Abzug innerhalb von 14 Tagen ab Rechnungsdatum zur Zahlung fällig. Bei Zahlungsverzug gelten die gesetzlichen Verzugszinsen der österreichischen Wirtschaftsgesetze.
-                  </p>
-                </div>
+        <p className="text-sm leading-relaxed">
+          Diese Geschäftsbedingungen gelten für die von Sergiy Kyslytsyn
+          angebotenen und mit dem Kunden vereinbarten Leistungen.
+          Der konkrete Leistungsumfang ergibt sich aus dem jeweiligen
+          Angebot oder der Auftragsvereinbarung.
+        </p>
+      </div>
 
-                <div>
-                  <h4 className="text-slate-950 font-semibold text-xs sm:text-sm">5. Gerichtsstand und anwendbares Recht:</h4>
-                  <p className="text-xs sm:text-sm leid-relaxed">
-                    Es gilt ausschließlich österreichisches materielles Recht unter Ausschluss von Verweisungsnormen. Gerichtsstand für alle Streitigkeiten ist das sachlich zuständige Gericht in <strong>Wien</strong> bzw. am Sitz des Unternehmens.
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          2. Angebot und Auftrag
+        </h4>
+
+        <p className="text-sm leading-relaxed">
+          Angebote werden auf Grundlage der vom Kunden bereitgestellten
+          Informationen erstellt. Ein Auftrag kommt durch die Annahme des
+          Angebots oder eine entsprechende Vereinbarung zwischen den
+          Vertragsparteien zustande.
+        </p>
+      </div>
+
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          3. Leistungsumfang
+        </h4>
+
+        <p className="text-sm leading-relaxed">
+          Der Umfang der Leistung wird jeweils individuell vereinbart.
+          Dies kann insbesondere Kleinreparaturen, einfache Montagen,
+          Hausbetreuung, einfache Gartenarbeiten, Rasenmähen oder
+          vereinbarte Winterdienstleistungen umfassen.
+        </p>
+
+        <p className="text-sm leading-relaxed mt-2">
+          Arbeiten, die nicht vom vereinbarten Leistungsumfang umfasst sind,
+          werden nur nach vorheriger Abstimmung durchgeführt.
+        </p>
+      </div>
+
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          4. Preise und Zahlung
+        </h4>
+
+        <p className="text-sm leading-relaxed">
+          Der vereinbarte Preis ergibt sich aus dem jeweiligen Angebot.
+          Soweit nicht anders vereinbart, werden zusätzlich beauftragte
+          Arbeiten oder erforderliche Materialkosten gesondert verrechnet.
+        </p>
+
+        <p className="text-sm leading-relaxed mt-2">
+          Rechnungen sind innerhalb der auf der Rechnung angegebenen
+          Zahlungsfrist zu bezahlen.
+        </p>
+      </div>
+
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          5. Zugang und Mitwirkung des Kunden
+        </h4>
+
+        <p className="text-sm leading-relaxed">
+          Der Kunde stellt, soweit für die vereinbarte Leistung erforderlich,
+          den notwendigen Zugang zum Objekt sowie die erforderlichen
+          Informationen zur Verfügung.
+        </p>
+      </div>
+
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          6. Winterdienst
+        </h4>
+
+        <p className="text-sm leading-relaxed">
+          Winterdienstleistungen werden nur im jeweils vereinbarten Umfang
+          und für die ausdrücklich vereinbarten Flächen durchgeführt.
+          Zeitpunkt, Umfang und weitere Bedingungen werden im jeweiligen
+          Auftrag festgelegt.
+        </p>
+
+        <p className="text-sm leading-relaxed mt-2">
+          Gesetzliche Verpflichtungen des Eigentümers oder sonstigen
+          Verpflichteten werden durch die Beauftragung nicht automatisch
+          geändert. Eine Übernahme bestimmter Aufgaben oder Pflichten
+          bedarf einer ausdrücklichen Vereinbarung.
+        </p>
+      </div>
+
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          7. Mängel und Reklamationen
+        </h4>
+
+        <p className="text-sm leading-relaxed">
+          Beanstandungen zu einer erbrachten Leistung sollen möglichst
+          zeitnah mitgeteilt werden. Wir bemühen uns, berechtigte
+          Beanstandungen innerhalb angemessener Frist zu prüfen und
+          erforderliche Korrekturen zu vereinbaren.
+        </p>
+      </div>
+
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          8. Haftung
+        </h4>
+
+        <p className="text-sm leading-relaxed">
+          Es gelten die gesetzlichen Haftungsbestimmungen. Eine Haftung
+          für Schäden wird nicht ausgeschlossen, soweit ein solcher
+          Ausschluss gesetzlich nicht zulässig ist.
+        </p>
+      </div>
+
+      <div>
+        <h4 className="text-slate-900 font-extrabold text-base border-b pb-1.5 mb-3">
+          9. Anwendbares Recht
+        </h4>
+
+        <p className="text-sm leading-relaxed">
+          Es gilt österreichisches Recht, soweit gesetzlich zulässig.
+          Zwingende Verbraucherschutzbestimmungen bleiben unberührt.
+        </p>
+      </div>
+
+    </div>
+  </div>
+)}
 
         </div>
 
