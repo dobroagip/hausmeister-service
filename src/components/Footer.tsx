@@ -4,11 +4,10 @@ import { company } from '../data/company';
 
 interface FooterProps {
   setActiveTab: (tab: string) => void;
-  onEmergencyClick: () => void;
   onOpenLegalModal: (tabId: 'impressum' | 'datenschutz' | 'barrierefreiheit' | 'agb') => void;
 }
 
-export default function Footer({ setActiveTab, onEmergencyClick, onOpenLegalModal }: FooterProps) {
+export default function Footer({ setActiveTab,  onOpenLegalModal }: FooterProps) {
   const [showSeoDashboard, setShowSeoDashboard] = useState(false);
   const [showConfigDashboard, setShowConfigDashboard] = useState(false);
 
@@ -109,7 +108,7 @@ export default function Footer({ setActiveTab, onEmergencyClick, onOpenLegalModa
             </ul>
           </div>
 
-          {/* Column 3: Contact & Notdienst */}
+          {/* Column 3: Contact */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-5 pb-2 border-b border-slate-800">
               Kontakt 
@@ -118,8 +117,8 @@ export default function Footer({ setActiveTab, onEmergencyClick, onOpenLegalModa
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
                 <span className="text-slate-400">
-                  Favoritenstraße 102<br />
-                  1100 Wien, Österreich
+                  Fabriksgasse 17<br />
+                  2822 Bad Erlach, Österreich
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -245,12 +244,12 @@ export default function Footer({ setActiveTab, onEmergencyClick, onOpenLegalModa
               <span>●</span> Google Integration Console & Services:
             </h4>
             <div className="space-y-3">
-              <div>
+              {/* <div>
                 <span className="text-white font-bold">1. Google Analytics (GA4):</span>
                 <p className="text-slate-400 text-xs mt-0.5">
                   Die Website verfügt über vorbereitete Script-Hooks. Um die Tracking-ID zu hinterlegen, tragen Sie Ihre GA4 ID (z.B. <code className="text-emerald-300">G-XXXXXXXXXX</code>) einfach in die `.env` Datei als <code className="text-emerald-300">VITE_GOOGLE_ANALYTICS_ID</code> ein.
                 </p>
-              </div>
+              </div> */}
               <div>
                 <span className="text-white font-bold">2. Google Business Profile & Maps:</span>
                 <p className="text-slate-400 text-xs mt-0.5">
@@ -281,9 +280,9 @@ export default function Footer({ setActiveTab, onEmergencyClick, onOpenLegalModa
             <button onClick={() => onOpenLegalModal('agb')} className="hover:underline hover:text-slate-400">
               AGB
             </button>
-            <p className="text-slate-600">
+            {/* <p className="text-slate-600">
               Stand: 12. Juni 2026
-            </p>
+            </p> */}
           </div>
         </div>
 

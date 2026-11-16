@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Calculator, Check, ArrowRight, PhoneCall, Building2, Trees, Snowflake } from 'lucide-react';
+import { Calculator, Check, ArrowRight, Building2, Trees, Snowflake } from 'lucide-react';
 
 interface EstimateCalculatorProps {
   onApplyEstimate: (inquiryText: string) => void;
@@ -7,17 +7,31 @@ interface EstimateCalculatorProps {
 
 export default function EstimateCalculator({ onApplyEstimate }: EstimateCalculatorProps) {
   const [propertyArea, setPropertyArea] = useState<number>(300);
-  const [cleaningFrequency, setCleaningFrequency] = useState<string>('weekly');
+const [workScope, setWorkScope] = useState<string>('standard');
   const [selectedServices, setSelectedServices] = useState<string[]>([
     'hausbetreuung'
   ]);
 
   const pricingModels = [
-    { id: 'hausbetreuung', label: 'Hausbetreuung (Basis)', baseRate: 0.25, icon: <Building2 className="h-4 w-4 text-blue-600 animate-pulse" /> },
-    { id: 'gartenpflege', label: 'Gartenpflege & Rasenpflege', baseRate: 0.18, icon: <Trees className="h-4 w-4 text-emerald-600" /> },
-    { id: 'winterdienst', label: 'Winterdienst (Nov - Apr)', baseRate: 0.35, icon: <Snowflake className="h-4 w-4 text-blue-400" /> },
-    { id: 'notdienst', label: '24/7 Notdienst-Abdeckung', flatRate: 49, icon: <PhoneCall className="h-4 w-4 text-rose-500" /> }
-  ];
+  {
+    id: 'hausbetreuung',
+    label: 'Hausbetreuung & Objektservice',
+    baseRate: 0.25,
+    icon: <Building2 className="h-4 w-4 text-blue-600" />,
+  },
+  {
+    id: 'gartenpflege',
+    label: 'Gartenpflege & Rasenmähen',
+    baseRate: 0.18,
+    icon: <Trees className="h-4 w-4 text-emerald-600" />,
+  },
+  {
+    id: 'winterdienst',
+    label: 'Winterdienst',
+    baseRate: 0.35,
+    icon: <Snowflake className="h-4 w-4 text-blue-400" />,
+  },
+];
 
   const handleServiceToggle = (id: string) => {
     if (selectedServices.includes(id)) {
@@ -35,46 +49,48 @@ export default function EstimateCalculator({ onApplyEstimate }: EstimateCalculat
       if (selectedServices.includes(model.id)) {
         if (model.baseRate) {
           total += propertyArea * model.baseRate;
-        } else if (model.flatRate) {
-          total += model.flatRate;
         }
       }
     });
 
-    // Cleaning frequency fee multiplier
-    if (cleaningFrequency === 'weekly') {
-      total += (propertyArea * 0.15) + 30;
-    } else if (cleaningFrequency === 'biweekly') {
-      total += (propertyArea * 0.08) + 15;
-    }
+    // Additional estimate based on the scope of work
+if (workScope === 'small') {
+  total += 25;
+} else if (workScope === 'standard') {
+  total += 50;
+} else if (workScope === 'larger') {
+  total += 100;
+}
 
     return Math.round(total);
   };
 
   const monthlyEstimate = calculateEstimate();
 
-  const handleExport = () => {
-    const activeServicesNames = pricingModels
-      .filter(m => selectedServices.includes(m.id))
-      .map(m => m.label)
-      .join(', ');
+ const handleExport = () => {
+  const activeServicesNames = pricingModels
+    .filter(m => selectedServices.includes(m.id))
+    .map(m => m.label)
+    .join(', ');
 
-    const generatedText = `Grüß Gott! Ich habe Ihren Online-Rechner ausgefüllt und wünsche ein konkretes Angebot.
+  const workScopeLabel =
+    workScope === 'small'
+      ? 'Klein'
+      : workScope === 'larger'
+        ? 'Größer'
+        : 'Standard';
+
+  const generatedText = `Grüß Gott! Ich habe Ihren Online-Rechner ausgefüllt und wünsche ein konkretes Angebot.
+
 - Objektgröße: ${propertyArea} qm
-- Stiegenhausreinigung: ${
-      cleaningFrequency === 'weekly' 
-        ? 'Wöchentlich' 
-        : cleaningFrequency === 'biweekly' 
-          ? 'Zweiwöchentlich' 
-          : 'Keine Reinigung erwünscht'
-    }
+- Umfang der Arbeit: ${workScopeLabel}
 - Ausgewählte Leistungen: ${activeServicesNames || 'Keine'}
-- Unverbindliche Online-Schätzung: ca. € ${monthlyEstimate},- pro Monat (inkl. USt)
+- Unverbindliche Online-Schätzung: ca. € ${monthlyEstimate},- pro Monat
 
-Bitte kontaktieren Sie mich zwecks eines persönlichen Besichtigungstermins vor Ort zur finalen Abstimmung.`;
-    
-    onApplyEstimate(generatedText);
-  };
+Bitte kontaktieren Sie mich für die weitere Abstimmung.`;
+
+  onApplyEstimate(generatedText);
+};
 
   return (
     <div className="bg-white rounded-2xl border border-slate-100 shadow-xl overflow-hidden">
@@ -122,48 +138,62 @@ Bitte kontaktieren Sie mich zwecks eines persönlichen Besichtigungstermins vor 
           </div>
         </div>
 
-        {/* Step 2: Cleaning Frequency Selection */}
-        <div className="space-y-3 pt-2">
-          <label className="text-sm font-bold text-slate-800 flex items-center gap-1.5">
-            <span className="h-5 w-5 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-xs">2</span>
-            Stiegenhausreinigung (Frequenz)
-          </label>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <button
-              onClick={() => setCleaningFrequency('weekly')}
-              className={`p-3.5 border rounded-xl text-left transition-all ${
-                cleaningFrequency === 'weekly'
-                  ? 'border-blue-600 bg-blue-50/50 text-blue-900 ring-1 ring-blue-600'
-                  : 'border-slate-100 hover:border-slate-200 text-slate-600 bg-slate-50/30'
-              }`}
-            >
-              <div className="font-bold text-xs sm:text-sm">Wöchentlich</div>
-              <div className="text-[10px] text-slate-400 mt-0.5">Optimaler Glanz & Hygiene</div>
-            </button>
-            <button
-              onClick={() => setCleaningFrequency('biweekly')}
-              className={`p-3.5 border rounded-xl text-left transition-all ${
-                cleaningFrequency === 'biweekly'
-                  ? 'border-blue-600 bg-blue-50/50 text-blue-900 ring-1 ring-blue-600'
-                  : 'border-slate-100 hover:border-slate-200 text-slate-600 bg-slate-50/30'
-              }`}
-            >
-              <div className="font-bold text-xs sm:text-sm">14-tägig</div>
-              <div className="text-[10px] text-slate-400 mt-0.5">Kosteneffizienter Standard</div>
-            </button>
-            <button
-              onClick={() => setCleaningFrequency('none')}
-              className={`p-3.5 border rounded-xl text-left transition-all ${
-                cleaningFrequency === 'none'
-                  ? 'border-blue-600 bg-blue-50/50 text-blue-900 ring-1 ring-blue-600'
-                  : 'border-slate-100 hover:border-slate-200 text-slate-600 bg-slate-50/30'
-              }`}
-            >
-              <div className="text-xs sm:text-sm font-medium">Keine</div>
-              <div className="text-[10px] text-slate-400 mt-0.5">Wird bauseitig erledigt</div>
-            </button>
-          </div>
-        </div>
+        {/* Step 2: Scope of work */}
+<div className="space-y-3 pt-2">
+  <label className="text-sm font-bold text-slate-800 flex items-center gap-1.5">
+    <span className="h-5 w-5 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-xs">
+      2
+    </span>
+    Umfang der Arbeit
+  </label>
+
+  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+    <button
+      type="button"
+      onClick={() => setWorkScope('small')}
+      className={`p-3.5 border rounded-xl text-left transition-all ${
+        workScope === 'small'
+          ? 'border-blue-600 bg-blue-50/50 text-blue-900 ring-1 ring-blue-600'
+          : 'border-slate-100 hover:border-slate-200 text-slate-600 bg-slate-50/30'
+      }`}
+    >
+      <div className="font-bold text-xs sm:text-sm">Klein</div>
+      <div className="text-[10px] text-slate-400 mt-0.5">
+        Kleine Arbeiten
+      </div>
+    </button>
+
+    <button
+      type="button"
+      onClick={() => setWorkScope('standard')}
+      className={`p-3.5 border rounded-xl text-left transition-all ${
+        workScope === 'standard'
+          ? 'border-blue-600 bg-blue-50/50 text-blue-900 ring-1 ring-blue-600'
+          : 'border-slate-100 hover:border-slate-200 text-slate-600 bg-slate-50/30'
+      }`}
+    >
+      <div className="font-bold text-xs sm:text-sm">Standard</div>
+      <div className="text-[10px] text-slate-400 mt-0.5">
+        Regelmäßiger Umfang
+      </div>
+    </button>
+
+    <button
+      type="button"
+      onClick={() => setWorkScope('larger')}
+      className={`p-3.5 border rounded-xl text-left transition-all ${
+        workScope === 'larger'
+          ? 'border-blue-600 bg-blue-50/50 text-blue-900 ring-1 ring-blue-600'
+          : 'border-slate-100 hover:border-slate-200 text-slate-600 bg-slate-50/30'
+      }`}
+    >
+      <div className="font-bold text-xs sm:text-sm">Größer</div>
+      <div className="text-[10px] text-slate-400 mt-0.5">
+        Größerer Arbeitsumfang
+      </div>
+    </button>
+  </div>
+</div>
 
         {/* Step 3: Service Checklist */}
         <div className="space-y-3 pt-2">

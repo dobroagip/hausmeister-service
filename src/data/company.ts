@@ -3,7 +3,7 @@ export const company = {
   phone: "+43 6776 3460530",
   phoneRaw: "+4367763460530",
   emergency: "",
-  email: "office@deinedomain.at",
+  email: "mytechnik.service@gmx.at",
   whatsapp: "+4367763460530",
   address: "Wien, Österreich",
 

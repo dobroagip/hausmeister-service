@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Shield, PhoneCall, Menu, X, ChevronDown, CheckCircle, } from 'lucide-react';
+import { Shield, Menu, PhoneCall, X, ChevronDown, CheckCircle, } from 'lucide-react';
 import { company } from '../data/company';
 
 interface NavbarProps {
@@ -29,7 +29,7 @@ export default function Navbar({ activeTab, setActiveTab,}: NavbarProps) {
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
-      {/* Top emergency announcement bar */}
+      {/* Top information bar */} 
       <div className="bg-emerald-600 text-white py-1.5 px-4 text-xs font-semibold sm:text-sm flex justify-between items-center z-50">
         <div className="flex items-center gap-2 max-w-7xl mx-auto w-full justify-center md:justify-between">
           <span className="flex items-center gap-1.5 animate-pulse">
@@ -162,13 +162,6 @@ export default function Navbar({ activeTab, setActiveTab,}: NavbarProps) {
 
           {/* Mobile Menu Trigger */}
           <div className="flex lg:hidden items-center gap-2">
-            {/* <button 
-              onClick={onEmergencyClick}
-              className="p-2 text-rose-600 bg-rose-50 rounded-lg border border-rose-100"
-              title="Notdienst anrufen"
-            >
-              <PhoneCall className="h-5 w-5" />
-            </button> */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg bg-slate-50 text-slate-700 border border-slate-200 hover:bg-slate-100 transition-colors"

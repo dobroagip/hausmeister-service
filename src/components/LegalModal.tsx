@@ -91,7 +91,7 @@ export default function LegalModal({ isOpen, onClose, initialTab = 'impressum' }
 
   const currentYear = new Date().getFullYear();
   // Valid legally declared dates mapping Austrian standard compliance audits
-  const auditDate = "12. Juni 2026";
+  // const auditDate = "03.11.2026";
 
   return (
     <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 z-50 animate-in fade-in duration-200 overflow-y-auto">
@@ -108,8 +108,8 @@ export default function LegalModal({ isOpen, onClose, initialTab = 'impressum' }
             <div>
               <h3 className="font-extrabold text-base sm:text-lg leading-tight">Rechtliche Erklärungen & Barrierefreiheit</h3>
               <p className="text-[11px] text-slate-400 font-mono">
-                Österreichische Bundesgesetze & WKO-Richtlinien | Stand: {auditDate}
-              </p>
+  Rechtliche Informationen für unseren Webauftritt
+</p>
             </div>
           </div>
           <button 
@@ -726,9 +726,9 @@ export default function LegalModal({ isOpen, onClose, initialTab = 'impressum' }
         {/* Modal Footer / Fast Close */}
         <div className="bg-slate-50 px-6 py-4 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-3 shrink-0">
           <div className="flex items-center gap-2 text-slate-400 text-xs">
-            <Calendar className="h-4 w-4" />
-            <span>Dokumenten-Zertifizierung: <strong>WKO-konform</strong></span>
-          </div>
+  <Calendar className="h-4 w-4" />
+  <span>Rechtliche Informationen</span>
+</div>
           <button
             onClick={onClose}
             className="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs py-2 px-5 rounded-lg transition-all"

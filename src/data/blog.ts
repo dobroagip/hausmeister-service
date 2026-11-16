@@ -1,8 +1,8 @@
 import { BlogPost } from '../types';
-import buildingImage from '../assets/images/building.jpg';
-import kleinreparaturenImage from '../assets/images/Handyman.jpg';
-import gartenpflegeImage from '../assets/images/gartenpflege.jpeg';
-import winterdienstImage from '../assets/images/winter_haus.jpeg';
+import buildingImage from '../assets/images/optimized/building.webp';
+import kleinreparaturenImage from '../assets/images/optimized/Handyman.webp';
+import gartenpflegeImage from '../assets/images/optimized/gartenpflege.webp';
+import winterdienstImage from '../assets/images/optimized/winter_haus.webp';
 
 export const blogPosts: BlogPost[] = [
   {

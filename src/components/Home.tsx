@@ -4,10 +4,9 @@ import { company } from '../data/company';
 
 interface HomeProps {
   onNavigate: (tabId: string) => void;
-  onEmergencyClick: () => void;
 }
 
-export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
+export default function Home({ onNavigate }: HomeProps) {
   const [activeAdvantage, setActiveAdvantage] = useState<string>('reaktionszeit');
   const detailCardRef = useRef<HTMLDivElement>(null);
 
@@ -27,48 +26,47 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
 
   const heroHighlights = [
     { label: 'Winterdienst nach § 93 StVO' },
-    { label: 'Gründliche Stiegenhaus- & Unterhaltsreinigung' },
+    { label: 'Hausbetreuung & Objektservice' },
     { label: 'Professioneller Hausmeisterservice', spanClassName: 'col-span-2 sm:col-span-1' },
   ];
 
   const advantages = [
-    {
-      id: 'reaktionszeit',
-      title: 'schnelle Reaktionszeit',
-      icon: <Clock className="h-5 w-5" />,
-      tagline: 'Zeitnahe Hilfe bei dringenden Anliegen.',
-      description: 'Wir reagieren schnell auf Ihre Anfrage und stimmen Termine zuverlässig mit Ihnen ab.'
-    },
-    {
-      id: 'preise',
-      title: 'faire Preise',
-      icon: <Award className="h-5 w-5" />,
-      tagline: 'Transparente Leistungsverträge ohne versteckte Nebenkosten.',
-      description: 'Wir erstellen individuelle und transparente Angebote ohne versteckte Kosten. Unsere Preisgestaltung orientiert sich am tatsächlichen Bedarf Ihrer Immobilie.'
-    },
-    {
-      id: 'service',
-      title: 'zuverlässiger Service',
-      icon: <BadgeCheck className="h-5 w-5" />,
-      tagline: 'Vorschriftsmäßige Protokollierung aller Kontrollen und Arbeiten.',
-      description: 'Erledigte Arbeiten werden digital erfasst und archiviert. Sie erhalten monatlich einen transparenten Tätigkeitsbericht für volle Budgetkontrolle.'
-    },
-    {
-      id: 'betreuung',
-      title: 'flexible Betreuung',
-      icon: <Zap className="h-5 w-5" />,
-      tagline: 'Anpassung von Reinigungs- und Kontrollrhythmen nach Bedarf.',
-      description: 'Wir passen unsere Einsatzzeiten flexibel an aktuelle Gegebenheiten an – ob Wintereinbruch oder Sanierungsarbeiten.'
-    },
-    {
-      id: 'ansprechpartner',
-      title: 'persönliche Ansprechpartner',
-      icon: <Users2 className="h-5 w-5" />,
-      tagline: 'Ein fester technischer Betreuer für Ihre Wohnhausanlage.',
-      description: 'Jedes Objekt erhält einen festen Objektleiter, der Ihre Liegenschaft kennt und Ihnen direkt zur Verfügung steht.'
-    }
-  ];
-
+  {
+    id: 'reaktionszeit',
+    title: 'zeitnahe Rückmeldung',
+    icon: <Clock className="h-5 w-5" />,
+    tagline: 'Wir melden uns nach Ihrer Anfrage zeitnah bei Ihnen.',
+    description: 'Wir besprechen Ihr Anliegen und stimmen einen passenden Termin mit Ihnen ab.'
+  },
+  {
+    id: 'preise',
+    title: 'faire Preise',
+    icon: <Award className="h-5 w-5" />,
+    tagline: 'Klare und nachvollziehbare Angebote.',
+    description: 'Wir erstellen ein transparentes Angebot und besprechen den Umfang der gewünschten Arbeiten vor Beginn.'
+  },
+  {
+    id: 'service',
+    title: 'zuverlässiger Service',
+    icon: <BadgeCheck className="h-5 w-5" />,
+    tagline: 'Absprachen und Termine zuverlässig einhalten.',
+    description: 'Wir stimmen die Arbeiten mit Ihnen ab und informieren Sie, wenn sich bei der Ausführung etwas ändert.'
+  },
+  {
+    id: 'betreuung',
+    title: 'flexible Betreuung',
+    icon: <Zap className="h-5 w-5" />,
+    tagline: 'Flexible Betreuung und Termine nach Bedarf.',
+    description: 'Wir stimmen Termine flexibel mit Ihnen ab und richten die Betreuung nach dem tatsächlichen Bedarf.'
+  },
+  {
+    id: 'ansprechpartner',
+    title: 'persönlicher Ansprechpartner',
+    icon: <Users2 className="h-5 w-5" />,
+    tagline: 'Direkter Kontakt ohne unnötige Umwege.',
+    description: 'Sie haben einen direkten Ansprechpartner für Ihre Anfrage und die weitere Abstimmung.'
+  }
+];
   return (
     <div className="bg-white text-slate-900 font-sans">
       
@@ -351,8 +349,8 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
         </div>
       </section>
 
-      {/* Emergency Call-out banner/promotion block (Hausmeister Notdienst) */}
-      <section className="py-16 bg-linear-to-br from-rose-900 via-slate-900 to-slate-950 text-white relative overflow-hidden">
+     {/* Anfrage-CTA für Hausbetreuung & Kleinreparaturen */}
+      <section className="py-16 bg-slate-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/[0.03] bg-size-[24px_24px] z-0"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
@@ -373,7 +371,7 @@ export default function Home({ onNavigate, onEmergencyClick }: HomeProps) {
               <button
                onClick={() => onNavigate('angebot')}
                 className="bg-rose-600 hover:bg-rose-500 active:scale-95 text-white font-black text-base px-8 py-4.5 rounded-xl shadow-lg shadow-rose-900/30 transition-all flex items-center justify-center gap-2"
-                id="emergency-trigger-btn"
+                
               >
                 <MessageCircle className="h-5 w-5" />
                 Anfrage senden

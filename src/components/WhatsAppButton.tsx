@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { MessageSquare, Send, X } from 'lucide-react';
+import { company } from '../data/company';
 
 export default function WhatsAppButton() {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,20 +8,36 @@ export default function WhatsAppButton() {
   const [customText, setCustomText] = useState('');
 
   const templates = [
-    { label: 'Hausbetreuung anfragen', text: 'Servus! Ich möchte gerne ein unverbindliches Angebot für die Hausbetreuung meines Objekts in Wien anfordern.' },
-    { label: 'Gartenpflege & Rasenmähen', text: 'Guten Tag, ich benötige fachmännische Hilfe bei der Gartenpflege/Rasenmähen.' },
-    { label: 'Winterdienst §93 StVO', text: 'Grüß Gott, ich suche einen verlässlichen Partner für den Winterdienst der kommenden Saison.' },
-    { label: 'Akuter Notdienst-Einsatz', text: 'ACHTUNG NOTFALL: Ich benötige den Hausmeister-Notdienst vor Ort!' }
-  ];
+  {
+    label: 'Hausbetreuung anfragen',
+    text: 'Grüß Gott! Ich möchte gerne ein unverbindliches Angebot für die Hausbetreuung meines Objekts anfragen.'
+  },
+  {
+    label: 'Kleinreparaturen & Montagen',
+    text: 'Grüß Gott! Ich benötige Unterstützung bei Kleinreparaturen oder Montagen.'
+  },
+  {
+    label: 'Gartenpflege & Rasenmähen',
+    text: 'Grüß Gott! Ich benötige Unterstützung bei der Gartenpflege oder beim Rasenmähen.'
+  },
+  {
+    label: 'Winterdienst',
+    text: 'Grüß Gott! Ich interessiere mich für den Winterdienst für meine Immobilie.'
+  }
+];
 
   const handleSend = () => {
-    const finalMsg = customText || selectedTopic || 'Guten Tag! Ich interessiere mich für Ihre Services.';
-    const encodedMsg = encodeURIComponent(finalMsg);
-    // Real Austria support country code +43
-    const whatsappUrl = `https://wa.me/43123456789?text=${encodedMsg}`;
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-    setIsOpen(false);
-  };
+  const finalMsg =
+    customText ||
+    selectedTopic ||
+    'Guten Tag! Ich interessiere mich für Ihre Services.';
+
+  const encodedMsg = encodeURIComponent(finalMsg);
+  const whatsappUrl = `https://wa.me/${company.whatsapp.replace(/\D/g, '')}?text=${encodedMsg}`;
+
+  window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+  setIsOpen(false);
+};
 
   return (
     <div className="fixed bottom-6 right-6 z-40 font-sans">
@@ -39,10 +56,10 @@ export default function WhatsAppButton() {
                 </div>
               </div>
               <div>
-                <h4 className="font-bold text-sm leading-tight">Hausmeister Kundenservice</h4>
-                <p className="text-[11px] text-emerald-100 flex items-center gap-1">
-                  <span>●</span> Online (Schnelle Rückmeldung)
-                </p>
+                <h4 className="font-bold text-sm leading-tight">Persönlicher Kontakt</h4>
+<p className="text-[11px] text-emerald-100">
+  Direkt und unkompliziert
+</p>
               </div>
             </div>
             <button 
@@ -56,8 +73,10 @@ export default function WhatsAppButton() {
           {/* Chat Bubble Area */}
           <div className="p-4 bg-slate-50 max-h-80 overflow-y-auto space-y-4 text-sm">
             <div className="bg-white p-3.5 rounded-2xl rounded-tl-none shadow-sm text-slate-700 leading-relaxed">
-              <span className="font-semibold text-xs text-emerald-600 block mb-1">Mitarbeiter online:</span>
-              Grüß Gott! Schön, dass Sie unsere Website besuchen. Wie können wir Ihnen heute in Wien oder Umgebung helfen?
+              <span className="font-semibold text-xs text-emerald-600 block mb-1">
+  Ihre Anfrage
+</span>
+Grüß Gott! Wie können wir Ihnen bei Ihrer Anfrage helfen?
             </div>
 
             {selectedTopic && (
