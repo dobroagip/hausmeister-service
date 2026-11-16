@@ -504,6 +504,64 @@ export default function LegalModal({ isOpen, onClose, initialTab = 'impressum' }
          {/* 3. BARRIEREFREIHEIT TABS */}
 {activeTab === 'barrierefreiheit' && (
   <div className="space-y-6">
+    {/* Панель управления и сброса режимов доступности */}
+    <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+      <div className="flex items-center justify-between">
+        <span className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
+          Ansicht anpassen
+        </span>
+        {(largeText || highContrast || monochrome || underlineLinks) && (
+          <button
+            onClick={handleResetAccessibility}
+            className="text-xs text-blue-700 hover:underline font-bold cursor-pointer"
+          >
+            Auf Standard zurücksetzen
+          </button>
+        )}
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+        <label className="flex items-center gap-2.5 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={largeText}
+            onChange={(e) => setLargeText(e.target.checked)}
+            className="rounded text-emerald-600 h-4 w-4 cursor-pointer"
+          />
+          <span className="text-xs font-bold text-slate-800">Große Schrift</span>
+        </label>
+
+        <label className="flex items-center gap-2.5 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={highContrast}
+            onChange={(e) => setHighContrast(e.target.checked)}
+            className="rounded text-emerald-600 h-4 w-4 cursor-pointer"
+          />
+          <span className="text-xs font-bold text-slate-800">Hoher Kontrast</span>
+        </label>
+
+        <label className="flex items-center gap-2.5 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={monochrome}
+            onChange={(e) => setMonochrome(e.target.checked)}
+            className="rounded text-emerald-600 h-4 w-4 cursor-pointer"
+          />
+          <span className="text-xs font-bold text-slate-800">Monochrom</span>
+        </label>
+
+        <label className="flex items-center gap-2.5 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={underlineLinks}
+            onChange={(e) => setUnderlineLinks(e.target.checked)}
+            className="rounded text-emerald-600 h-4 w-4 cursor-pointer"
+          />
+          <span className="text-xs font-bold text-slate-800">Links unterstreichen</span>
+        </label>
+      </div>
+    </div>
 
     <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex items-start gap-3">
       <Eye className="h-5 w-5 text-slate-600 shrink-0 mt-0.5" />
